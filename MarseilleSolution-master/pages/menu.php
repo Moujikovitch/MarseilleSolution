@@ -32,7 +32,7 @@
 				</a>
 			</div>
 			<div class="ssbtn">
-				<a href="page4.php">
+				<a href="commu.php">
 				<div id="btm5" class="btnmenu">
 					<p class="txtmenu">Communauté</p>
 				</div>

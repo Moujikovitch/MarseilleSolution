@@ -92,8 +92,6 @@ a {
 	color:rgb(247,156,49);
 	text-align: center;
 	float:left;
-	width:60%;
-	margin-right:auto;
 }
 #slideshow {
     position: relative;
@@ -166,12 +164,4 @@ a {
 .btnslider:hover{
 	background-color:rgb(247,156,49);
 	transition:0.2s;
-}
-.fichecom {
-	width:215px;
-	height:250px;
-	background-color:rgb(247,156,49);
-	border-radius:10px;
-	margin:5px;
-	float:left;
 }
