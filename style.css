@@ -22,11 +22,10 @@ body{
 }
 .cont {
 	width:900px;
-	height:100%;
 	margin:auto;
 }
 #contbtn {
-	width:850px;
+	width:870px;
 	margin:auto;
 }
 
@@ -38,7 +37,7 @@ body{
 .ssbtn {
 	background-color:rgb(43,90,130);
 	height:40px;
-	width:156px;
+	width:160px;
 	margin:7px;
 	margin-top:15px;
 	float:left;
@@ -47,10 +46,11 @@ body{
 .btnmenu{
 	background-color:rgb(63,110,150);
 	height:40px;
-	width:150px;
+	width:154px;
 	padding:3px;
 	border-radius: 10px;
-		color:white;
+	color:white;
+	font-weight: bold;
 }
 .ssbtn:hover{
 	height:50px;
@@ -102,7 +102,6 @@ a {
     margin:  20px auto;
     overflow: hidden;
     z-index:0;
-    background-color:black;
 		border-radius: 10px;
 }
 .imgslider{
@@ -174,4 +173,49 @@ a {
 	border-radius:10px;
 	margin:5px;
 	float:left;
+	overflow:hidden;
+	cursor:pointer;
+}
+.imgfichecom {
+	opacity:0.8;
+	background-image:url("img5.jpg");
+	background-position:center;
+	background-size: 100%;
+	height:80%;
+	width:100%;
+}
+.imgfichecom:hover{
+	opacity:1;
+	transition:0.2s;
+}
+.txtfichecom {
+	background-color:rgb(63,110,150);
+	width:77%;
+	padding-left: 25px;
+	padding-right:25px;
+	height:20%;
+	color:white;
+	margin:auto;
+	text-align: justify;
+}
+#voile{
+	width:100%;
+	height:100%;
+	background-color:white;
+	position:absolute;
+	top:0;
+	opacity:0.5;
+}
+#modal{
+	position:absolute;
+	background-color:rgb(63,110,150);
+	margin-left:-250px;
+	left:50vw;
+	width:500px;
+	height:0px;
+	border-radius:10px;
+	cursor:pointer;
+}
+.titre{
+	width:900px;
 }

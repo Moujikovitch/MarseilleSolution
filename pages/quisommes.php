@@ -22,6 +22,10 @@
         </div>
 	</div>
     <script>
+        $("#slideshow").css("height","0vh");
+        $("#slideshow").animate({
+            height:"60vh"
+        },400,"swing");
         var etape = 0
         function slide() {
             etape++;
