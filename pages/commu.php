@@ -1,29 +1,37 @@
 <div id="milieu">
+	<img id="photocomu" src="commu.jpg"></img>
 	<div class="cont">
-	<div class="titre">Marseille Solution vu par...</div>
+	<div class="titre"><p class="titrecom">Marseille Solution vu par...</p>
 		<div class="fichecom">
 			<div class="imgfichecom"></div>
 			<p class="txtfichecom"><strong>J-C. Carteron</strong><br>Fonction</p>
 		</div>
-		<div class="fichecom">
+		<?php
+			for ($i=0;$i<10;$i++)
+			{
+				echo "<div class='fichecom'></div>";
+			}
+		?>
 		</div>
-		<div class="fichecom">
+		</div>
+	<div class="cont">
+	<div class="titre"><p class="titrecom">Nos partenaires :</p>
+		<?php
+			for ($i=0;$i<10;$i++)
+			{
+				echo "<div class='fichecom'></div>";
+			}
+		?>
 		</div>
 	</div>
 	<div class="cont">
-	<div class="titre">Nos partenaires :</div>
-		<div class="fichecom">
-		</div>
-		<div class="fichecom">
-		</div>
-		<div class="fichecom">
-		</div>
-	</div>
-	<div class="cont">
-	<div class="titre">L'équipe :</div>
-		<div class="fichecom">
-		</div>
-		<div class="fichecom">
+	<div class="titre"><p class="titrecom">L'équipe :</p>
+		<?php
+			for ($i=0;$i<10;$i++)
+			{
+				echo "<div class='fichecom'></div>";
+			}
+		?>
 		</div>
 	</div>
 <div id="voile">

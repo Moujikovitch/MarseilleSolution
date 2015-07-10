@@ -1,10 +1,12 @@
 	<div id="menu">
 		<div class="cont">
-			<div id="logo">
-			</div>
+			<a href="index.php">
+				<div id="logo">
+				</div>
+			</a>
 			<div id="contbtn">
 			<div class="ssbtn">
-				<a href="index.php">
+				<a href="page0.php">
 					<div id="btm1" class="btnmenu">
 						<p class="txtmenu">Comment ça marche ?</p>
 					</div>
@@ -18,7 +20,7 @@
 				</a>
 			</div>
 			<div class="ssbtn">
-				<a href="event.php">
+				<a href="page2.php">
 				<div id="btm3" class="btnmenu">
 					<p class="txtmenu">Événement</p>
 				</div>
