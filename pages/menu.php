@@ -1,4 +1,4 @@
-	<div id="menu">
+	<div id="menu" class="unfix">
 		<div class="cont">
 			<a href="index.php">
 				<div id="logo">
@@ -43,3 +43,20 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript">
+   var $win = $(window);
+   var winH = $("#logo").height();
+    $(window).scroll(function ()    {    
+       if ( $(window).scrollTop() > winH)
+       {
+           $("#menu").addClass("fix");
+           $("#menu").removeClass("unfix");
+           $("#milieu").css("margin-top","205px");
+       }
+       else  if ($(window).scrollTop() < winH)
+       {
+           $("#menu").addClass("unfix");
+           $("#menu").removeClass("fix");
+           $("#milieu").css("margin-top","40px");
+       }
+   });</script>

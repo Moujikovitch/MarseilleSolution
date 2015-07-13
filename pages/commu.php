@@ -41,6 +41,13 @@
 </div>
 
 <script>
+$("body").hide();
+var coucou = setInterval(function(){
+	if (document.readyState === "complete") {
+		$("body").show();
+		clearInterval(coucou);
+	};
+},40);
 $("#modal").hide();
 $("#voile").hide();
 $(".fichecom").click(function(){
