@@ -1,5 +1,5 @@
 <div id="milieu">
-	<img id="photocomu" src="commu.jpg"></img>
+	<img id="photocomu" src="media/commu.jpg"></img>
 	<div class="cont">
 	<div class="titre"><p class="titrecom">Marseille Solution vu par...</p>
 		<div class="fichecom">
