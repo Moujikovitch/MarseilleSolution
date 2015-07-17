@@ -9,5 +9,15 @@
 			</a>
 		</div>
 	</div>
+	<script>
+	function placeFooter() {
+		var footerpos = window.innerHeight-(parseInt($("#menu").css("height")))-(parseInt($("#footer").css("height")))-60;
+		$("#milieu").css("min-height",footerpos);
+	};
+		placeFooter();
+	window.onresize = function() {
+		placeFooter();
+	};
+	</script>
 </body>
 </html>

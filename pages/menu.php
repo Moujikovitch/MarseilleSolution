@@ -35,7 +35,7 @@
 				</a>
 			</div>
 			<div class="ssbtn">
-				<a href="media.php">
+				<a href="page3.php">
 				<div id="btm4" class="btnmenu">
 					<p class="txtmenu">Medias</p>
 				</div>
