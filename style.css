@@ -38,10 +38,10 @@ body{
 .btnmenu:hover{
 	background-color:rgb(247,156,49);
 	transition:0.2s;
-	color:rgb(63,110,150);
+	color:#1b334c;
 }
 .ssbtn {
-	background-color:rgb(43,90,130);
+	background-color:#1b334c;
 	height:40px;
 	width:160px;
 	margin:7px;
@@ -177,7 +177,6 @@ a {
 	height:250px;
 	background-color:rgb(247,156,49);
 	border-radius:10px;
-	margin:5px;
 	display:inline-block;
 	overflow:hidden;
 	cursor:pointer;
@@ -189,6 +188,7 @@ a {
 	background-size: 100%;
 	height:80%;
 	width:100%;
+	overflow:hidden;
 }
 .imgfichecom:hover{
 	opacity:1;
@@ -196,14 +196,22 @@ a {
 }
 .txtfichecom {
 	width:80%;
-	height:20%;
-	color:white;
+	height:21%;
+	color:#1b334c;
 	margin:auto;
-	text-align: justify;
+	text-align: center;
+	padding-top: 5px;
+	padding-left:10%;
+	padding-right:10%;
 }
 .bgfichecom{
-	background-color:rgb(63,110,150);
-	width:100%;
+	width:213px;
+	height:255px;
+	background-color:#1b334c;
+	overflow:hidden;
+	display:inline-block;
+	margin:5px;
+	border-radius:10px;
 }
 #voile{
 	width:100vw;
@@ -230,7 +238,9 @@ a {
 }
 .titrecom{
 	font-weight: bold;
-	color:rgb(63,110,150);
+	color:#1b334c;
+	text-align:center;
+	width:100%;
 }
 #photop0{
 	width:80vw;
@@ -275,7 +285,7 @@ a {
 }
 .bgevent{
 	margin:auto;
-	background-color:rgb(43,90,130);
+	background-color:#1b334c;
 	height:305px;
 	width:80%;
 	border-radius:10px;

@@ -2,14 +2,10 @@
 	<img id="photocomu" src="media/commu.jpg"></img>
 	<div class="cont">
 	<div class="titre"><p class="titrecom">Marseille Solution vu par...</p>
-		<div class="fichecom">
-			<div class="imgfichecom"></div>
-			<p class="txtfichecom"><strong>J-C. Carteron</strong><br>Fonction</p>
-		</div>
 		<?php
 			for ($i=0;$i<10;$i++)
 			{
-				echo "<div class='fichecom'></div>";
+				echo "<div class='bgfichecom'><div class='fichecom'><div class='imgfichecom'></div><p class='txtfichecom'><strong>J-C. Carteron</strong><br>Fonction</p></div></div>";
 			}
 		?>
 		</div>
@@ -37,6 +33,11 @@
 <div id="voile">
 </div>
 <div id="modal">
+	<div id="">
+		<div class="modalphoto"></div>
+		<div class="modaltitre"></div>
+		<div class="modaltext"></div>
+	</div>
 </div>
 </div>
 
