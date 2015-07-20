@@ -13,11 +13,14 @@
 	function placeFooter() {
 		var footerpos = window.innerHeight-(parseInt($("#menu").css("height")))-(parseInt($("#footer").css("height")))-60;
 		$("#milieu").css("min-height",footerpos);
-		console.log("ok");
 	};
 		placeFooter();
 	window.onresize = function() {
-		placeFooter();
+		try {
+			placeFooter();
+			posImgComment();
+		} catch (e) {
+		};
 	};
 	</script>
 </body>

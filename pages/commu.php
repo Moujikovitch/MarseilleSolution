@@ -2,12 +2,14 @@
 	<div class="cont">
 		<img id="photocomu" src="media/commu.jpg"></img>
 	<div class="titre"><p class="titrecom">Marseille Solution vu par...</p>
+		<div class="flexbox">
 		<?php
 			for ($i=0;$i<10;$i++)
 			{
 				echo "<div class='bgfichecom'><div class='fichecom'><div class='imgfichecom'></div><p class='txtfichecom'><strong>J-C. Carteron</strong><br>Fonction</p></div></div>";
 			}
 		?>
+		</div>
 		</div>
 		</div>
 	<div class="cont">
@@ -33,7 +35,7 @@
 <div id="voile">
 </div>
 <div id="modal">
-	<div id="">
+	<div id="contmodal">
 		<div class="modalphoto"></div>
 		<div class="modaltitre"></div>
 		<div class="modaltext"></div>

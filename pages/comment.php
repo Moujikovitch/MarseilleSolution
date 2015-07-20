@@ -11,15 +11,12 @@
 	</div>
 </div>
 <script>
-	function posImgComment() {
-		this.widthComp = (document.body.offsetWidth/100*80).toString()+"px";
-		$("#photop0").css("width", this.widthComp);
-		this.margleft = (document.getElementById("photop0").offsetWidth/-2).toString()+"px";
-		$("#photop0").css("margin-left", this.margleft);
-		console.log("lol");
-	};
-	posImgComment();
-	window.onresize = function() {
-		posImgComment();
-	};
+function posImgComment() {
+	this.widthComp = (document.body.offsetWidth/100*80).toString()+"px";
+	$("#photop0").css("width", this.widthComp);
+	this.margleft = (document.getElementById("photop0").offsetWidth/-2).toString()+"px";
+	$("#photop0").css("margin-left", this.margleft);
+};
+
+posImgComment();
 </script>

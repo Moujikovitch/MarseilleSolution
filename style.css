@@ -1,3 +1,10 @@
+/*COULEUR CHARTE GRAPH:
+Orange foncé rgb(247,156,49)
+Bleu rgb(63,110,150)
+Bleu foncé #1b334c
+*/
+/*GENERAL========================================================*/
+
 body{
 	margin:0;
 	padding:0;
@@ -5,6 +12,17 @@ body{
 	font-size: 14px;
 	text-rendering: geometricPrecision;
 }
+.cont {
+	width:900px;
+	margin:auto;
+}
+a {
+ 	text-decoration:none;
+}
+
+
+/*MENU===========================================================*/
+
 #menu {
 	width:100vw;
 	height:170px;
@@ -26,15 +44,10 @@ body{
 	height:125px;
 	margin:auto;
 }
-.cont {
-	width:900px;
-	margin:auto;
-}
 #contbtn {
 	width:870px;
 	margin:auto;
 }
-
 .btnmenu:hover{
 	background-color:rgb(247,156,49);
 	transition:0.2s;
@@ -67,13 +80,18 @@ body{
 	text-align:center;
 	margin-top:10px;
 }
-a {
- 	text-decoration:none;
-}
+
+
+/*MILIEU============================================================*/
+
 #milieu{
 	width:100vw;
 	margin-top:40px;
 }
+
+
+/*FOOTER============================================================*/
+
 #footer{
 	margin-top:20px;
 	bottom:0px;
@@ -102,6 +120,10 @@ a {
 	width:60%;
 	margin-right:auto;
 }
+
+
+/*SLIDER/INDEX=================================================*/
+
 #slideshow {
     position: relative;
     width: 120vh;
@@ -173,12 +195,22 @@ a {
 	background-color:rgb(247,156,49);
 	transition:0.2s;
 }
+
+
+/*COMMUNAUTEE/PAGE4=============================================*/
+
+.flexbox {
+	display: flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content:space-around;
+}
 .fichecom {
 	width:170px;
 	height:220px;
 	background-color:rgb(247,156,49);
 	border-radius:10px;
-	display:inline-block;
+	/*display:inline-block;*/
 	overflow:hidden;
 	cursor:pointer;
 }
@@ -186,7 +218,7 @@ a {
 	opacity:0.8;
 	background-image:url("media/img5.jpg");
 	background-position:center;
-	background-size: 100%;
+	background-size: cover;
 	height:80%;
 	width:100%;
 	overflow:hidden;
@@ -210,8 +242,8 @@ a {
 	height:225px;
 	background-color:#1b334c;
 	overflow:hidden;
-	display:inline-block;
-	margin:5px;
+	/*display:inline-block;*/
+	margin:22px;
 	border-radius:10px;
 }
 #voile{
@@ -243,19 +275,33 @@ a {
 	text-align:center;
 	width:100%;
 }
+#photocomu{
+	width:900px;
+	margin:auto;
+}
+
+/*COMMENT?/PAGE1=================================================*/
+
+
 #photop0{
 	width:80vw;
 	max-width:800px;
 	position:relative;
 	left:50vw;
 }
-#photocomu{
-	width:900px;
+#btncomment {
 	margin:auto;
+	width:175px;
+	height:100px;
 }
+
+/*EVENT/MEDIA/PAGE2/3=================================================*/
+
+
 .ficheevent{
 	margin-top:10px;
 	width:100%;
+	max-width:900px;
 	background-color: #8098bb;
 	border-radius: 10px;
 	min-height:300px;
@@ -284,14 +330,10 @@ a {
 	text-align: justify;
 }
 .bgevent{
+	max-width:900px;
 	margin:auto;
 	background-color:#1b334c;
 	height:305px;
 	width:80%;
 	border-radius:10px;
-}
-#btncomment {
-	margin:auto;
-	width:175px;
-	height:100px;
 }
