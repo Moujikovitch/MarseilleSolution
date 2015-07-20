@@ -1,6 +1,6 @@
 <div id="milieu">
-	<img id="photocomu" src="media/commu.jpg"></img>
 	<div class="cont">
+		<img id="photocomu" src="media/commu.jpg"></img>
 	<div class="titre"><p class="titrecom">Marseille Solution vu par...</p>
 		<?php
 			for ($i=0;$i<10;$i++)

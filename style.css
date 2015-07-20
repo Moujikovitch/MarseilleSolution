@@ -71,6 +71,7 @@ a {
  	text-decoration:none;
 }
 #milieu{
+	width:100vw;
 	margin-top:40px;
 }
 #footer{
@@ -114,7 +115,7 @@ a {
 	width:120vh;
 	height:60vh;
     float:left;
-    background-size:100%;
+    background-size:cover;
 }
 #imgs0{
 	background-color:green;
@@ -173,8 +174,8 @@ a {
 	transition:0.2s;
 }
 .fichecom {
-	width:213px;
-	height:250px;
+	width:170px;
+	height:220px;
 	background-color:rgb(247,156,49);
 	border-radius:10px;
 	display:inline-block;
@@ -205,8 +206,8 @@ a {
 	padding-right:10%;
 }
 .bgfichecom{
-	width:213px;
-	height:255px;
+	width:170px;
+	height:225px;
 	background-color:#1b334c;
 	overflow:hidden;
 	display:inline-block;
@@ -245,7 +246,6 @@ a {
 #photop0{
 	width:80vw;
 	max-width:800px;
-	margin-left:-40vw;
 	position:relative;
 	left:50vw;
 }
