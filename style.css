@@ -40,8 +40,10 @@ a {
 #logo{
 	background-image:url("media/logo.jpg");
 	background-size: 100% 100%;
-	width:300px;
-	height:125px;
+	width:80vw;
+	height:33vw;
+	max-width:300px;
+	max-height:125px;
 	margin:auto;
 }
 #contbtn {
@@ -256,7 +258,7 @@ a {
 }
 #modal{
 	position:fixed;
-	background-color:rgb(63,110,150);
+	background-color:#1b334c;
 	margin-left:-250px;
 	margin-top:-140px;
 	left:50vw;
@@ -265,6 +267,13 @@ a {
 	height:0px;
 	border-radius:10px;
 	cursor:pointer;
+	overflow:hidden
+}
+#contmodal {
+	width:500px;
+	background-color:rgb(63,110,150);
+	height:0px;
+	border-radius:10px;
 }
 .titre{
 	width:900px;

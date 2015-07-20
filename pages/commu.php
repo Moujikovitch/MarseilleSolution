@@ -58,6 +58,9 @@ $(".fichecom").click(function(){
 	$("#modal").animate({
 		height:"300px"
 	},400,"swing");
+	$("#contmodal").animate({
+		height:"295px"
+	},400,"swing");
 	$("#voile").show();
 });
 $("#modal").click(function(){
