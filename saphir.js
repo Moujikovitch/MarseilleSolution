@@ -95,7 +95,6 @@ function virtualAquarium(conteneur,nombre) {
       poisson.style.width = size(intRandom(10,30),"px");
       poisson.style.height = size(parseInt(poisson.style.width)/3,"px");
       poisson.stimulation = floatRandom(1,10);
-      poisson.nage = false;
       poisson.vitesse = 0;
       poisson.direction = 0;
       poisson.style.position = "absolute";
@@ -105,6 +104,6 @@ function virtualAquarium(conteneur,nombre) {
       I(conteneur).insertBefore(poisson,null);
   };
   var frameAqua = setInterval(function(){
-      
+
   },40);
 };
