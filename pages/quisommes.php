@@ -1,4 +1,4 @@
-	<div id="milieu">
+	<div id="milieu" class="pagequisommes">
 		<div id="slideshow">
     		<div id="sContent">
     			<div id="imgs0" class="imgslider">

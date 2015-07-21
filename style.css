@@ -1,7 +1,10 @@
 /*COULEUR CHARTE GRAPH:
-Orange foncé rgb(247,156,49)
-Bleu rgb(63,110,150)
-Bleu foncé #1b334c
+Orange foncé 	rgb(247,156,49)
+Orange clair	#fbb95f
+Bleu 			rgb(63,110,150)
+Bleu foncé 		#1b334c
+Bleu clair		#8098bb
+Mauve			rgb(163,25,91)
 */
 /*GENERAL========================================================*/
 
@@ -73,6 +76,21 @@ a {
 	color:white;
 	font-weight: bold;
 }
+#btm1{
+	background-color:rgb(63,110,150);
+}
+#btm2{
+	background-color: #8098bb;
+}
+#btm3{
+	background-color:rgb(247,156,49);
+}
+#btm4{
+	background-color: #fbb95f;
+}
+#btm5{
+	background-color: rgb(163,25,91);
+}
 .ssbtn:hover{
 	height:50px;
 	transition:0.2s;
@@ -142,15 +160,12 @@ a {
     background-size:cover;
 }
 #imgs0{
-	background-color:green;
 	background-image:url("media/img1.jpg");
 }
 #imgs1{
-	background-color:red;
 	background-image:url("media/img2.jpg");
 }
 #imgs2{
-	background-color:blue;
 	background-image:url("media/img3.jpg");
 	background-position: center;
 }
@@ -218,7 +233,7 @@ a {
 }
 .imgfichecom {
 	opacity:0.8;
-	background-image:url("media/img5.jpg");
+	background-image:url("media/truite.jpg");
 	background-position:center;
 	background-size: cover;
 	height:80%;
@@ -267,13 +282,38 @@ a {
 	height:0px;
 	border-radius:10px;
 	cursor:pointer;
-	overflow:hidden
+	overflow:hidden;
+	padding:10px;
 }
 #contmodal {
 	width:500px;
 	background-color:rgb(63,110,150);
 	height:0px;
 	border-radius:10px;
+	margin-top: -10px;
+	margin-left: -10px;
+	padding:10px;
+}
+.modalphoto {
+	background-color: red;
+	height:220px;
+	width:170px;
+	border-radius: 10px;
+	float:left;
+	margin:10px;
+}
+.modaltitre {
+	font-weight: bold;
+	color:white;
+	margin:10px;
+	margin-top: 20px;
+	margin-bottom:20px;
+	top:10px;
+}
+.modaltext{
+	margin: 10px;
+	color:white;
+	text-align: justify;
 }
 .titre{
 	width:900px;
@@ -289,8 +329,8 @@ a {
 	margin:auto;
 }
 
-/*COMMENT?/PAGE1=================================================*/
 
+/*COMMENT?/PAGE1=================================================*/
 
 #photop0{
 	width:80vw;
@@ -339,6 +379,51 @@ a {
 	text-align: justify;
 }
 .bgevent{
+	max-width:900px;
+	margin:auto;
+	background-color:#1b334c;
+	height:305px;
+	width:80%;
+	border-radius:10px;
+}
+.titreevent {
+	float:left;
+}
+.dateevent {
+	float:right;
+}
+
+
+/*CSS ALTERNATIF EVENT/MEDIA==============================================*/
+
+.ficheeventb{
+	margin-top:10px;
+	width:100%;
+	max-width:900px;
+	background-color: #8098bb;
+	border-radius: 10px;
+	min-height:300px;
+	height:300px;
+	overflow:hidden;
+	color:white;
+}
+.fichephotoeventb{
+	width:100%;
+	height:60%;
+	background-color: black;
+}
+.fichetitreeventb{
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+.fichetexteeventb{
+	padding-left: 20px;
+	padding-right:20px;
+	text-align: justify;
+}
+.bgeventb{
 	max-width:900px;
 	margin:auto;
 	background-color:#1b334c;

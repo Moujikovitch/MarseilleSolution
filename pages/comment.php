@@ -1,9 +1,9 @@
-<div id="milieu">
+<div id="milieu" class="pagecomment">
 		<img id="photop0" src="media/comment.png"></img>
 	<div id="btncomment">
 		<div class="ssbtn">
 			<a href="page1.php">
-				<div id="btm2" class="btnmenu">
+				<div class="btnmenu">
 					<p class="txtmenu">Voir les solutions</p>
 				</div>
 			</a>
