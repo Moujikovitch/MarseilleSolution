@@ -1,7 +1,7 @@
 	<div id="footer">
 		<div class="cont">
 			<p id="footertxt">
-				Powered by SIMPLonMARS | Contact | Suivez nous sur les réseaux sociaux
+				Powered by SIMPLonMARS | Contact | Suivez nous sur les réseaux sociaux |  <a href="http://localhost/MarseilleSolution/connection/connection.php">Admin</a>
 			</p>
 			<a href="https://www.facebook.com/marseille.solutions?fref=ts" target="_blank">
 				<div id="fblogo">
@@ -16,11 +16,7 @@
 	};
 		placeFooter();
 	window.onresize = function() {
-		try {
-			placeFooter();
-			posImgComment();
-		} catch (e) {
-		};
+		placeFooter();
 	};
 	</script>
 </body>
