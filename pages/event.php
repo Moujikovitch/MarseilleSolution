@@ -1,7 +1,7 @@
 <div id="milieu">
     <div id="cont">
 <?php
-include 'db.php';
+include '../MarseilleSolutionDB/db.php';
 $error = "";
 
 // Create connection

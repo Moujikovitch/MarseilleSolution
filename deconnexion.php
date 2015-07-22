@@ -2,6 +2,6 @@
 session_start();
 session_unset();
 session_destroy();
-Header('Location: http://localhost/msolution');
+Header('Location: http://localhost/MarseilleSolution');
 exit();
 ?>
