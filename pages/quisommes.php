@@ -1,5 +1,5 @@
 <?php
-include './MarseilleSolutionDB/db.php';
+include '../MarseilleSolutionDB/db.php';
 $error = "";
 
 // Create connection

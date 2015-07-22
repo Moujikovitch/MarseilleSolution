@@ -35,7 +35,7 @@
 </head>
 
 <?php
-include '../db2.php';
+include '../../MarseilleSolutionDB/db2.php';
 
 $error = "";
 

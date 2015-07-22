@@ -35,7 +35,7 @@
 </head>
 
 <?php
-include '../db.php';
+include '../../MarseilleSolutionDB/db.php';
 $error = "";
 // mise à jour du titre dans la bdd
 if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
