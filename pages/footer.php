@@ -16,7 +16,12 @@
 	};
 		placeFooter();
 	window.onresize = function() {
-		placeFooter();
+		try {
+			placeFooter();
+			posImgComment();
+		} catch(e) {
+
+		};
 	};
 	</script>
 </body>
