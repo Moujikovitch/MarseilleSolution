@@ -16,35 +16,35 @@
 			<div class="ssbtn">
 				<a href="page0.php">
 					<div id="btm1" class="btnmenu">
-						<p class="txtmenu">Comment ça marche ?</p>
+						<p class="txtmenu">COMMENT ÇA MARCHE ?</p>
 					</div>
 				</a>
 			</div>
 			<div class="ssbtn">
 				<a href="page1.php">
 				<div id="btm2" class="btnmenu">
-					<p class="txtmenu">Solutions en cours</p>
+					<p class="txtmenu">SOLUTIONS EN COURS</p>
 				</div>
 				</a>
 			</div>
 			<div class="ssbtn">
 				<a href="page2.php">
 				<div id="btm3" class="btnmenu">
-					<p class="txtmenu">Événement</p>
+					<p class="txtmenu">ÉVÉNEMENT</p>
 				</div>
 				</a>
 			</div>
 			<div class="ssbtn">
 				<a href="page3.php">
 				<div id="btm4" class="btnmenu">
-					<p class="txtmenu">Medias</p>
+					<p class="txtmenu">MEDIAS</p>
 				</div>
 				</a>
 			</div>
 			<div class="ssbtn">
 				<a href="page4.php">
 				<div id="btm5" class="btnmenu">
-					<p class="txtmenu">Communauté</p>
+					<p class="txtmenu">COMMUNAUTÉ</p>
 				</div>
 				</a>
 			</div>

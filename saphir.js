@@ -3,6 +3,7 @@
 var helps = {
   C:"Fonction retournant la classe indiqué en argument, exemple : C('container').style...",
   I:"Fonction retournant l'ID indiqué en argument, exemple : I('formulaire').value",
+  N:"Fonction retournant la balise XML indiquée, exemple : N('word').childNodes",
   size:"Fonction permettant d'écrire une taille pour le CSS à partir de donnée numérique, exemple : size(100,'vh') retourne '100vh'",
   incr:"Fonction permettant d'augmenter la valeur d'un paramètre CSS, exemple : incr(document.body.style.marginTop, 50) augmente de 50 la valeur du marginTop",
   floatRandom:"Fonction retournant un nombre aléatoire décimal entre le premier et second argument, exemple :floatRandom(5.10 , 20.5)",
@@ -13,6 +14,7 @@ var helps = {
 function helpSaphir() {
   console.log("helps.C");
   console.log("helps.I");
+  console.log("helps.N");
   console.log("helps.size");
   console.log("helps.incr");
   console.log("helps.floatRandom");
@@ -27,6 +29,10 @@ function C(c) {
 //recupérer ID
 function I(i) {
   return document.getElementById(i);
+};
+//récuperer Balise XML
+function N(n) {
+  return document.getElementsbyTagName(n);
 };
 //convertir nombre en mesure HTML
 function size(n,m){
