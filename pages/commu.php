@@ -10,7 +10,7 @@
 				<?php
 					for ($i=0;$i<10;$i++)
 						{
-							echo "<div class='bgfichecom'><div class='fichecom'><div class='imgfichecom'></div><p class='txtfichecom'><strong>J-C. Carteron</strong><br>Fonction</p></div></div>";
+							echo "<div class='bgfichecom'><div class='fichecom'><div class='imgfichecom'></div><div class='txtfichecom'><p class='titrefichecom'>J-C. Carteron</p>Fonction</div></div></div>";
 						}
 				?>
 			</div>
@@ -75,7 +75,7 @@
 				All work and no play makes Jack a dull boy
 				All work and no play makes Jack a dull boy
 				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy				 
+				All work and no play makes Jack a dull boy
 				All work and no play makes Jack a dull boy
 				All work and no play makes Jack a dull boy
 			</div>

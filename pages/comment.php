@@ -1,5 +1,5 @@
 <div id="milieu" class="pagecomment">
-		<img id="photop0" src="media/comment.png"></img>
+		<img id="photop0" src="media/infog1b.svg"></img>
 	<div id="btncomment">
 		<div class="ssbtn">
 			<a href="page1.php">
