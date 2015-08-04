@@ -51,20 +51,3 @@
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
-   var $win = $(window);
-   var winH = $("#logo").height()+35;
-    $(window).scroll(function ()    {
-       if ( $(window).scrollTop() > winH)
-       {
-           $("#menu").addClass("fix");
-           $("#menu").removeClass("unfix");
-           $("#milieu").css("margin-top","285px");
-       }
-       else  if ($(window).scrollTop() < winH)
-       {
-           $("#menu").addClass("unfix");
-           $("#menu").removeClass("fix");
-           $("#milieu").css("margin-top","40px");
-       }
-   });</script>

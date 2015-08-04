@@ -5,20 +5,6 @@
 			</p>
 		</div>
 	</div>
-	<script>
-	function placeFooter() {
-		var footerpos = window.innerHeight-(parseInt($("#menu").css("height")))-(parseInt($("#footer").css("height")))-60;
-		$("#milieu").css("min-height",footerpos);
-	};
-		placeFooter();
-	window.onresize = function() {
-		try {
-			placeFooter();
-			posImgComment();
-		} catch(e) {
-
-		};
-	};
-	</script>
+	<script src="script.js"></script>
 </body>
 </html>

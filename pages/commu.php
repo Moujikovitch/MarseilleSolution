@@ -82,34 +82,3 @@
 		</div>
 	</div>
 </div>
-
-<script>
-$("body").hide();
-var coucou = setInterval(function(){
-	if (document.readyState === "complete") {
-		$("body").show();
-		clearInterval(coucou);
-	};
-},40);
-$("#modal").hide();
-$("#voile").hide();
-$(".fichecom").click(function(){
-	$("#modal").show();
-	$("#modal").animate({
-		height:"300px"
-	},400,"swing");
-	$("#contmodal").animate({
-		height:"295px"
-	},400,"swing");
-	$("#voile").show();
-	//ajouter selection de classe en fonction de l'ID généré par PHP
-	$(".modalphoto").css("background-image",$(".imgfichecom").css("background-image"));
-	$(".modaltitre").innerHTML = ""
-	$(".modaltexte").innetHTML = ""
-});
-$("#modal").click(function(){
-	$("#modal").hide();
-	$("#modal").css("height","0px");
-	$("#voile").hide();
-});
-</script>

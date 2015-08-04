@@ -9,10 +9,3 @@
 		?>
 	</div>
 </div>
-<script>
-	for (i=0;i<$(".fichephotoevent").length;i++) {
-		if (i%2==0){
-			$(".fichephotoevent")[i].css("float","right");
-		};
-	};
-</script>
