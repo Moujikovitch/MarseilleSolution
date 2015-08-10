@@ -153,6 +153,7 @@ a {
 #milieu{
 	width:100vw;
 	margin-top:40px;
+	margin-bottom:40px;
 }
 
 
@@ -278,8 +279,8 @@ a {
 	background-image:url("media/truite.jpg");
 	background-position:center;
 	background-size: cover;
-	height:60%;
-	width:90%;
+	height:50%;
+	width:75%;
 	overflow:hidden;
 	margin:auto;
 	margin-top:13px;
@@ -290,7 +291,7 @@ a {
 .txtfichecom {
 	width:80%;
 	height:21%;
-	color:#4D4D4D;
+	color:black;
 	margin:auto;
 	text-align: center;
 	padding-top: 5px;
@@ -298,12 +299,12 @@ a {
 	padding-right:10%;
 }
 .bgfichecom{
-	width:200px;
+	width:190px;
 	height:350px;
-	border-bottom-style:solid;
+	/*border-bottom-style:solid;
 	border-top-style:solid;
 	border-color:#4D4D4D;
-	border-width:1px;
+	border-width:1px;*/
 	overflow:hidden;
 	/*display:inline-block;*/
 	margin:15px;
@@ -327,9 +328,18 @@ a {
 	width:90vw;
 	height:0px;
 	/*border-radius:10px;*/
-	cursor:pointer;
-	overflow:hidden;
 	padding:10px;
+}
+#crux{
+	position:absolute;
+	width:25px;
+	height:25px;
+	background-image:url("media/croix.svg");
+	background-position:center;
+	background-size:cover;
+	right:5px;
+	top:5px;
+	cursor:pointer;
 }
 #contmodal {
 	width:100%;
@@ -353,6 +363,7 @@ a {
 	margin:10px;
 	margin-top: 20px;
 	margin-bottom:20px;
+	text-align:center;
 	top:10px;
 }
 .modaltext{
@@ -368,7 +379,7 @@ a {
 }
 .titrecom{
 	font-family:"DinotBlack";
-	color:#4D4D4D;
+	color:black;
 	font-size:18px;
 	text-align:center;
 	width:100%;
@@ -401,7 +412,13 @@ a {
 
 /*EVENT/MEDIA/PAGE2/3=================================================*/
 
-
+.bgevent{
+	max-width:900px;
+	margin:auto;
+	height:500px;
+	width:100%;
+	/*border-radius: 10px;*/
+}
 .ficheevent{
 	margin-top:30px;
 	width:100%;
@@ -421,7 +438,21 @@ a {
 	height:100%;
 	background-color: black;
 	background-size:cover;
+	float:right;
+}
+.model0 .fichephotoevent{
+	width:70%;
+	height:100%;
+	background-color: black;
+	background-size:cover;
 	float:left;
+}
+.model1 .fichephotoevent{
+	width:70%;
+	height:100%;
+	background-color: black;
+	background-size:cover;
+	float:right;
 }
 .fichetitreevent{
 	float:left;
@@ -430,20 +461,21 @@ a {
 	font-family:"DinotBold";
 	width:30%;
 }
-.fichetexteevent{
+.model0 .fichetexteevent{
 	margin-left:70%;
 	padding-left: 20px;
 	padding-right:20px;
 	text-align: justify;
 	font-family:"DinotRegular";
 }
-.bgevent{
-	max-width:900px;
-	margin:auto;
-	height:500px;
-	width:100%;
-	/*border-radius: 10px;*/
+.model1 .fichetexteevent{
+	margin-right:70%;
+	padding-left: 20px;
+	padding-right:20px;
+	text-align: justify;
+	font-family:"DinotRegular";
 }
+
 .titreevent {
 	text-align:center;
 }

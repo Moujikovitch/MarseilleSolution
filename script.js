@@ -1,5 +1,35 @@
 $("document").ready(function(){
 
+  //script INDEX SLIDER
+
+  $("#slideshow").css("height","0vh");
+  $("#slideshow").animate({
+      height:"60vh"
+  },400,"swing");
+  var etape = 0
+  function slide() {
+      etape++;
+      if (etape==3){
+          etape=0;
+      };
+      var leftv = etape*-120;
+      $("#sContent").animate({
+      left:leftv.toString()+"vh",
+      }, 2000,"swing");
+  };
+  var next = setInterval(function(){slide();},5000);
+  $(".btnslider").click(function(){
+      clearInterval(next);
+     etape = parseInt($(this.id).selector.substring(4,5));
+     var leftv = etape*-120;
+    $("#sContent").stop();
+     $("#sContent").animate({
+      left:leftv.toString()+"vh",
+      }, 200,"swing");
+     next = setInterval(function(){slide();},5000);
+  });
+
+
   //script MENU
 
   var $win = $(window);
@@ -26,7 +56,7 @@ $("document").ready(function(){
     var footerpos = window.innerHeight-(parseInt($("#menu").css("height")))-(parseInt($("#footer").css("height")))-60;
     $("#milieu").css("min-height",footerpos);
   };
-  
+
   placeFooter();
 
 
@@ -39,10 +69,16 @@ $("document").ready(function(){
   	$("#modal").show();
   	$("#modal").animate({
   		height:"300px"
-  	},400,"swing");
+  	},400,"swing", function(){
+      $("#crux").animate({
+        top:"-12px",
+        right:"-12px"
+      },400,"swing");
+    });
   	$("#contmodal").animate({
   		height:"295px"
   	},400,"swing");
+
   	$("#voile").show();
   	//ajouter selection de classe en fonction de l'ID généré par PHP
   	$(".modalphoto").css("background-image",$(".imgfichecom").css("background-image"));
@@ -50,9 +86,13 @@ $("document").ready(function(){
   	$(".modaltexte").innetHTML = ""
   });
 
-  $("#modal").click(function(){
+  $("#crux").click(function(){
   	$("#modal").hide();
   	$("#modal").css("height","0px");
+    $("#crux").css({
+      top:"5px",
+      right:"5px"
+    });
   	$("#voile").hide();
   });
 

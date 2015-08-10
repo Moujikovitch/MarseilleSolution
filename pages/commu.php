@@ -10,7 +10,19 @@
 				<?php
 					for ($i=0;$i<10;$i++)
 						{
-							echo "<div class='bgfichecom'><div class='fichecom'><div class='imgfichecom'></div><div class='txtfichecom'><p class='titrefichecom'>J-C. Carteron</p>Fonction</div></div></div>";
+							echo "<div class='bgfichecom'>
+											<div class='fichecom'>
+
+												<div class='imgfichecom'>
+												</div>
+												<div class='txtfichecom'>
+													<p class='titrefichecom'>
+														J-C. Carteron
+													</p>
+													Fonction
+												</div>
+											</div>
+										</div>";
 						}
 				?>
 			</div>
@@ -49,6 +61,8 @@
 	<div id="voile">
 	</div>
 	<div id="modal">
+		<div id="crux">
+		</div>
 		<div id="contmodal">
 			<div class="modalphoto">
 			</div>
