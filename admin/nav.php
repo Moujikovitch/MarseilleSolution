@@ -19,6 +19,18 @@
                 </button>
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
+         <ul class="nav navbar-right top-nav">             
+                <li>
+                    <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
+                </li>  
+                <li>
+                    <a href="http://localhost/MarseilleSolution/connection/inscription.php"><i class="fa fa-fw fa-edit"></i> Ajouter un compte</a>
+                </li>
+                <li>
+                    <a href="http://localhost/MarseilleSolution/deconnexion.php"><i class="fa fa-power-off"></i> Déconnexion</a>
+                </li>
+                </li>
+            </ul>
 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
