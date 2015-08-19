@@ -35,7 +35,20 @@
 </head>
 
 <?php
+
+include '../../MarseilleSolutionDB/db2.php';
+
+ if(isset($_POST['delete']) && $_POST['delete'] == 'Supprimer'){
+    $req = $mabase->prepare("DELETE FROM events WHERE id= :id");
+    $req->execute(array(
+        'id' => $_POST['id']
+        ));
+    header('Location: tables.php');
+    exit();
+  }
+
 include '../../MarseilleSolutionDB/db.php';
+
 $error = "";
 // mise à jour du titre dans la bdd
 if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
@@ -77,6 +90,7 @@ if ($result->num_rows > 0) {
          $titre = $row['titre'];
          $texte = $row['texte'];
          $dates = $row['dates'];
+         $id = $row['id'];
 
      }
 } else {
@@ -159,20 +173,22 @@ $conn->close();
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Slider</a>
+                    <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
+                    </li> 
+                    <li>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
                     <li>
-                        <a href="charts.php"><i class="fa fa-fw fa-file"></i>Chef</a>
+                        <a href="charts.php"><i class="fa fa-fw fa-file"></i> Chef</a>
                     </li>
-                    <li>
-                        <a href="page0.php"><i class="fa fa-fw fa-file"></i>Comment ça marche?</a>
+                     <li>
+                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li class="active">
-                        <a href="tables.php"><i class="fa fa-fw fa-table"></i>Events</a>
+                        <a href="tables.php"><i class="fa fa-fw fa-table"></i> Events</a>
                     </li>
                     <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-
                     </li>   
                     
                 </ul>
@@ -223,9 +239,9 @@ $conn->close();
                      <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
             <script>
                replace( 'photo' );
-            </script>
-
-                    <h3 class="panel-title">Modifier le titre</h3>
+            </script>         
+                                          
+              <h3 class="panel-title">Modifier le titre</h3>
                     <textarea name="titre" id="titre" rows="10" cols="80"><?php echo $titre ; ?></textarea>
             <script>
                  CKEDITOR.replace( 'titre' );
@@ -251,8 +267,10 @@ $conn->close();
                 </div>
                 <!-- /.row -->
 
-                
+                    <input type="hidden" name="id" value="<?php echo $id ; ?>">
                     <input type = 'submit' name='sauvegarder' value="Sauvegarder">
+                    <input type="submit"  name="delete" value="Supprimer" class="btn btn-primary">
+                    
                 </form>
             
             <!-- /.container-fluid -->

@@ -19,7 +19,10 @@
                 </button>
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
-         <ul class="nav navbar-right top-nav">             
+         <ul class="nav navbar-right top-nav"> 
+                <li>
+                    <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
+                </li>            
                 <li>
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
                 </li>  
