@@ -157,7 +157,10 @@ $conn->close();
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
          <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">             
+            <ul class="nav navbar-right top-nav"> 
+                <li>
+                    <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
+                </li>             
                 <li>
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
                 </li>  
@@ -172,9 +175,6 @@ $conn->close();
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                    <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
-                    </li> 
                     <li>
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
