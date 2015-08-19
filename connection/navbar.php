@@ -11,7 +11,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li ><a href="connection.php">Se Connecter</a></li>
-            <li ><a href="http://localhost/pizzatomic/">Pizz'Atomic</a></l
+            <li ><a href="http://localhost/MarseilleSolution/">Marseille Solution</a></l
             
           </ul>
         </div><!--/.nav-collapse -->

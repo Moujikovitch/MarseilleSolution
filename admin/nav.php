@@ -30,6 +30,9 @@
                         <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i> Chef</a>
                     </li>
                     <li>
+                        <a href="page0.php"><i class="fa fa-fw fa-file"></i>Comment ça marche?</a>
+                    </li>
+                    <li>
                         <a href="tables.php"><i class="fa fa-fw fa-table"></i> Events</a>
                     </li>
                     <li>

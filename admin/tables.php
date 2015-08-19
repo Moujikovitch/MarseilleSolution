@@ -222,6 +222,9 @@ $conn->close();
                     <li>
                         <a href="charts.php"><i class="fa fa-fw fa-file"></i>Chef</a>
                     </li>
+                    <li>
+                        <a href="page0.php"><i class="fa fa-fw fa-file"></i>Comment ça marche?</a>
+                    </li>
                     <li class="active">
                         <a href="tables.php"><i class="fa fa-fw fa-table"></i>Events</a>
                     </li>
