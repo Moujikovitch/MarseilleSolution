@@ -7,26 +7,51 @@
 				Marseille Solution vu par...
 			</p>
 			<div class="flexbox">
-				<?php
-					for ($i=0;$i<10;$i++)
-						{
-							echo "<div class='bgfichecom'>
-											<div class='fichecom'>
+<?php
+include '../MarseilleSolutionDB/db.php';
+$error = "";
 
-												<div class='imgfichecom'>
-												</div>
-												<div class='txtfichecom'>
-													<p class='titrefichecom'>
-														ici mettre Nom prénom
-													</p>
-													ici Fonction
-												</div>
+// Create connection
+$conn = new mysqli($serveur, $user, $mdp, $mabase);
+// Check connection
+if ($conn->connect_error) {
+     die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM communautes";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+     // output data of each row
+     while($row = $result->fetch_assoc()) {
+         $image = $row['image'];
+         $nom = $row['nom'];
+         $fonction = $row['fonction'];
+         $description = $row['description'];
+
+				echo "<div class='bgfichecom'>
+							<div class='fichecom'>
+
+								<div class='imgfichecom'>
+										</div>
+											<div class='txtfichecom'>
+												<p class='titrefichecom'>
+														".$nom."
+												</p>
+													".$fonction."
 											</div>
 										</div>
-										<div class='descfichecom'>
-										ici le texte description
-										</div>";
+								</div>
+								<div class='descfichecom'>
+										<p>".$description."</p>
+								</div>";
 						}
+} else {
+     echo "0 results";
+}
+
+$conn->close();
+
 				?>
 			</div>
 		</div>

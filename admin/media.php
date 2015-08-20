@@ -179,7 +179,10 @@ $conn->close();
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
                     <li>
-                        <a href="charts.php"><i class="fa fa-fw fa-file"></i> Chef</a>
+                        <a href="charts.php"><i class="fa fa-fw fa-file"></i> Communauté</a>
+                    </li>
+                    <li>
+                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
                     </li>
                      <li>
                         <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>

@@ -42,10 +42,13 @@
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Slider</a>
                     </li>
                     <li>
-                        <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i> Chef</a>
+                        <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i> Communauté</a>
                     </li>
                     <li>
-                        <a href="page0.php"><i class="fa fa-fw fa-file"></i>Comment ça marche?</a>
+                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
+                    </li>
+                    <li>
+                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li>
                         <a href="tables.php"><i class="fa fa-fw fa-table"></i> Events</a>

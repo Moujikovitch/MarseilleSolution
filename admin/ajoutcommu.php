@@ -35,51 +35,25 @@
 </head>
 
 <?php
-include '../../MarseilleSolutionDB/db.php';
+include '../../MarseilleSolutionDB/db2.php';
+
 $error = "";
-// mise à jour du titre dans la bdd
-if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
-    $conn = new mysqli($serveur, $user, $mdp, $mabase);
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+
+if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder") {
+  
+$req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, description) VALUES(:id, :image, :nom, :fonction, :description)");
+        $req->execute(array(
+          "id" => "",
+          "image" => $_POST['image'],
+          "nom" => $_POST['nom'],
+          "fonction" => $_POST['fonction'],
+          "description" => $_POST['description'],
+                    ));
+
+        header('Location: ajoutcommu.php');
+        exit();
     }
-    
-    $newphoto = $_POST['photo'];
-    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'"';
-    if ($conn->query($sql) === TRUE) {
-    $confirm= "Modifications effectuées!";
-} else {
-    $confirm= "Erreur dans la mise à jour " . $conn->error;
-}
-
-    $conn->close();
-    }
-
-// Recuperation du titre dans la bdd
-$conn = new mysqli($serveur, $user, $mdp, $mabase);
-// Check connection
-if ($conn->connect_error) {
-     die("Erreur de connection: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM ccmarche";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {
-         $photo = $row['photo'];
-     }
-} else {
-     echo "0 results";
-}
-
-$conn->close();
-
-?>  
-
-
+?>
 <body>
 
     <div id="wrapper">
@@ -89,11 +63,7 @@ $conn->close();
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                
-                             
-                <h1><?php if(isset($confirm)){
-                    echo $confirm ;
-                } ?></h1>
+            
             </div>
             <!-- /.container-fluid -->
 
@@ -153,13 +123,13 @@ $conn->close();
                     <li>
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
-                    <li>
+                    <li >
                         <a href="charts.php"><i class="fa fa-fw fa-file"></i> Communauté</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
                     </li>
-                     <li class="active">
+                    <li>
                         <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li>
@@ -167,7 +137,7 @@ $conn->close();
                     </li>
                     <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-                    </li>   
+                    </li>
                     <li>
                         <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
                     </li> 
@@ -189,50 +159,99 @@ $conn->close();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                          Modifier la page : Comment ça marche ?
+                          Ajouter un membre dans la communauté
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                Comment ça marche ?
+                                 Ajouter un membre
                             </li>
                         </ol>
                     </div>
                 </div>
+                <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Modifier l'infographie</h3>
+                <!-- Flot Charts -->
+                
+                <!-- /.row -->
 
-                            </div>
-                            <form method='post' action='page0.php'>
-                    
-                     <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
-            <script>
-                replace( 'photo' );
-            </script>
                     
              
                 
    
+                        <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Image</h3>
+                            </div>
+
+                    <form method='post' action='ajoutcommu.php'>
+                            <textarea name="image" id="image" rows="10" cols="80"></textarea>
+            <script>
+                replace( 'image' );
+            </script>
+                    
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
-                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
-                </form>
-                            <div class="panel-body">
-                                
-                                <div class="text-right">
-                                    
-                                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Nom</h3>
+                            </div>
+                                <textarea name="nom" id="nom" rows="10" cols="80"></textarea>
+            <script>
+                replace( 'nom' );
+            </script>
+                         
                             </div>
                         </div>
                     </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Fonction</h3>
+                            </div>                    
+                                <textarea name="fonction" id="fonction" rows="10" cols="80"></textarea>
+            <script>
+                replace( 'fonction' );
+            </script>
+                    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">   
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Description</h3>
+                            </div>
+                                <textarea name="description" id="description" rows="10" cols="80"></textarea>
+            <script>
+                replace( 'description' );
+            </script>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!-- /.row -->
+                
+
+            </div>
+          
+                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
+                </form>
+                            
                 </div>
             <!-- /.container-fluid -->
 
