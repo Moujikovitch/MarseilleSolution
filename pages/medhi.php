@@ -22,16 +22,17 @@ if ($result->num_rows > 0) {
          $texte = $row['texte'];
          $dates = $row['dates'];
 
-			for ($i = 0 ; $i < 3 ; $i++)
-			{
-			echo "<div class='bgevent model".$i."'><div class='ficheevent'><div class='fichephotoevent' style='background-image:url(".$photo.")'></div><div class='fichearticleevent'><div class='fichetitreevent'><p class='titreevent'>".$titre."</p><p class='dateevent'>".$dates."</p></div><div class='fichetexteevent'>".$texte."</div></div></div></div>";
+			//$photo = array ("media/friche.jpg", "media/silo.jpg", "media/img3.jpg");
+				//for ($i = 0 ; $i < 3 ; $i++)
+			
+				echo "<div class='bgevent model".$i."'><div class='ficheevent'><div class='fichephotoevent' style='background-image:url(".$photo.")'></div><div class='fichearticleevent'><div class='fichetitreevent'><p class='titreevent'>".$titre."</p><p class='dateevent'>".$dates."</p></div><div class='fichetexteevent'>".$texte."</div></div></div></div>";
 			}
-		}
-	}
-
+} else {
+     echo "0 results";
+}
 
 $conn->close();
 
-		?>
+?>  
 	</div>
 </div>

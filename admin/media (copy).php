@@ -35,25 +35,73 @@
 </head>
 
 <?php
+
 include '../../MarseilleSolutionDB/db2.php';
 
+ if(isset($_POST['delete']) && $_POST['delete'] == 'Supprimer'){
+    $req = $mabase->prepare("DELETE FROM medias WHERE id= :id");
+    $req->execute(array(
+        'id' => $_POST['id']
+        ));
+    header('Location: media.php');
+    exit();
+  }
+
+include '../../MarseilleSolutionDB/db.php';
+
 $error = "";
-
-if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder") {
-  
-$req = $mabase->prepare("INSERT INTO events(id, photo, titre, texte, dates) VALUES(:id, :photo, :titre, :texte, :dates)");
-        $req->execute(array(
-          "id" => "",
-          "photo" => $_POST['photo'],
-          "titre" => $_POST['titre'],
-          "texte" => $_POST['texte'],
-          "dates" => $_POST['dates'],
-                    ));
-
-        header('Location: create.php');
-        exit();
+// mise à jour du titre dans la bdd
+if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
+    $conn = new mysqli($serveur, $user, $mdp, $mabase);
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
-?>
+    
+    $newphoto = $_POST['photo'];
+     $newtitre = $_POST['titre'];
+      $newtexte = $_POST['texte'];
+       $newdates = $_POST['dates'];
+    $sql = 'UPDATE medias SET photo = "'.$newphoto.'","'.$newtitre.'","'.$newtexte.'","'.$newdates.'"';
+    if ($conn->query($sql) === TRUE) {
+    $confirm= "Modifications effectuées!";
+} else {
+    $confirm= "Erreur dans la mise à jour " . $conn->error;
+}
+
+    $conn->close();
+    }
+
+// Recuperation du titre dans la bdd
+$conn = new mysqli($serveur, $user, $mdp, $mabase);
+// Check connection
+if ($conn->connect_error) {
+     die("Erreur de connection: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM medias";
+//WHERE id=".$_GET['id'];
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+     // output data of each row
+     while($row = $result->fetch_assoc()) {
+         $photo = $row['photo'];
+         $titre = $row['titre'];
+         $texte = $row['texte'];
+         $dates = $row['dates'];
+         $id = $row['id'];
+
+     }
+} else {
+     echo "0 results";
+}
+
+$conn->close();
+
+?>  
+
+
 <body>
 
     <div id="wrapper">
@@ -63,7 +111,11 @@ $req = $mabase->prepare("INSERT INTO events(id, photo, titre, texte, dates) VALU
         <div id="page-wrapper">
 
             <div class="container-fluid">
-            
+                
+                             
+                <h1><?php if(isset($confirm)){
+                    echo $confirm ;
+                } ?></h1>
             </div>
             <!-- /.container-fluid -->
 
@@ -84,8 +136,11 @@ $req = $mabase->prepare("INSERT INTO events(id, photo, titre, texte, dates) VALU
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
 
+</body>
 
+</html>
 
+<body>
 
     <div id="wrapper">
 
@@ -101,7 +156,7 @@ $req = $mabase->prepare("INSERT INTO events(id, photo, titre, texte, dates) VALU
                 </button>
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
-            <!-- Top Menu Items -->
+         <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav"> 
                 <li>
                     <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
@@ -121,28 +176,24 @@ $req = $mabase->prepare("INSERT INTO events(id, photo, titre, texte, dates) VALU
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Slider</a>
-                    </li>
-                    <li >
-                        <a href="charts.php"><i class="fa fa-fw fa-file"></i>Chef</a>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
                     <li>
-                        <a href="page0.php"><i class="fa fa-fw fa-file"></i>Comment ça marche?</a>
+                        <a href="charts.php"><i class="fa fa-fw fa-file"></i> Chef</a>
+                    </li>
+                     <li>
+                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li>
                         <a href="tables.php"><i class="fa fa-fw fa-table"></i> Events</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-                    </li>
-                    <li>
+                    </li>   
+                     <li class="active">
                         <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
-                    </li> 
-                    <li>
-                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
                     </li>
-                   
-                                       
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -156,14 +207,14 @@ $req = $mabase->prepare("INSERT INTO events(id, photo, titre, texte, dates) VALU
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                          Ajouter un événement
+                           Modifier la partie : Medias
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                 Ajouter un événement
+                                Medias
                             </li>
                         </ol>
                     </div>
@@ -171,79 +222,60 @@ $req = $mabase->prepare("INSERT INTO events(id, photo, titre, texte, dates) VALU
                 <!-- /.row -->
 
                 <!-- Flot Charts -->
-                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="page-header">1- Modifier le texte<br>2- Sauvegarder</h2>
+                        
+                    </div>
+                </div>
                 <!-- /.row -->
 
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Modifier la photo</h3>
+
+                            </div>
+                            <form method='post' action='tables.php'>
+                    
+                     <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
+            <script>
+               replace( 'photo' );
+            </script>         
+                                          
+              <h3 class="panel-title">Modifier le titre</h3>
+                    <textarea name="titre" id="titre" rows="10" cols="80"><?php echo $titre ; ?></textarea>
+            <script>
+                 CKEDITOR.replace( 'titre' );
+            </script>
+
+            <h3 class="panel-title">Modifier le texte</h3>
+            <textarea name="texte" id="texte" rows="10" cols="80"><?php echo $texte ; ?></textarea>
+            <script>
+                 CKEDITOR.replace( 'texte' );
+            </script>
+
+            <h3 class="panel-title">Modifier la date</h3>
+            <textarea name="dates" id="dates" rows="10" cols="80"><?php echo $dates ; ?></textarea>
+            <script>
+                replace( 'dates' );
+            </script>
                     
              
                 
    
-                        <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Photo</h3>
-                            </div>
-
-                    <form method='post' action='create.php'>
-                            <textarea name="photo" id="photo" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'photo' );
-            </script>
-                    
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Titre</h3>
-                            </div>
-                            
-                                <div class="text-right">
-                                     <textarea name="titre" id="titre" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'titre' );
-            </script>
-                         
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Texte</h3>
-                            </div>
-                   <div class="text-right">
-                    
-                           <textarea name="texte" id="texte" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'texte' );
-            </script>
-                    
-                            </div>
-                        </div>
-                            <textarea name="dates" id="dates" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'dates' );
-            </script>
-                    </div>
-                    
-                </div>
-                <!-- /.row -->
-                
-
-            </div>
-          
+                    <input type="hidden" name="id" value="<?php echo $id ; ?>">
                     <input type = 'submit' name='sauvegarder' value="Sauvegarder">
+                    <input type="submit"  name="delete" value="Supprimer" class="btn btn-primary">
+                    
                 </form>
-                            
-                </div>
+            
             <!-- /.container-fluid -->
 
         </div>

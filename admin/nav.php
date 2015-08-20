@@ -53,6 +53,12 @@
                     <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i>Ajouter un event</a>
                     </li>
+                    <li>
+                        <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
+                    </li> 
+                    <li>
+                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
+                    </li>
                     
                     
                 </ul>

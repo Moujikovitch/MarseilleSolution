@@ -35,63 +35,25 @@
 </head>
 
 <?php
-include '../../MarseilleSolutionDB/db.php';
+include '../../MarseilleSolutionDB/db2.php';
+
 $error = "";
-// mise à jour du titre dans la bdd
-if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
-    $conn = new mysqli($serveur, $user, $mdp, $mabase);
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+
+if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder") {
+  
+$req = $mabase->prepare("INSERT INTO medias(id, photo, titre, texte, dates) VALUES(:id, :photo, :titre, :texte, :dates)");
+        $req->execute(array(
+          "id" => "",
+          "photo" => $_POST['photo'],
+          "titre" => $_POST['titre'],
+          "texte" => $_POST['texte'],
+          "dates" => $_POST['dates'],
+                    ));
+
+        header('Location: ajoutmedia.php');
+        exit();
     }
-    
-    $newdescchef = $_POST['descchef'];
-    $newtitrefiche1 = $_POST['titrefiche1'];
-    $newtitrefiche2 = $_POST['titrefiche2'];
-    $newtitrefiche3 = $_POST['titrefiche3'];
-    $newlienfiche2 = $_POST['lienfiche2'];
-    $newdescfiche1 = $_POST['descfiche1'];
-    $newdescfiche2 = $_POST['descfiche2'];
-    $sql = 'UPDATE reglages SET descchef = "'.$newdescchef.'", titrefiche1 = "'.$newtitrefiche1.'", titrefiche2 = "'.$newtitrefiche2.'", titrefiche3 = "'.$newtitrefiche3.'", lienfiche2 = "'.$newlienfiche2.'", descfiche1 = "'.$newdescfiche1.'", descfiche2 = "'.$newdescfiche2.'"';
-    if ($conn->query($sql) === TRUE) {
-    $confirm= "Modifications effectuées!";
-} else {
-    $confirm= "Erreur dans la mise à jour " . $conn->error;
-}
-
-    $conn->close();
-    }
-
-// Recuperation du titre dans la bdd
-$conn = new mysqli($serveur, $user, $mdp, $mabase);
-// Check connection
-if ($conn->connect_error) {
-     die("Erreur de connection: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM reglages";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {
-         $descchef = $row['descchef'];
-         $titrefiche1 = $row['titrefiche1'];
-        $titrefiche2 = $row['titrefiche2'];
-        $titrefiche3 = $row['titrefiche3'];
-        $lienfiche2 = $row['lienfiche2'];
-        $descfiche1 = $row['descfiche1'];
-        $descfiche2 = $row['descfiche2'];
-     }
-} else {
-     echo "0 results";
-}
-
-$conn->close();
-
-?>  
-
-
+?>
 <body>
 
     <div id="wrapper">
@@ -101,11 +63,7 @@ $conn->close();
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                
-                             
-                <h1><?php if(isset($confirm)){
-                    echo $confirm ;
-                } ?></h1>
+            
             </div>
             <!-- /.container-fluid -->
 
@@ -144,10 +102,10 @@ $conn->close();
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">  
+            <ul class="nav navbar-right top-nav"> 
                 <li>
                     <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
-                </li>            
+                </li>             
                 <li>
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
                 </li>  
@@ -165,7 +123,7 @@ $conn->close();
                     <li>
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Slider</a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="charts.php"><i class="fa fa-fw fa-file"></i>Chef</a>
                     </li>
                     <li>
@@ -176,11 +134,11 @@ $conn->close();
                     </li>
                     <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-                    </li>  
+                    </li>
                     <li>
                         <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
                     </li> 
-                    <li>
+                    <li class="active">
                         <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
                     </li>
                    
@@ -198,14 +156,14 @@ $conn->close();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                          Modifier la partie : Le Chef
+                          Ajouter un média
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.php">Pizzatomic</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                 Chef
+                                 Ajouter un média
                             </li>
                         </ol>
                     </div>
@@ -213,55 +171,26 @@ $conn->close();
                 <!-- /.row -->
 
                 <!-- Flot Charts -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="page-header">1- Modifier le texte<br>2- Sauvegarder</h2>
-                        </div>
-                </div>
+                
                 <!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Modifier le descriptif Le Chef!</h3>
-
-                            </div>
-                            <form method='post' action='charts.php'>
-                    
-                     <textarea name="descchef" id="descchef" rows="10" cols="80"><?php echo $descchef ; ?></textarea>
-            <script>
-                CKEDITOR.replace( 'descchef' );
-            </script>
                     
              
                 
    
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <!-- Morris Charts -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="page-header">Modifier la fiche 1</h2>
-                        </div>
-                </div>
-                <!-- /.row -->
+                        <!-- /.row -->
 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Titre de la fiche 1</h3>
+                                <h3 class="panel-title">Photo</h3>
                             </div>
 
-                    
-                         <form method='post' action='charts.php'>
-                            <textarea name="titrefiche1" id="titrefiche1" rows="10" cols="80"><?php echo $titrefiche1 ; ?></textarea>
+                    <form method='post' action='ajoutmedia.php'>
+                            <textarea name="photo" id="photo" rows="10" cols="80"></textarea>
             <script>
-                CKEDITOR.replace( 'titrefiche1' );
+                replace( 'photo' );
             </script>
                     
                         </div>
@@ -273,14 +202,13 @@ $conn->close();
                     <div class="col-lg-12">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Titre de la fiche 3</h3>
+                                <h3 class="panel-title">Titre</h3>
                             </div>
                             
                                 <div class="text-right">
-                                    <form method='post' action='charts.php'>
-                                     <textarea name="titrefiche3" id="titrefiche3" rows="10" cols="80"><?php echo $titrefiche3 ; ?></textarea>
+                                     <textarea name="titre" id="titre" rows="10" cols="80"></textarea>
             <script>
-                CKEDITOR.replace( 'titrefiche3' );
+                replace( 'titre' );
             </script>
                          
                             </div>
@@ -289,84 +217,32 @@ $conn->close();
                     <div class="col-lg-12">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Descriptif de la fiche 1</h3>
+                                <h3 class="panel-title">Texte</h3>
                             </div>
                    <div class="text-right">
-                    <form method='post' action='charts.php'>
-                           <textarea name="descfiche1" id="descfiche1" rows="10" cols="80"><?php echo $descfiche1 ; ?></textarea>
+                    
+                           <textarea name="texte" id="texte" rows="10" cols="80"></textarea>
             <script>
-                CKEDITOR.replace( 'descfiche1' );
+                replace( 'texte' );
             </script>
                     
                             </div>
                         </div>
-                            
-                    </div>
-                     <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="page-header">Modifier la fiche 2</h2>
-                        </div>
-                </div>
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Titre de la fiche 2</h3>
-                            </div>
-                            <form method='post' action='index.php'>
-                            <textarea name="titrefiche2" id="titrefiche2" rows="10" cols="80"><?php echo $titrefiche2 ; ?></textarea>
+                            <textarea name="dates" id="dates" rows="10" cols="80"></textarea>
             <script>
-                CKEDITOR.replace( 'titrefiche2' );
+                replace( 'dates' );
             </script>
-                    
-                            <div class="panel-body">
-                                
-                                <div class="text-right">
-                                    
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    
                 </div>
                 <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Lien de la fiche 2</h3>
-                            </div>
-                            <form method='post' action='index.php'>
-                            <textarea name="lienfiche2" id="lienfiche2" rows="10" cols="80"><?php echo $lienfiche2 ; ?></textarea>
-            <script>
-                CKEDITOR.replace( 'lienfiche2' );
-            </script>
-                    
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
-            <div class="row">
-                   </div>
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Descriptif de la fiche 2</h3>
-                            </div>
-                            <form method='post' action='index.php'>
-                            <textarea name="descfiche2" id="descfiche2" rows="10" cols="80"><?php echo $descfiche2 ; ?></textarea>
-            <script>
-                CKEDITOR.replace( 'descfiche2' );
-            </script>
+          
                     <input type = 'submit' name='sauvegarder' value="Sauvegarder">
                 </form>
-                            <div class="panel-body">
-                                
-                                <div class="text-right">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            
                 </div>
             <!-- /.container-fluid -->
 
