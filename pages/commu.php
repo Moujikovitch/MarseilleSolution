@@ -11,7 +11,7 @@
 					for ($i=0;$i<10;$i++)
 						{
 							echo "<div class='bgfichecom'>
-											<div class='fichecom'>
+											<div id='num".$i."' class='fichecom'>
 
 												<div class='imgfichecom'>
 												</div>
@@ -21,10 +21,10 @@
 													</p>
 													ici Fonction
 												</div>
+												<div class='descfichecom'>
+												ici le texte description
+												</div>
 											</div>
-										</div>
-										<div class='descfichecom'>
-										ici le texte description
 										</div>";
 						}
 				?>
