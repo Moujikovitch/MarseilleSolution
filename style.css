@@ -196,7 +196,7 @@ a {
     margin:  20px auto;
     overflow: hidden;
     z-index:0;
-		border-radius: 10px;
+		cursor:pointer;
 }
 .imgslider{
 	width:120vh;
@@ -275,6 +275,9 @@ a {
 	overflow:hidden;
 	cursor:pointer;
 }
+.fichecom:hover {
+	background-color:;
+}
 .imgfichecom {
 	background-image:url("media/truite.jpg");
 	background-position:center;
@@ -310,6 +313,10 @@ a {
 	margin:15px;
 	/*border-radius: 10px;*/
 }
+.descfichecom {
+	background-color:black;
+	display:none;
+}
 #voile{
 	width:100vw;
 	height:100vh;
@@ -329,6 +336,11 @@ a {
 	height:0px;
 	/*border-radius:10px;*/
 	padding:10px;
+	-moz-box-shadow: 1px 2px 20px 0px #656565;
+	-webkit-box-shadow: 1px 2px 20px 0px #656565;
+	-o-box-shadow: 1px 2px 20px 0px #656565;
+	box-shadow: 1px 2px 20px 0px #656565;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=153, Strength=20);
 }
 #crux{
 	position:absolute;

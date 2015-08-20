@@ -17,11 +17,14 @@
 												</div>
 												<div class='txtfichecom'>
 													<p class='titrefichecom'>
-														J-C. Carteron
+														ici mettre Nom prénom
 													</p>
-													Fonction
+													ici Fonction
 												</div>
 											</div>
+										</div>
+										<div class='descfichecom'>
+										ici le texte description
 										</div>";
 						}
 				?>
