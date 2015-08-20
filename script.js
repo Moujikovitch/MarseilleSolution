@@ -81,9 +81,9 @@ $("document").ready(function(){
 
   	$("#voile").show();
   	//ajouter selection de classe en fonction de l'ID généré par PHP
-  	$(".modalphoto").css("background-image",$(".imgfichecom").css("background-image"));
-  	$(".modaltitre").innerHTML = ""
-  	$(".modaltexte").innetHTML = ""
+  	$(".modalphoto").css("background-image",$("#"+this.id.toString()+" .imgfichecom").css("background-image"));
+  	$(".modaltitre").html($("#"+this.id.toString()+" .txtfichecom").html());
+  	$(".modaltext").html($("#"+this.id.toString()+" .descfichecom").html());
   });
 
   $("#crux").click(function(){

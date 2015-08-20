@@ -7,6 +7,7 @@
 				Marseille Solution vu par...
 			</p>
 			<div class="flexbox">
+<<<<<<< HEAD
 <?php
 include '../MarseilleSolutionDB/db.php';
 $error = "";
@@ -45,6 +46,27 @@ if ($result->num_rows > 0) {
 								<div class='descfichecom'>
 										<p>".$description."</p>
 								</div>";
+=======
+				<?php
+					for ($i=0;$i<10;$i++)
+						{
+							echo "<div class='bgfichecom'>
+											<div id='num".$i."' class='fichecom'>
+
+												<div class='imgfichecom'>
+												</div>
+												<div class='txtfichecom'>
+													<p class='titrefichecom'>
+														ici mettre Nom prénom
+													</p>
+													ici Fonction
+												</div>
+												<div class='descfichecom'>
+												ici le texte description
+												</div>
+											</div>
+										</div>";
+>>>>>>> ab69a87c6ad049347a2567339ddf38921dffe680
 						}
 } else {
      echo "0 results";
