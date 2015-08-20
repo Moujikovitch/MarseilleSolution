@@ -46,7 +46,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
     }
     
     $newphoto = $_POST['photo'];
-    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'"';
+    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'", photo2 = "'.$newphoto2.'", titre = "'.$newtitre.'"';
     if ($conn->query($sql) === TRUE) {
     $confirm= "Modifications effectuées!";
 } else {
@@ -70,6 +70,8 @@ if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
          $photo = $row['photo'];
+         $photo2 = $row['photo2'];
+         $titre = $row['titre'];
      }
 } else {
      echo "0 results";
@@ -211,18 +213,51 @@ $conn->close();
                             </div>
                             <form method='post' action='page0.php'>
                     
-                     <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
+                     <textarea name="photo2" id="photo2" rows="10" cols="80"><?php echo $photo2 ; ?></textarea>
             <script>
-                replace( 'photo' );
+                replace( 'photo2' );
             </script>
-                    
-             
-                
    
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Modifier la photo 2</h3>
+
+                            </div>
+                            <form method='post' action='page0.php'>
+                    
+                     <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
+            <script>
+                replace( 'photo' );
+            </script>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Modifier le titre</h3>
+
+                            </div>
+                            <form method='post' action='page0.php'>
+                    
+                     <textarea name="titre" id="titre" rows="10" cols="80"><?php echo $titre ; ?></textarea>
+            <script>
+                replace( 'titre' );
+            </script>
+   
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
                     <input type = 'submit' name='sauvegarder' value="Sauvegarder">
                 </form>
                             <div class="panel-body">
