@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
 				echo "<div class='bgfichecom'>
 							<div class='fichecom' id='num".$i."'>
 
-								<div class='imgfichecom'>
+								<div class='imgfichecom' style='background-image: url(".$image.")'>
 										</div>
 											<div class='txtfichecom'>
 												<p class='titrefichecom'>
@@ -41,10 +41,12 @@ if ($result->num_rows > 0) {
 												</p>
 													".$fonction."
 											</div>
-										</div>
-								</div>
+										
+								
 								<div class='descfichecom'>
 										<p>".$description."</p>
+										</div>
+										</div>
 								</div>";
 }
 } else {

@@ -220,7 +220,7 @@ $conn->close();
                     
                      <textarea name="image" id="image" rows="10" cols="80"><?php echo $image ; ?></textarea>
             <script>
-                CKEDITOR.replace( 'image' );
+                replace( 'image' );
             </script>
                     
              
@@ -248,7 +248,7 @@ $conn->close();
                          <form method='post' action='charts.php'>
                             <textarea name="nom" id="nom" rows="10" cols="80"><?php echo $nom ; ?></textarea>
             <script>
-                CKEDITOR.replace( 'nom' );
+                replace( 'nom' );
             </script>
                     
                         </div>
@@ -273,7 +273,7 @@ $conn->close();
                          <form method='post' action='charts.php'>
                             <textarea name="description" id="description" rows="10" cols="80"><?php echo $description ; ?></textarea>
             <script>
-                CKEDITOR.replace( 'description' );
+                replace( 'description' );
             </script>
                     
                         </div>
@@ -292,7 +292,7 @@ $conn->close();
                                     <form method='post' action='charts.php'>
                                      <textarea name="fonction" id="fonction" rows="10" cols="80"><?php echo $fonction ; ?></textarea>
             <script>
-                CKEDITOR.replace( 'fonction' );
+                replace( 'fonction' );
             </script>
                          
                             

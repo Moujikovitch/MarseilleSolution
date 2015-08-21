@@ -127,6 +127,9 @@ $req = $mabase->prepare("INSERT INTO medias(id, photo, titre, texte, dates) VALU
                         <a href="charts.php"><i class="fa fa-fw fa-file"></i> Communauté</a>
                     </li>
                     <li>
+                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
+                    </li>
+                    <li>
                         <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li>
