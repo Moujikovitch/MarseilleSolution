@@ -118,10 +118,14 @@ $("document").ready(function(){
   		this.widthComp = (document.body.offsetWidth).toString()+"px";
   	};
   	$("#photop0").css("width", this.widthComp);
+    $("#photop1").css("width", this.widthComp);
+    $("#textcomment").css("width", this.widthComp);
     if (document.getElementById("photop0")) {
   	   this.margleft = (document.getElementById("photop0").offsetWidth/-2).toString()+"px";
     };
   	$("#photop0").css("margin-left", this.margleft);
+    $("#photop1").css("margin-left", this.margleft);
+    $("#textcomment").css("margin-left", this.margleft);
   };
 
   posImgComment();

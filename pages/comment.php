@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
          $titre = $row['titre'];
          $photo = $row['photo'];
          $photo2 = $row['photo2'];
-         
+
          }
 } else {
      echo "0 results";
@@ -28,20 +28,14 @@ $conn->close();
 ?>
 
 <div id="milieu" class="pagecomment">
-		
-		<img id="photop0" src='<?php echo $photo; ?>'></img>
-
-<div style="text-align:center"><p><?php echo $titre; ?></p>
-	<img id="photo" src='<?php echo $photo2; ?>'></img>
-</div>
-	<div>
+  <img id="photop0" class="imgcomment" src='<?php echo $photo; ?>'></img>
+  <div id="textcomment"><p><?php echo $titre; ?></p></div>
+	<img id="photop1" class="imgcomment" src='<?php echo $photo2; ?>'></img>
 		<div class="ssbtn" id="btncomment">
-			
 			<a href="page1.php">
 				<div class="btnmenu">
 					<p class="txtmenu">VOIR LES SOLUTIONS</p>
 				</div>
 			</a>
 		</div>
-	</div>
 </div>

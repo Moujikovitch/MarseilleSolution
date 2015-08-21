@@ -363,6 +363,8 @@ a {
 }
 .modalphoto {
 	background-color: red;
+	background-size:cover;
+	background-position:center;
 	height:220px;
 	width:170px;
 	/*border-radius: 10px;*/
@@ -408,11 +410,13 @@ a {
 
 /*COMMENT?/PAGE1=================================================*/
 
-#photop0{
-	width:80vw;
+.imgcomment{
 	max-width:900px;
 	position:relative;
 	left:50vw;
+}
+#photop1{
+	margin-bottom:100px;
 }
 #btncomment {
 	margin:auto;
@@ -420,6 +424,14 @@ a {
 	height:45px;
 	background-color:rgb(63,110,150);
 	margin-bottom:100px;
+}
+#textcomment {
+	width:80vw;
+	max-width:900px;
+	text-align:justify;
+	position:relative;
+	left:50vw;
+	margin-bottom:75px;
 }
 
 /*EVENT/MEDIA/PAGE2/3=================================================*/
