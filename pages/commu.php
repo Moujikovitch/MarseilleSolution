@@ -23,14 +23,15 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
      // output data of each row
+		$i = 0;
      while($row = $result->fetch_assoc()) {
          $image = $row['image'];
          $nom = $row['nom'];
          $fonction = $row['fonction'];
          $description = $row['description'];
-
+				$i++;
 				echo "<div class='bgfichecom'>
-							<div class='fichecom'>
+							<div class='fichecom' id='num".$i."'>
 
 								<div class='imgfichecom'>
 										</div>
