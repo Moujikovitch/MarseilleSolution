@@ -13,7 +13,8 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM events";
 $result = $conn->query($sql);
-$i = 1;
+$numodel = 1;
+$numevent = 0;
 if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
@@ -21,13 +22,13 @@ if ($result->num_rows > 0) {
          $titre = $row['titre'];
          $texte = $row['texte'];
          $dates = $row['dates'];
-         if ($i == 0){
- 					$i = 1;
- 				} else {
- 					$i = 0;
- 				}
-
-         echo "<div class='bgevent model".$i."'>
+         if ($numodel == 0){
+ 					$numodel = 1;
+ 				 } else {
+ 					$numodel = 0;
+ 				 }
+         $numevent++;
+         echo "<div id='num".$numevent."' class='bgevent model".$numodel."'>
    							<div class='ficheevent'>
    								<div class='fichephotoevent' style='background-image:url(".$photo.")'>
    								</div>
@@ -40,7 +41,6 @@ if ($result->num_rows > 0) {
    								</div>
    							</div>
    						</div>";
-
          }
 } else {
      echo "0 results";
@@ -50,4 +50,20 @@ $conn->close();
 
 ?>
 	</div>
+  <div id="voile">
+  </div>
+  <div id="modal" class="modalevent">
+    <div id="crux">
+    </div>
+    <div id="contmodal">
+      <div class="modalphotoevent">
+      </div>
+      <div class="modaldateevent">
+        Coucou c'est moi
+      </div>
+      <div class="modaltextevent">
+        La vie est géniale même si elle n'a pas de sens.
+      </div>
+    </div>
+  </div>
 </div>

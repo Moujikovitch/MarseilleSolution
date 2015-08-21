@@ -102,27 +102,6 @@ $conn->close();
 			</div>
 			<div class="modaltext">
 				La vie est géniale même si elle n'a pas de sens.
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
-				All work and no play makes Jack a dull boy
 			</div>
 		</div>
 	</div>

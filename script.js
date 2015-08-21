@@ -65,26 +65,33 @@ $("document").ready(function(){
   $("#modal").hide();
   $("#voile").hide();
 
-  $(".fichecom").click(function(){
-  	$("#modal").show();
-  	$("#modal").animate({
-  		height:"300px"
-  	},400,"swing", function(){
+  function modalOpen() {
+    $("#modal").show();
+    $("#modal").animate({
+      height:"300px"
+    },400,"swing", function(){
       $("#crux").animate({
         top:"-12px",
         right:"-12px"
       },400,"swing");
     });
-  	$("#contmodal").animate({
-  		height:"295px"
-  	},400,"swing");
+    $("#contmodal").animate({
+      height:"295px"
+    },400,"swing");
 
-  	$("#voile").show();
-  	//ajouter selection de classe en fonction de l'ID généré par PHP
-  	$(".modalphoto").css("background-image",$("#"+this.id.toString()+" .imgfichecom").css("background-image"));
-  	$(".modaltitre").html($("#"+this.id.toString()+" .txtfichecom").html());
-  	$(".modaltext").html($("#"+this.id.toString()+" .descfichecom").html());
+    $("#voile").show();
+    //ajouter selection de classe en fonction de l'ID généré par PHP
+    $(".modalphoto").css("background-image",$("#"+this.id.toString()+" .imgfichecom").css("background-image"));
+    $(".modaltitre").html($("#"+this.id.toString()+" .txtfichecom").html());
+    $(".modaltext").html($("#"+this.id.toString()+" .descfichecom").html());
     $(".modalinfo").html($("#"+this.id.toString()+" .infofichecom").html());
+  };
+
+  $(".fichecom").click(function(){
+    modalOpen();
+  });
+  $(".bgevent").click(function(){
+    modalOpen();
   });
 
   $("#crux").click(function(){
@@ -105,7 +112,7 @@ $("document").ready(function(){
   	};
   	$(".modalcommu").css("width",this.modalwidth.toString()+"px");
   	$(".modalcommu").css("margin-left", (this.modalwidth/-2).toString()+"px");
-    $(".modalsolution").css("width",(this.modalwidth*3).toString()+"px");
+    $(".modalsolution").css("width",(this.modalwidth*2).toString()+"px");
     $(".modalsolution").css("margin-left", (this.modalwidth/-1.5).toString()+"px");
   };
 

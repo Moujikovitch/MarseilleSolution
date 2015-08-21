@@ -51,4 +51,20 @@ $conn->close();
 
 		?>
 	</div>
+	<div id="voile">
+	</div>
+	<div id="modal" class="modalcommu">
+		<div id="crux">
+		</div>
+		<div id="contmodal">
+			<div class="modalphoto">
+			</div>
+			<div class="modaltitre">
+				Coucou c'est moi
+			</div>
+			<div class="modaltext">
+				La vie est géniale même si elle n'a pas de sens.
+			</div>
+		</div>
+	</div>
 </div>
