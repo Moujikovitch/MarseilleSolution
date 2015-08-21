@@ -27,11 +27,23 @@ if ($result->num_rows > 0) {
 				} else {
 					$i = 0;
 				}
-			echo "<div class='bgevent model".$i."'><div class='ficheevent'><div class='fichephotoevent' style='background-image:url(".$photo.")'></div><div class='fichearticleevent'><div class='fichetitreevent'><p class='titreevent'>".$titre."</p><p class='dateevent'>".$dates."</p></div><div class='fichetexteevent'>".$texte."</div></div></div></div>";
+			echo "<div class='bgevent model".$i."'>
+							<div class='ficheevent'>
+								<div class='fichephotoevent' style='background-image:url(".$photo.")'>
+								</div>
+								<div class='fichearticleevent'>
+									<div class='fichetitreevent'>
+										<p class='titreevent'>".$titre."</p>
+										<p class='dateevent'>".$dates."</p>
+									</div>
+									<div class='fichetexteevent'>".$texte."</div>
+								</div>
+							</div>
+						</div>";
 
 		}
 	} else {
-		echo "fuck off";
+		echo "Aucun résultat";
 	}
 
 
