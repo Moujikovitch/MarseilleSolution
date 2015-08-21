@@ -41,8 +41,8 @@ if ($result->num_rows > 0) {
 												</p>
 													".$fonction."
 											</div>
-										
-								
+
+
 								<div class='descfichecom'>
 										<p>".$description."</p>
 										</div>
@@ -91,7 +91,7 @@ $conn->close();
 	</div>
 	<div id="voile">
 	</div>
-	<div id="modal">
+	<div id="modal" class="modalcommu">
 		<div id="crux">
 		</div>
 		<div id="contmodal">

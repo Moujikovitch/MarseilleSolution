@@ -84,6 +84,7 @@ $("document").ready(function(){
   	$(".modalphoto").css("background-image",$("#"+this.id.toString()+" .imgfichecom").css("background-image"));
   	$(".modaltitre").html($("#"+this.id.toString()+" .txtfichecom").html());
   	$(".modaltext").html($("#"+this.id.toString()+" .descfichecom").html());
+    $(".modalinfo").html($("#"+this.id.toString()+" .infofichecom").html());
   });
 
   $("#crux").click(function(){
@@ -100,10 +101,12 @@ $("document").ready(function(){
   	if (document.body.offsetWidth > 600) {
   		this.modalwidth = 600;
   	} else {
-  		this.modalwidth = document.body.offsetWidth/100*80;
+  		this.modalwidth = document.body.offsetWidth/100*90;
   	};
-  	$("#modal").css("width",this.modalwidth.toString()+"px");
-  	$("#modal").css("margin-left", (this.modalwidth/-2).toString()+"px");
+  	$(".modalcommu").css("width",this.modalwidth.toString()+"px");
+  	$(".modalcommu").css("margin-left", (this.modalwidth/-2).toString()+"px");
+    $(".modalsolution").css("width",(this.modalwidth*3).toString()+"px");
+    $(".modalsolution").css("margin-left", (this.modalwidth/-1.5).toString()+"px");
   };
 
   modalPlace();
