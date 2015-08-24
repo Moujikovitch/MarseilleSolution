@@ -74,6 +74,23 @@ $("document").ready(function(){
 
   //script COMMU
 
+  //hover des images
+  $(".fichecom").hover(function(){
+    $("#"+this.id.toString()+" .imgfichecom").animate({
+      opacity:"0.1"
+    },100);
+    $("#"+this.id.toString()+" .logofichecom").animate({
+      opacity:"0.1"
+    },100);
+  }, function(){
+    $("#"+this.id.toString()+" .imgfichecom").animate({
+      opacity:"1"
+    },200);
+    $("#"+this.id.toString()+" .logofichecom").animate({
+      opacity:"1"
+    },200);
+  });
+  //modale
   $("#modal").hide();
   $("#voile").hide();
 

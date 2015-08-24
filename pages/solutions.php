@@ -32,23 +32,22 @@
            $description = $row['description'];
   				$i++;
   				echo "<div class='bgfichecom'>
-  							<div class='fichecom' id='num".$i."'>
-
-  								<div class='logofichecom' style='background-image: url(".$image.")'>
-  										</div>
-  											<div class='txtfichecom'>
-  												<p class='titrefichecom'>
-  														".$nom."
-  												</p>
-  													".$fonction."
-  											</div>
-
-
-  								<div class='infofichecom'>
-  										<img class='imginfo' src='media/principes-actions-2-vectorise.svg'></img>
-  										</div>
-  										</div>
-  								</div>";
+  							 <div class='fichecom' id='num".$i."'>
+                  <div class='bgimgfichesol'>
+  								  <div class='logofichecom' style='background-image: url(".$image.")'>
+  									</div>
+  									<div class='txtfichecom'>
+  										<p class='titrefichecom'>
+  											".$nom."
+  										</p>
+  										".$fonction."
+  									</div>
+                  </div>
+  							  <div class='infofichecom'>
+  							    <img class='imginfo' src='media/principes-actions-2-vectorise.svg'></img>
+  							  </div>
+  						   </div>
+  					    </div>";
   }
   } else {
        echo "0 results";

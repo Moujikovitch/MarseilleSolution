@@ -345,8 +345,12 @@ a {
 	overflow:hidden;
 	cursor:pointer;
 }
-.fichecom:hover {
-	background-color:;
+.fichecomlogo {
+	width:100%;
+	height:100%;
+	/*border-radius: 10px;*/
+	/*display:inline-block;*/
+	overflow:hidden;
 }
 .bgimgfichecom {
 	height:50%;
@@ -354,6 +358,17 @@ a {
 	overflow:hidden;
 	margin:auto;
 	margin-top:13px;
+	background-size:cover;
+	background-position:center;
+}
+.bgtem{
+	background-image:url("media/pluscommu.svg");
+}
+.bglogo{
+	background-image:url("media/plusequip.svg");
+}
+.bgequip{
+	background-image:url("media/plusequip2.svg");
 }
 .imgfichecom {
 	background-image:url("media/truite.jpg");
@@ -361,12 +376,16 @@ a {
 	background-size: cover;
 	height:100%;
 	width:100%;
+	opacity:1;
+}
+.imgfichecom:hover{
+	transition:0.1s;
+	opacity:0.1;
 }
 .titrefichecom {
 	font-family:"DinotBold";
 }
 .txtfichecom {
-
 	width:80%;
 	height:21%;
 	color:black;
@@ -392,7 +411,6 @@ a {
 	background-color:black;
 	display:none;
 }
-
 .titre{
 	max-width:900px;
 }
@@ -568,8 +586,8 @@ en haut /\ */
 .logofichecom {
 	background-position:center;
 	background-size: cover;
-	height:200px;
-	width:200px;
+	height:100%;
+	width:100%;
 	overflow:hidden;
 	margin:auto;
 	margin-top:13px;
@@ -579,4 +597,11 @@ en haut /\ */
 }
 .imginfo {
 	width:100%;
+}
+.bgimgfichesol {
+	background-image:url("media/plussolution.svg");
+	background-size:cover;
+	background-position:center;
+	height:200px;
+	width:200px;
 }
