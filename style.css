@@ -535,6 +535,10 @@ a {
 .dateevent {
 	text-align:center;
 }
+.manudate {
+	font-family:"DinotBold";
+	font-size:18px;
+}
 
 
 /*CSS ALTERNATIF EVENT/MEDIA==============================================*/

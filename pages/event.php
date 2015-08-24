@@ -28,14 +28,18 @@ if ($result->num_rows > 0) {
  					$numodel = 0;
  				 }
          $numevent++;
-         echo "<div id='num".$numevent."' class='bgevent model".$numodel."'>
+         echo "<div id='num".$numevent."' class='bgevent model".$numodel."' date=".$dates.">
+                <div class='dateevent manudate'>
+                  <p>
+                  ".$dates."
+                  </p>
+                </div>
    							<div class='ficheevent'>
    								<div class='fichephotoevent' style='background-image:url(".$photo.")'>
    								</div>
    								<div class='fichearticleevent'>
    									<div class='fichetitreevent'>
    										<p class='titreevent'>".$titre."</p>
-   										<p class='dateevent'>".$dates."</p>
    									</div>
    									<div class='fichetexteevent'>".$texte."</div>
    								</div>

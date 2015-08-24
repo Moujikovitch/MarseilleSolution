@@ -44,7 +44,6 @@ $("document").ready(function(){
 
   //script MENU
 
-  var $win = $(window);
   var winH = $("#logo").height()+35;
    $(window).scroll(function ()    {
       if ( $(window).scrollTop() > winH)
@@ -175,6 +174,8 @@ $("document").ready(function(){
   posImgComment();
 
   //script MEDIA/EVENT
+
+
 
   //script OnResize
 
