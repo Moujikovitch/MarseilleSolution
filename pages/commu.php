@@ -31,23 +31,22 @@ if ($result->num_rows > 0) {
          $description = $row['description'];
 				$i++;
 				echo "<div class='bgfichecom'>
-							<div class='fichecom' id='num".$i."'>
-
-								<div class='imgfichecom' style='background-image: url(".$image.")'>
+								<div class='fichecom' id='num".$i."'>
+									<div class='bgimgfichecom'>
+										<div class='imgfichecom' style='background-image: url(".$image.")'>
 										</div>
-											<div class='txtfichecom'>
-												<p class='titrefichecom'>
-														".$nom."
-												</p>
-													".$fonction."
-											</div>
-
-
-								<div class='descfichecom'>
+									</div>
+									<div class='txtfichecom'>
+										<p class='titrefichecom'>
+										".$nom."
+										</p>
+										".$fonction."
+									</div>
+									<div class='descfichecom'>
 										<p>".$description."</p>
-										</div>
-										</div>
-								</div>";
+									</div>
+								</div>
+							</div>";
 }
 } else {
      echo "0 results";

@@ -1,34 +1,46 @@
 $("document").ready(function(){
 
   //script INDEX SLIDER
-
-  $("#slideshow").css("height","0vh");
+  //animation début slider
+  var slideWidth = $("#slideshow").width();
+  var slideHeight = slideWidth/2;
+  $("#slideshow").css("height","0vw");
   $("#slideshow").animate({
-      height:"60vh"
+      height:slideHeight
   },400,"swing");
-  var etape = 0
+
+  //animation auto slide
+  var etape = 0;
   function slide() {
       etape++;
       if (etape==3){
           etape=0;
       };
-      var leftv = etape*-120;
+      var leftv = etape*-slideWidth;
       $("#sContent").animate({
-      left:leftv.toString()+"vh",
+      left:leftv.toString()+"px",
       }, 2000,"swing");
   };
   var next = setInterval(function(){slide();},5000);
+
+  //click slide manuel
   $(".btnslider").click(function(){
       clearInterval(next);
      etape = parseInt($(this.id).selector.substring(4,5));
-     var leftv = etape*-120;
+     var leftv = etape*-slideWidth;
     $("#sContent").stop();
      $("#sContent").animate({
-      left:leftv.toString()+"vh",
+      left:leftv.toString()+"px",
       }, 200,"swing");
      next = setInterval(function(){slide();},5000);
   });
 
+  //correction taille du slide en resize
+  function resizeSlider() {
+    slideWidth = $("#slideshow").width();
+    slideHeight = slideWidth/2;
+    $("#slideshow").css("height","45vw");
+  };
 
   //script MENU
 
@@ -53,7 +65,7 @@ $("document").ready(function(){
   //script FOOTER
 
   function placeFooter() {
-    var footerpos = window.innerHeight-(parseInt($("#menu").css("height")))-(parseInt($("#footer").css("height")))-60;
+    var footerpos = window.innerHeight-(parseInt($("#menu").css("height")))-(parseInt($("#footer").css("height")))-120;
     $("#milieu").css("min-height",footerpos);
   };
 
@@ -65,38 +77,45 @@ $("document").ready(function(){
   $("#modal").hide();
   $("#voile").hide();
 
+ var ident;
   function modalOpen() {
+    //Ajout du contenu
+    //ajouter selection de classe en fonction de l'ID généré par PHP
+    $(".modalphoto").css("background-image",$("#"+ident.toString()+" .imgfichecom").css("background-image"));
+    $(".modaltitre").html($("#"+ident.toString()+" .txtfichecom").html());
+    $(".modaltext").html($("#"+ident.toString()+" .descfichecom").html());
+    $(".modalinfo").html($("#"+ident.toString()+" .infofichecom").html());
+    //animation de l'ouverture
+    this.heightSize = $("#modal").height();
+    $("#modal").css("margin-top",(this.heightSize/-2).toString()+"px")
     $("#modal").show();
+    $("#modal").css("height","0px")
+    $("#voile").show();
     $("#modal").animate({
-      height:"300px"
+      height:this.heightSize+"px"
     },400,"swing", function(){
       $("#crux").animate({
         top:"-12px",
         right:"-12px"
       },400,"swing");
     });
-    $("#contmodal").animate({
-      height:"295px"
-    },400,"swing");
-
-    $("#voile").show();
-    //ajouter selection de classe en fonction de l'ID généré par PHP
-    $(".modalphoto").css("background-image",$("#"+this.id.toString()+" .imgfichecom").css("background-image"));
-    $(".modaltitre").html($("#"+this.id.toString()+" .txtfichecom").html());
-    $(".modaltext").html($("#"+this.id.toString()+" .descfichecom").html());
-    $(".modalinfo").html($("#"+this.id.toString()+" .infofichecom").html());
+    /*$("#contmodal").animate({
+      height:this.heightSize+"px"
+    },400,"swing");*/
   };
 
   $(".fichecom").click(function(){
+    ident = this.id;
     modalOpen();
   });
   $(".bgevent").click(function(){
+    ident = this.id;
     modalOpen();
   });
 
   $("#crux").click(function(){
   	$("#modal").hide();
-  	$("#modal").css("height","0px");
+  	//$("#modal").css("height","0px");
     $("#crux").css({
       top:"5px",
       right:"5px"
@@ -106,14 +125,12 @@ $("document").ready(function(){
 
   function modalPlace () {
   	if (document.body.offsetWidth > 600) {
-  		this.modalwidth = 600;
+  		this.modalwidth = 900;
   	} else {
   		this.modalwidth = document.body.offsetWidth/100*90;
   	};
-  	$(".modalcommu").css("width",this.modalwidth.toString()+"px");
-  	$(".modalcommu").css("margin-left", (this.modalwidth/-2).toString()+"px");
-    $(".modalsolution").css("width",(this.modalwidth*2).toString()+"px");
-    $(".modalsolution").css("margin-left", (this.modalwidth/-1.5).toString()+"px");
+  	$("#modal").css("width",this.modalwidth.toString()+"px");
+  	$("#modal").css("margin-left", (this.modalwidth/-2).toString()+"px");
   };
 
   modalPlace();
@@ -140,13 +157,15 @@ $("document").ready(function(){
 
   posImgComment();
 
+  //script MEDIA/EVENT
 
-  //script OnResize(footer+comment+commu)
+  //script OnResize
 
-  var coucou = window.onresize = function() {
+  var adaptResize = window.onresize = function() {
 			placeFooter();
 			modalPlace();
 			posImgComment();
+      resizeSlider();
 	};
 
 });

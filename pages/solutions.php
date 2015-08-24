@@ -45,7 +45,7 @@
 
 
   								<div class='infofichecom'>
-  										<img class='imginfo' src='ICI METTRE IMAGE INFOGRAPHIE'></img>
+  										<img class='imginfo' src='media/principes-actions-2-vectorise.svg'></img>
   										</div>
   										</div>
   								</div>";

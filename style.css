@@ -29,21 +29,21 @@ a {
 	height:100vh;
 	background-color:white;
 	position:fixed;
+	z-index:6;
 	top:0;
 	opacity:0.5;
 }
 
 #modal{
+	z-index:7;
 	position:fixed;
 	background-color:white;
-	margin-top:-140px;
 	left:50vw;
 	top:50vh;
 	max-width:900px;
 	width:90vw;
-	height:0px;
+	/*height:0px;*/
 	/*border-radius:10px;*/
-	padding:10px;
 	-moz-box-shadow: 1px 2px 20px 0px #656565;
 	-webkit-box-shadow: 1px 2px 20px 0px #656565;
 	-o-box-shadow: 1px 2px 20px 0px #656565;
@@ -70,11 +70,6 @@ a {
 }
 #contmodal {
 	width:100%;
-	height:0px;
-	/*border-radius: 10px;*/
-	margin-top: -10px;
-	margin-left: -10px;
-	padding:10px;
 }
 .modalphoto {
 	background-color: red;
@@ -84,15 +79,15 @@ a {
 	width:170px;
 	/*border-radius: 10px;*/
 	float:left;
-	margin:10px;
+	margin-left:10px;
+	margin-right:10px;
 }
 .modaltitre {
-	font-family:"DinotBold";
+	font-family:"DinotRegular";
 	color:black;
 	margin:10px;
 	margin-top: 20px;
 	margin-bottom:20px;
-	text-align:center;
 	top:10px;
 }
 .modaltext{
@@ -100,7 +95,6 @@ a {
 	color:black;
 	text-align: justify;
 	height:200px;
-	overflow-y:scroll;
 	padding:10px;
 }
 
@@ -272,34 +266,29 @@ a {
 
 #slideshow {
     position: relative;
-    width: 120vh;
-    height: 60vh;
+    width: 90vw;
+		max-width:900px;
+    height: 45vw;
+		max-height:450px;
     margin:  20px auto;
     overflow: hidden;
     z-index:0;
 		cursor:pointer;
 }
 .imgslider{
-	width:120vh;
-	height:60vh;
-    float:left;
-    background-size:cover;
-}
-#imgs0{
-	background-image:url("media/img1.jpg");
-}
-#imgs1{
-	background-image:url("media/img2.jpg");
-}
-#imgs2{
-	background-image:url("media/img3.jpg");
-	background-position: center;
+	width:90vw;
+	max-width:900px;
+	height:45vw;
+	max-height:450px;
+  float:left;
+  background-size:cover;
 }
 .txts{
 	position:absolute;
 	color:white;
+	font-family: "DinotBold";
 	background-color:rgb(63,110,150);
-	padding:20px;
+	padding:15px;
 	bottom:0px;
 	width:100%;
 }
@@ -307,12 +296,12 @@ a {
 	background-color:rgb(247,156,49);
 }
 #sContent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 360vh;
-    margin: 0;
-    padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 270vw;
+  margin: 0;
+  padding: 0;
 }
 
 #sContent:target {
@@ -359,20 +348,25 @@ a {
 .fichecom:hover {
 	background-color:;
 }
-.imgfichecom {
-	background-image:url("media/truite.jpg");
-	background-position:center;
-	background-size: cover;
+.bgimgfichecom {
 	height:50%;
 	width:75%;
 	overflow:hidden;
 	margin:auto;
 	margin-top:13px;
 }
+.imgfichecom {
+	background-image:url("media/truite.jpg");
+	background-position:center;
+	background-size: cover;
+	height:100%;
+	width:100%;
+}
 .titrefichecom {
 	font-family:"DinotBold";
 }
 .txtfichecom {
+
 	width:80%;
 	height:21%;
 	color:black;
@@ -474,8 +468,13 @@ a {
 	height:100%;
 	background-color: black;
 	background-size:cover;
+	background-position:0% 0%;
 	float:right;
 }
+/*.fichephotoevent:hover {
+	transition:7s;
+	background-position:100% 100%;
+}*/
 .model0 .fichephotoevent{
 	width:70%;
 	height:100%;
@@ -576,8 +575,6 @@ en haut /\ */
 	margin-top:13px;
 }
 .modalinfo {
-	background-color:red;
-	height:100%;
 	width:100%;
 }
 .imginfo {
