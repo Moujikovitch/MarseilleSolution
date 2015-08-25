@@ -124,10 +124,7 @@ $("document").ready(function(){
     ident = this.id;
     modalOpen();
   });
-  $(".bgevent").click(function(){
-    ident = this.id;
-    modalOpen();
-  });
+
 
   $("#crux").click(function(){
   	$("#modal").hide();
@@ -175,8 +172,75 @@ $("document").ready(function(){
 
   //script MEDIA/EVENT
 
+  if (document.getElementById("avenir")) {
+    var date = new Date(); //date actuelle
+    var evaldate = new Date(); //date de l'évènement ciblé
+    var checkdate = new Date(); //date de l'évènement à comparer pour classement
+    var eventlist = document.getElementsByClassName("eventcell"); //liste des div event
+    var pastevent = [], futurevent = [], writtepastevent = "", writtefuturevent = ""; //table de classement des events et variable pour écriture du code html
+    var eventselect = []; //variable de récupération de l'attribut date pour l'event ciblé
+    var eventchecked = []; //variable de récupération pour l'event comparé
+    var checkpos = false; //booléen de vérification pour l'ordre des events passés et futurs
 
+    //classement des event en passé et futur
+    for ( i = 0 ; i < eventlist.length ; i++ ) {
+      //selectionner event et récupérer sa date
+      eventselect = eventlist[i].getElementsByClassName("bgevent")[0].getAttribute("date").split("-");
+      evaldate.setFullYear(eventselect[0],eventselect[1]-1,eventselect[2]);
+      //comparer et classer l'event dans les tables d'event
+      if (evaldate.getTime() > date.getTime()) {
+        futurevent.push(eventlist[i]);
+      } else {
+        pastevent.push(eventlist[i]);
+      };
+    };
 
+    //classement des events futur par ordre chronologique
+    for ( i = 0 ; i < futurevent.length ; i++ ) {
+      //comparer les dates de l'event selectionné par rapports aux autres
+      checkpos = false;
+      for (j = 0 ; j < futurevent.length ; j++) {
+        eventchecked = futurevent[i].getElementsByClassName("bgevent")[0].getAttribute("date").split("-");
+        checkdate.setFullYear(eventchecked[0],eventchecked[1]-1,eventchecked[2]);
+        if (evaldate.getTime() < checkdate.getTime()) {
+          checkpos = true;
+        };
+      };
+      //si l'event est le premier, l'inscrire dans la variable d'écriture
+      if (checkpos == false) {
+        writtefuturevent += futurevent[i].innerHTML;
+        futurevent.splice(i,1);
+        i = 0;
+      };
+    };
+    $("#avenir").html(writtefuturevent);
+
+    //classement des events passé par ordre chronologique
+    for ( i = 0 ; i < pastevent.length ; i++ ) {
+      //comparer les dates de l'event selectionné par rapports aux autres
+      checkpos = false;
+      for (j = 0 ; j < pastevent.length ; j++) {
+        eventchecked = pastevent[i].getElementsByClassName("bgevent")[0].getAttribute("date").split("-");
+        checkdate.setFullYear(eventchecked[0],eventchecked[1]-1,eventchecked[2]);
+        if (evaldate.getTime() < checkdate.getTime()) {
+          checkpos = true;
+        };
+      };
+      //si l'event est le premier, l'inscrire dans la variable d'écriture
+      if (checkpos == false) {
+        writtepastevent += pastevent[i].innerHTML;
+        pastevent.splice(i,1);
+        i = 0;
+      };
+    };
+    $("#passe").html(writtepastevent);
+    $("#check").html("");
+  };
+
+  $(".bgevent").click(function(){
+    ident = this.id;
+    modalOpen();
+  });
   //script OnResize
 
   var adaptResize = window.onresize = function() {

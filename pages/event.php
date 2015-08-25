@@ -1,5 +1,14 @@
 <div id="milieu">
     <div id="cont">
+    <div id="avenir">
+
+    </div>
+    <div id="passe">
+
+    </div>
+    <div id="check">
+
+
 <?php
 include '../MarseilleSolutionDB/db.php';
 $error = "";
@@ -28,7 +37,8 @@ if ($result->num_rows > 0) {
  					$numodel = 0;
  				 }
          $numevent++;
-         echo "<div id='num".$numevent."' class='bgevent model".$numodel."' date=".$dates.">
+         echo "<div class='eventcell'>
+              <div id='num".$numevent."' class='bgevent model".$numodel."' date=".$dates.">
                 <div class='dateevent manudate'>
                   <p>
                   ".$dates."
@@ -44,7 +54,8 @@ if ($result->num_rows > 0) {
    									<div class='fichetexteevent'>".$texte."</div>
    								</div>
    							</div>
-   						</div>";
+   						</div>
+              </div>";
          }
 } else {
      echo "0 results";
@@ -53,6 +64,9 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 ?>
+
+
+    </div>
 	</div>
   <div id="voile">
   </div>

@@ -3,7 +3,7 @@
   	<div class="cont">
   		<div class="titre">
   			<p class="titrecom">
-  				Les solutions en cours...
+  				LES SOLUTIONS EN COURS
   			</p>
   			<div class="flexbox">
 
