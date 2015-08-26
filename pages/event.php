@@ -24,6 +24,7 @@ $sql = "SELECT * FROM events";
 $result = $conn->query($sql);
 $numodel = 1;
 $numevent = 0;
+$faketext = "Se rendre inoffensif tandis qu'on est le plus redoutable, guidé par l'élévation du sentiment, c'est là le moyen pour arriver à la paix véritable qui doit toujours reposer sur une disposition d'esprit paisible, tandis que ce que l'on appelle la paix armée, telle qu'elle est pratiquée maintenant dans tous les pays, répond à un sentiment de discorde, à un manque de confiance en soi et le voisin, et empêche de déposer les armes soit par haine, soit par crainte. Plutôt périr que de haïr et de craindre, et plutôt périr deux fois que de se laisser haïr et craindre.";
 if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
@@ -51,9 +52,12 @@ if ($result->num_rows > 0) {
    									<div class='fichetitreevent'>
    										<p class='titreevent'>".$titre."</p>
    									</div>
-   									<div class='fichetexteevent'>".$texte."</div>
+   									<div class='fichetexteevent'>".$faketext."</div>
    								</div>
    							</div>
+                 <div class='hiddentext'>
+                 ".$faketext."
+                 </div>
    						</div>
               </div>";
          }

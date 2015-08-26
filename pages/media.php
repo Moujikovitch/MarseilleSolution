@@ -17,6 +17,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
      // output data of each row
 		$i = 0;
+		$nummedia = 0;
+		$faketext = "Se rendre inoffensif tandis qu'on est le plus redoutable, guidé par l'élévation du sentiment, c'est là le moyen pour arriver à la paix véritable qui doit toujours reposer sur une disposition d'esprit paisible, tandis que ce que l'on appelle la paix armée, telle qu'elle est pratiquée maintenant dans tous les pays, répond à un sentiment de discorde, à un manque de confiance en soi et le voisin, et empêche de déposer les armes soit par haine, soit par crainte. Plutôt périr que de haïr et de craindre, et plutôt périr deux fois que de se laisser haïr et craindre.";
      while($row = $result->fetch_assoc()) {
          $photo = $row['photo'];
          $titre = $row['titre'];
@@ -27,7 +29,8 @@ if ($result->num_rows > 0) {
 				} else {
 					$i = 0;
 				}
-			echo "<div class='bgevent model".$i."'>
+				$nummedia++;
+			echo "<div id='num".$nummedia."' class='bgevent model".$i."'>
 							<div class='ficheevent'>
 								<div class='fichephotomedia' style='background-image:url(".$photo.")'>
 								</div>
@@ -36,8 +39,11 @@ if ($result->num_rows > 0) {
 										<p class='titreevent'>".$titre."</p>
 										<p class='dateevent'>".$dates."</p>
 									</div>
-									<div class='fichetexteevent'>".$texte."</div>
+									<div class='fichetexteevent'>".$faketext."</div>
 								</div>
+							</div>
+							<div class='hiddentext'>
+							".$faketext."
 							</div>
 						</div>";
 
@@ -53,18 +59,23 @@ $conn->close();
 	</div>
 	<div id="voile">
 	</div>
-	<div id="modal" class="modalcommu">
+	<div id="modal" class="modalmedia">
 		<div id="crux">
 		</div>
 		<div id="contmodal">
-			<div class="modalphoto">
+			<div id="modalcontphotomedia">
+				<img class="modalphotomedia" src="">
+				</img>
 			</div>
-			<div class="modaltitre">
-				Coucou c'est moi
-			</div>
-			<div class="modaltext">
-				La vie est géniale même si elle n'a pas de sens.
-			</div>
+			<div class="modaldatemedia">
+        Coucou c'est moi
+      </div>
+      <div class="modaltitremedia">
+
+      </div>
+      <div class="modaltextmedia">
+        La vie est géniale même si elle n'a pas de sens.
+      </div>
 		</div>
 	</div>
 </div>

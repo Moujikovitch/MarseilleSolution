@@ -41,8 +41,6 @@ a {
 	background-color:white;
 	left:50vw;
 	top:50vh;
-	max-width:900px;
-	width:90vw;
 	/*height:0px;*/
 	/*border-radius:10px;*/
 	-moz-box-shadow: 1px 2px 20px 0px #656565;
@@ -357,16 +355,16 @@ a {
 	margin:auto;
 	margin-top:13px;
 	background-size:cover;
-	background-position:center;
+	background-position:37% 50%;
 }
 .bgtem{
-	background-image:url("media/pluscommu.svg");
+	background-image:url("media/plusalternate.svg");
 }
 .bglogo{
-	background-image:url("media/plusequip.svg");
+	background-image:url("media/plusalternate.svg");
 }
 .bgequip{
-	background-image:url("media/plusequip2.svg");
+	background-image:url("media/plusalternate.svg");
 }
 .imgfichecom {
 	background-image:url("media/truite.jpg");
@@ -544,6 +542,9 @@ a {
 	font-family:"DinotBold";
 	font-size:18px;
 }
+.modalmedia {
+	max-width:100vw;
+}
 
 
 /*CSS ALTERNATIF EVENT/MEDIA==============================================*/
@@ -607,7 +608,36 @@ a {
 	margin-right:10px;
 	text-align:justify;
 }
-
+.modalphotomedia {
+	width:100%;
+}
+#modalcontphotomedia {
+	width:100%;
+	height:500px;
+	overflow-y:scroll;
+}
+.modaldatemedia {
+	font-family:"DinotBold";
+	font-size:18px;
+	margin:10px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.modaltitremedia {
+	font-family:"DinotBold";
+	margin-bottom:5px;
+	margin-left:10px;
+	margin-right:10px;
+}
+.modaltextmedia {
+	margin-bottom:20px;
+	margin-left:10px;
+	margin-right:10px;
+	text-align:justify;
+}
+.hiddentext {
+	display:none;
+}
 /*SOLUTION=================================================================*/
 /*la page solution reprend principalement la structure de la page communautée
 en haut /\ */
@@ -631,7 +661,7 @@ en haut /\ */
 	width:100%;
 }
 .bgimgfichesol {
-	background-image:url("media/plussolution.svg");
+	background-image:url("media/plusalternate.svg");
 	background-size:cover;
 	background-position:center;
 	height:200px;

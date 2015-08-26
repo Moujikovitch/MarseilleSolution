@@ -101,11 +101,18 @@ $("document").ready(function(){
     $(".modaltitre").html($("#"+ident.toString()+" .txtfichecom").html());
     $(".modaltext").html($("#"+ident.toString()+" .descfichecom").html());
     $(".modalinfo").html($("#"+ident.toString()+" .infofichecom").html());
-    //modal pour event et media
+    //modal pour event
     $(".modalphotoevent").css("background-image",$("#"+ident.toString()+" .fichephotoevent").css("background-image"));
     $(".modaldateevent").html($("#"+ident.toString()+" .dateevent").html());
     $(".modaltitreevent").html($("#"+ident.toString()+" .titreevent").html());
-    $(".modaltextevent").html($("#"+ident.toString()+" .fichetextevent").html());
+    $(".modaltextevent").html($("#"+ident.toString()+" .hiddentext").html());
+    //modal pour media
+    if (document.getElementById("modalcontphotomedia")) {
+      $(".modalphotomedia").attr("src",$("#"+ident.toString()+" .fichephotomedia").css("background-image").substring(5,$("#num1 .fichephotomedia").css("background-image").length-2));
+      $(".modaldatemedia").html($("#"+ident.toString()+" .dateevent").html());
+      $(".modaltitremedia").html($("#"+ident.toString()+" .titreevent").html());
+      $(".modaltextmedia").html($("#"+ident.toString()+" .hiddentext").html());
+    };
     //animation de l'ouverture
     this.heightSize = $("#modal").height();
     $("#modal").css("margin-top",(this.heightSize/-2).toString()+"px")
@@ -151,6 +158,9 @@ $("document").ready(function(){
   	};
   	$("#modal").css("width",this.modalwidth.toString()+"px");
   	$("#modal").css("margin-left", (this.modalwidth/-2).toString()+"px");
+    this.modalwidth = document.body.offsetWidth/100*90;
+    $(".modalmedia").css("width",this.modalwidth.toString()+"px");
+    $(".modalmedia").css("margin-left", (this.modalwidth/-2).toString()+"px");
   };
 
   modalPlace();
@@ -178,6 +188,21 @@ $("document").ready(function(){
   posImgComment();
 
   //script MEDIA/EVENT
+  var checktext = [];
+  if(document.getElementsByClassName("fichetexteevent")[0]) {
+    console.log("lolilol");
+    checktext = document.getElementsByClassName("fichetexteevent");
+    for (i = 0; i < $(".fichetexteevent").length; i++) {
+      var checklength = false;
+      while (checktext[i].offsetHeight > 350) {
+        checklength = true;
+        checktext[i].innerHTML = checktext[i].innerHTML.substring(0,checktext[i].innerHTML.length-1);
+      };
+      if (checklength == true) {
+        checktext[i].innerHTML += "[...]"
+      };
+    };
+  };
 
   if (document.getElementById("avenir")) {
     var date = new Date(); //date actuelle
