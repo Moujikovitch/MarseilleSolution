@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
 				}
 			echo "<div class='bgevent model".$i."'>
 							<div class='ficheevent'>
-								<div class='fichephotoevent' style='background-image:url(".$photo.")'>
+								<div class='fichephotomedia' style='background-image:url(".$photo.")'>
 								</div>
 								<div class='fichearticleevent'>
 									<div class='fichetitreevent'>

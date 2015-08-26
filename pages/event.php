@@ -79,6 +79,9 @@ $conn->close();
       <div class="modaldateevent">
         Coucou c'est moi
       </div>
+      <div class="modaltitreevent">
+
+      </div>
       <div class="modaltextevent">
         La vie est géniale même si elle n'a pas de sens.
       </div>

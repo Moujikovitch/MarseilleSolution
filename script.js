@@ -101,6 +101,11 @@ $("document").ready(function(){
     $(".modaltitre").html($("#"+ident.toString()+" .txtfichecom").html());
     $(".modaltext").html($("#"+ident.toString()+" .descfichecom").html());
     $(".modalinfo").html($("#"+ident.toString()+" .infofichecom").html());
+    //modal pour event et media
+    $(".modalphotoevent").css("background-image",$("#"+ident.toString()+" .fichephotoevent").css("background-image"));
+    $(".modaldateevent").html($("#"+ident.toString()+" .dateevent").html());
+    $(".modaltitreevent").html($("#"+ident.toString()+" .titreevent").html());
+    $(".modaltextevent").html($("#"+ident.toString()+" .fichetextevent").html());
     //animation de l'ouverture
     this.heightSize = $("#modal").height();
     $("#modal").css("margin-top",(this.heightSize/-2).toString()+"px")
@@ -137,8 +142,10 @@ $("document").ready(function(){
   });
 
   function modalPlace () {
-  	if (document.body.offsetWidth > 600) {
-  		this.modalwidth = 900;
+    if (document.body.offsetWidth > 900) {
+      this.modalwidth = 900;
+    } else if (document.body.offsetWidth > 600) {
+  		this.modalwidth = document.body.offsetWidth/100*80;
   	} else {
   		this.modalwidth = document.body.offsetWidth/100*90;
   	};

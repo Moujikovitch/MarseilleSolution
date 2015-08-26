@@ -5,6 +5,7 @@ Bleu 			rgb(63,110,150)
 Bleu foncé 		#1b334c
 Bleu clair		#8098bb
 Mauve			rgb(163,25,91)
+marron #575756
 */
 /*GENERAL========================================================*/
 
@@ -83,15 +84,12 @@ a {
 	margin-right:10px;
 }
 .modaltitre {
-	font-family:"DinotRegular";
+	font-family:"DinotBold";
 	color:black;
-	margin:10px;
-	margin-top: 20px;
-	margin-bottom:20px;
-	top:10px;
 }
 .modaltext{
 	margin: 10px;
+	margin-top:-15px;
 	color:black;
 	text-align: justify;
 	height:200px;
@@ -189,7 +187,7 @@ a {
 	font-family:"DinotBlack",helvetica;
 }
 .btnmenu:hover{
-	color:black;
+	color:#575756;
 	font-family:"DinotBlack",helvetica;
 	font-size:14px;
 	border-width:2px;
@@ -383,7 +381,9 @@ a {
 	opacity:0.1;
 }
 .titrefichecom {
+	font-size:18px;
 	font-family:"DinotBold";
+	color:#575756;
 }
 .txtfichecom {
 	width:80%;
@@ -420,6 +420,7 @@ a {
 	font-size:18px;
 	text-align:center;
 	width:100%;
+	color:#575756;
 }
 @media (min-width: 600px) {
 	#photocomu{
@@ -483,28 +484,32 @@ a {
 }
 .fichephotoevent{
 	width:70%;
+	height:90%;
+	background-color: black;
+	background-size:cover;
+	background-position:0% 0%;
+}
+.fichephotomedia{
+	width:70%;
 	height:100%;
 	background-color: black;
 	background-size:cover;
 	background-position:0% 0%;
-	float:right;
 }
 /*.fichephotoevent:hover {
 	transition:7s;
 	background-position:100% 100%;
 }*/
 .model0 .fichephotoevent{
-	width:70%;
-	height:100%;
-	background-color: black;
-	background-size:cover;
 	float:left;
 }
 .model1 .fichephotoevent{
-	width:70%;
-	height:100%;
-	background-color: black;
-	background-size:cover;
+	float:right;
+}
+.model0 .fichephotomedia{
+	float:left;
+}
+.model1 .fichephotomedia{
 	float:right;
 }
 .fichetitreevent{
@@ -578,7 +583,30 @@ a {
 	width:80%;
 	/*border-radius: 10px;*/
 }
-
+.modalphotoevent {
+	width:100%;
+	height:20vh;
+	background-size:cover;
+	background-position:center;
+}
+.modaldateevent {
+	font-family:"DinotBold";
+	font-size:18px;
+	margin-left:10px;
+	margin-right:10px;
+}
+.modaltitreevent {
+	font-family:"DinotBold";
+	margin-bottom:5px;
+	margin-left:10px;
+	margin-right:10px;
+}
+.modaltextevent {
+	margin-bottom:20px;
+	margin-left:10px;
+	margin-right:10px;
+	text-align:justify;
+}
 
 /*SOLUTION=================================================================*/
 /*la page solution reprend principalement la structure de la page communautée
