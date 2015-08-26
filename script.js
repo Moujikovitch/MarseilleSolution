@@ -190,7 +190,6 @@ $("document").ready(function(){
   //script MEDIA/EVENT
   var checktext = [];
   if(document.getElementsByClassName("fichetexteevent")[0]) {
-    console.log("lolilol");
     checktext = document.getElementsByClassName("fichetexteevent");
     for (i = 0; i < $(".fichetexteevent").length; i++) {
       var checklength = false;
@@ -201,6 +200,7 @@ $("document").ready(function(){
       if (checklength == true) {
         checktext[i].innerHTML += "[...]"
       };
+      checktext[i].innerHTML += "<div class='plus' id='num"+(i+1).toString()+"'></div>"
     };
   };
 
@@ -269,7 +269,7 @@ $("document").ready(function(){
     $("#check").html("");
   };
 
-  $(".bgevent").click(function(){
+  $(".plus").click(function(){
     ident = this.id;
     modalOpen();
   });
