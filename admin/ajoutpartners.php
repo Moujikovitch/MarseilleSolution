@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -35,74 +35,25 @@
 </head>
 
 <?php
-
 include '../../MarseilleSolutionDB/db2.php';
 
- if(isset($_POST['delete']) && $_POST['delete'] == 'Supprimer'){
-    $req = $mabase->prepare("DELETE FROM medias WHERE id= :id");
-    $req->execute(array(
-        'id' => $_POST['id']
-        ));
-    header('Location: media.php');
-    exit();
-  }
-
-include '../../MarseilleSolutionDB/db.php';
-
 $error = "";
-// mise à jour du titre dans la bdd
-if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
-    $conn = new mysqli($serveur, $user, $mdp, $mabase);
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+
+if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder") {
+  
+$req = $mabase->prepare("INSERT INTO partners(id, image, nom, fonction, description) VALUES(:id, :image, :nom, :fonction, :description)");
+        $req->execute(array(
+          "id" => "",
+          "image" => $_POST['image'],
+          "nom" => $_POST['nom'],
+          "fonction" => $_POST['fonction'],
+          "description" => $_POST['description'],
+                    ));
+
+        header('Location: ajoutpartners.php');
+        exit();
     }
-    
-    $newphoto = $_POST['photo'];
-     $newtitre = $_POST['titre'];
-      $newtexte = $_POST['texte'];
-       $newdates = $_POST['dates'];
-    $sql = 'UPDATE medias SET photo = "'.$newphoto.'","'.$newtitre.'","'.$newtexte.'","'.$newdates.'"';
-    if ($conn->query($sql) === TRUE) {
-    $confirm= "Modifications effectuées!";
-} else {
-    $confirm= "Erreur dans la mise à jour " . $conn->error;
-}
-
-    $conn->close();
-    }
-
-// Recuperation du titre dans la bdd
-$conn = new mysqli($serveur, $user, $mdp, $mabase);
-// Check connection
-if ($conn->connect_error) {
-     die("Erreur de connection: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM medias";
-//WHERE id=".$_GET['id'];
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {
-         $photo = $row['photo'];
-         $titre = $row['titre'];
-         $texte = $row['texte'];
-         $dates = $row['dates'];
-         $id = $row['id'];
-
-     }
-
-} else {
-     echo "0 results";
-}
-
-$conn->close();
-
-?>  
-
-
+?>
 <body>
 
     <div id="wrapper">
@@ -112,11 +63,7 @@ $conn->close();
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                
-                             
-                <h1><?php if(isset($confirm)){
-                    echo $confirm ;
-                } ?></h1>
+            
             </div>
             <!-- /.container-fluid -->
 
@@ -137,11 +84,8 @@ $conn->close();
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
 
-</body>
 
-</html>
 
-<body>
 
     <div id="wrapper">
 
@@ -157,7 +101,7 @@ $conn->close();
                 </button>
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
-         <!-- Top Menu Items -->
+            <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav"> 
                 <li>
                     <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
@@ -179,19 +123,19 @@ $conn->close();
                     <li>
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
-                    <li>
+                    <li >
                         <a href="charts.php"><i class="fa fa-fw fa-file"></i> Communauté</a>
                     </li>
                     <li>
                         <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="ajoutpartners.php"><i class="fa fa-fw fa-table"></i> Ajouter un partenaire</a>
                     </li>
                     <li>
                         <a href="ajoutequipes.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de l'équipe</a>
                     </li>
-                     <li>
+                    <li>
                         <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li>
@@ -199,14 +143,15 @@ $conn->close();
                     </li>
                     <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-                    </li>   
-                     <li class="active">
-                        <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
                     </li>
+                    <li>
+                        <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
+                    </li> 
                     <li>
                         <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
                     </li>
-                    
+                   
+                                       
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -220,14 +165,14 @@ $conn->close();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                           Modifier la partie : Medias
+                          Ajouter un partenaire dans la communauté
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                Medias
+                                 Ajouter un partenaire
                             </li>
                         </ol>
                     </div>
@@ -235,58 +180,85 @@ $conn->close();
                 <!-- /.row -->
 
                 <!-- Flot Charts -->
+                
+                <!-- /.row -->
+
+                    
+             
+                
+   
+                        <!-- /.row -->
+
                 <div class="row">
-                    <div class="col-lg-12">                        
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Image</h3>
+                            </div>
+
+                    <form method='post' action='ajoutpartners.php'>
+                            <textarea name="image" id="image" rows="10" cols="80"></textarea>
+            <script>
+                replace( 'image' );
+            </script>
+                    
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Modifier la photo</h3>
-
+                                <h3 class="panel-title">Nom</h3>
                             </div>
-                            <form method='post' action='media.php'>
-                    
-                     <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
+                                <textarea name="nom" id="nom" rows="10" cols="80"></textarea>
             <script>
-               replace( 'photo' );
-            </script>         
-                                          
-              <h3 class="panel-title">Modifier le titre</h3>
-                    <textarea name="titre" id="titre" rows="10" cols="80"><?php echo $titre ; ?></textarea>
-            <script>
-                 CKEDITOR.replace( 'titre' );
+                CKEDITOR.replace( 'nom' );
             </script>
-
-            <h3 class="panel-title">Modifier le texte</h3>
-            <textarea name="texte" id="texte" rows="10" cols="80"><?php echo $texte ; ?></textarea>
+                         
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Fonction</h3>
+                            </div>                    
+                                <textarea name="fonction" id="fonction" rows="10" cols="80"></textarea>
             <script>
-                 CKEDITOR.replace( 'texte' );
-            </script>
-
-            <h3 class="panel-title">Modifier la date</h3>
-            <textarea name="dates" id="dates" rows="10" cols="80"><?php echo $dates ; ?></textarea>
-            <script>
-                replace( 'dates' );
+                CKEDITOR.replace( 'fonction' );
             </script>
                     
-             
-                
-   
                         </div>
                     </div>
                 </div>
-                <!-- /.row -->
 
-                    <input type="hidden" name="id" value="<?php echo $id ; ?>">
-                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
-                    <input type="submit"  name="delete" value="Supprimer" class="btn btn-primary">
+                <div class="row">   
+                    <div class="col-lg-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Description</h3>
+                            </div>
+                                <textarea name="description" id="description" rows="10" cols="80"></textarea>
+            <script>
+                CKEDITOR.replace( 'description' );
+            </script>
+                        </div>
+                    </div>
+                </div>
                     
+                <!-- /.row -->
+                
+
+            </div>
+          
+                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
                 </form>
-            
+                            
+                </div>
             <!-- /.container-fluid -->
 
         </div>

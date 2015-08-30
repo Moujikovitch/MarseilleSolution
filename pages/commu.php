@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-</html>
 <div id="milieu" class="pagecommu">
 	<div class="cont">
 		<img id="photocomu" src="media/commu.jpg">
@@ -14,7 +7,15 @@
 				MARSEILLE SOLUTION VU PAR...
 			</p>
 			<div class="flexbox">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+</html>
 <?php
+
 include '../MarseilleSolutionDB/db.php';
 $error = "";
 

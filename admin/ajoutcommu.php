@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -130,6 +130,12 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                         <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
                     </li>
                     <li>
+                        <a href="ajoutpartners.php"><i class="fa fa-fw fa-table"></i> Ajouter un partenaire</a>
+                    </li>
+                    <li>
+                        <a href="ajoutequipes.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de l'équipe</a>
+                    </li>
+                    <li>
                         <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li>
@@ -209,7 +215,7 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                             </div>
                                 <textarea name="nom" id="nom" rows="10" cols="80"></textarea>
             <script>
-                replace( 'nom' );
+                CKEDITOR.replace( 'nom' );
             </script>
                          
                             </div>
@@ -223,7 +229,7 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                             </div>                    
                                 <textarea name="fonction" id="fonction" rows="10" cols="80"></textarea>
             <script>
-                replace( 'fonction' );
+                CKEDITOR.replace( 'fonction' );
             </script>
                     
                         </div>
@@ -238,7 +244,7 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                             </div>
                                 <textarea name="description" id="description" rows="10" cols="80"></textarea>
             <script>
-                replace( 'description' );
+                CKEDITOR.replace( 'description' );
             </script>
                         </div>
                     </div>
