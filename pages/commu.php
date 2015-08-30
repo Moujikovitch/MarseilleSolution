@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+</html>
 <div id="milieu" class="pagecommu">
 	<div class="cont">
 		<img id="photocomu" src="media/commu.jpg">
@@ -72,7 +79,7 @@ $conn->close();
 				     die("Connection failed: " . $conn->connect_error);
 				}
 
-				$sql = "SELECT * FROM communautes";
+				$sql = "SELECT * FROM partners";
 				$result = $conn->query($sql);
 
 				//TEMPORAIRE, A MODIFIER
@@ -126,7 +133,7 @@ $conn->close();
 				     die("Connection failed: " . $conn->connect_error);
 				}
 
-				$sql = "SELECT * FROM communautes";
+				$sql = "SELECT * FROM equipes";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {

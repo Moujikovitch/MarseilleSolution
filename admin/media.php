@@ -93,6 +93,7 @@ if ($result->num_rows > 0) {
          $id = $row['id'];
 
      }
+
 } else {
      echo "0 results";
 }
