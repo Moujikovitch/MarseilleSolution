@@ -1,7 +1,17 @@
 <div id="milieu">
     <div id="cont">
+    <div class="titrecatevent">
+      <p>
+        ÉVÉNEMENTS À VENIR
+      </p>
+    </div>
     <div id="avenir">
 
+    </div>
+    <div class="titrecatevent">
+      <p>
+        ÉVÉNEMENTS PASSÉS
+      </p>
     </div>
     <div id="passe">
 

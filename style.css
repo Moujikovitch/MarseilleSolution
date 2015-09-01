@@ -129,6 +129,21 @@ a {
 	#photocomu{
 		width:100%;
 	}
+	.fichephotoevent{
+		width:40%;
+	}
+	.fichephotomedia{
+		width:40%;
+	}
+	.model0 .fichetexteevent{
+		margin-left:40%;
+	}
+	.model1 .fichetexteevent{
+		margin-right:40%;
+	}
+	.fichetitreevent{
+		width:60%;
+	}
 }
 
 
@@ -284,7 +299,7 @@ a {
 	color:white;
 	font-family: "DinotBold";
 	background-color:rgb(63,110,150);
-	padding:15px;
+	padding:5px;
 	bottom:0px;
 	width:100%;
 }
@@ -458,7 +473,14 @@ a {
 
 
 /*EVENT/MEDIA/PAGE2/3=================================================*/
-
+.titrecatevent{
+	font-family:"DinotBlack";
+	color:black;
+	font-size:18px;
+	text-align:center;
+	width:100%;
+	color:#575756;
+}
 .bgevent{
 	max-width:900px;
 	margin:auto;
@@ -481,14 +503,12 @@ a {
 	/*background-color:rgb(247,156,49);*/
 }
 .fichephotoevent{
-	width:70%;
 	height:90%;
 	background-color: black;
 	background-size:cover;
 	background-position:0% 0%;
 }
 .fichephotomedia{
-	width:70%;
 	height:100%;
 	background-color: black;
 	background-size:cover;
@@ -515,23 +535,36 @@ a {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	font-family:"DinotBold";
-	width:30%;
 }
 .model0 .fichetexteevent{
-	margin-left:70%;
 	padding-left: 20px;
 	padding-right:20px;
 	text-align: justify;
 	font-family:"DinotRegular";
 }
 .model1 .fichetexteevent{
-	margin-right:70%;
 	padding-left: 20px;
 	padding-right:20px;
 	text-align: justify;
 	font-family:"DinotRegular";
 }
-
+@media (min-width: 600px) {
+	.model1 .fichetexteevent{
+		margin-right:70%;
+	}
+	.model0 .fichetexteevent{
+		margin-left:70%;
+	}
+	.fichephotomedia{
+		width:70%;
+	}
+	.fichephotoevent{
+		width:70%;
+	}
+	.fichetitreevent{
+		width:30%;
+	}
+}
 .titreevent {
 	text-align:center;
 }

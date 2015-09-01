@@ -201,20 +201,23 @@ $("document").ready(function(){
 
   //script MEDIA/EVENT
   var checktext = [];
-  if(document.getElementsByClassName("fichetexteevent")[0]) {
-    checktext = document.getElementsByClassName("fichetexteevent");
-    for (i = 0; i < $(".fichetexteevent").length; i++) {
-      var checklength = false;
-      while (checktext[i].offsetHeight > 350) {
-        checklength = true;
-        checktext[i].innerHTML = checktext[i].innerHTML.substring(0,checktext[i].innerHTML.length-1);
+  function reduceText () {
+    if(document.getElementsByClassName("fichetexteevent")[0]) {
+      checktext = document.getElementsByClassName("fichetexteevent");
+      for (i = 0; i < $(".fichetexteevent").length; i++) {
+        var checklength = false;
+        while (checktext[i].offsetHeight > 350) {
+          checklength = true;
+          checktext[i].innerHTML = checktext[i].innerHTML.substring(0,checktext[i].innerHTML.length-1);
+        };
+        if (checklength == true) {
+          checktext[i].innerHTML += "[...]"
+        };
+        checktext[i].innerHTML += "<div class='plus' id='num"+(i+1).toString()+"'></div>"
       };
-      if (checklength == true) {
-        checktext[i].innerHTML += "[...]"
-      };
-      checktext[i].innerHTML += "<div class='plus' id='num"+(i+1).toString()+"'></div>"
     };
   };
+  reduceText();
 
   if (document.getElementById("avenir")) {
     var date = new Date(); //date actuelle
