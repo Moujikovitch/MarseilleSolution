@@ -213,7 +213,7 @@ $("document").ready(function(){
         if (checklength == true) {
           checktext[i].innerHTML += "[...]"
         };
-        checktext[i].innerHTML += "<div class='plus' id='num"+(i+1).toString()+"'></div>"
+        checktext[i].innerHTML += "<div class='plus' id='num"+(i+1).toString()+"' title='En savoir plus'></div>"
       };
     };
   };

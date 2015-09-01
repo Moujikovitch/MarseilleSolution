@@ -7,9 +7,14 @@
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<div id="menu" class="unfix">
+
 		<div class="cont">
+			<a href="https://www.facebook.com/marseille.solutions" target="_BLANK"><div id="fblogo"  title="Suivez nous sur Facebook">
+			</div></a>
+			<a href="https://www.facebook.com/marseille.solutions" target="_BLANK"><div id="sardine" title="S'inscrire à la newsletter">
+			</div></a>
 			<a href="index.php">
-				<div id="logo">
+				<div id="logo" title="Index">
 				</div>
 			</a>
 			<div id="contbtn">

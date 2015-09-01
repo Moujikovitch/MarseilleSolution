@@ -23,6 +23,10 @@ body{
 }
 a {
  	text-decoration:none;
+	color:#1b334c;
+}
+a:hover {
+	color: rgb(247,156,49);
 }
 
 #voile{
@@ -257,12 +261,24 @@ a {
 	height:30px;
 	width:30px;
 	background-image:url("https://www.facebook.com/images/fb_icon_325x325.png");
-	background-size: 40% 40%;
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center top;
-	margin-right:30px;
 	float:right;
-	padding:30px;
+	margin:5px;
+	margin-top:-20px;
+	background-color: white;
+}
+#sardine{
+	height:30px;
+	width:30px;
+	background-image:url("media/picto/sardine.svg");
+	margin:5px;
+	margin-top:-20px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center top;
+	float:right;
 	background-color: white;
 }
 #footertxt{
