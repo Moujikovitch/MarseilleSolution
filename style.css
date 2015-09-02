@@ -204,7 +204,7 @@ a:hover {
 	font-family:"DinotBlack",helvetica;
 }
 .btnmenu:hover{
-	color:#575756;
+	color:black;
 	font-family:"DinotBlack",helvetica;
 	font-size:14px;
 	border-width:2px;
@@ -412,7 +412,7 @@ a:hover {
 .titrefichecom {
 	font-size:18px;
 	font-family:"DinotBold";
-	color:#575756;
+	color:black;
 }
 .txtfichecom {
 	width:80%;
@@ -449,7 +449,7 @@ a:hover {
 	font-size:18px;
 	text-align:center;
 	width:100%;
-	color:#575756;
+	color:black;
 }
 @media (min-width: 600px) {
 	#photocomu{
@@ -495,7 +495,7 @@ a:hover {
 	font-size:18px;
 	text-align:center;
 	width:100%;
-	color:#575756;
+	color:black;
 }
 .bgevent{
 	max-width:900px;

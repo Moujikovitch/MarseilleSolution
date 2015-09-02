@@ -7,15 +7,7 @@
 				MARSEILLE SOLUTION VU PAR...
 			</p>
 			<div class="flexbox">
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-</html>
 <?php
-
 include '../MarseilleSolutionDB/db.php';
 $error = "";
 
@@ -80,7 +72,7 @@ $conn->close();
 				     die("Connection failed: " . $conn->connect_error);
 				}
 
-				$sql = "SELECT * FROM partners";
+				$sql = "SELECT * FROM communautes";
 				$result = $conn->query($sql);
 
 				//TEMPORAIRE, A MODIFIER
@@ -134,7 +126,7 @@ $conn->close();
 				     die("Connection failed: " . $conn->connect_error);
 				}
 
-				$sql = "SELECT * FROM equipes";
+				$sql = "SELECT * FROM communautes";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
