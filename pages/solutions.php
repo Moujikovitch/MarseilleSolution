@@ -19,7 +19,7 @@
        die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM communautes";
+  $sql = "SELECT * FROM solutions";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -27,9 +27,11 @@
   		$i = 0;
        while($row = $result->fetch_assoc()) {
            $image = $row['image'];
+           $logo = $row['logo'];
            $nom = $row['nom'];
            $fonction = $row['fonction'];
-           $description = $row['description'];
+           $lien = $row['lien'];
+           $infogra = $row['infogra'];
   				$i++;
   				echo "<div class='bgfichecom'>
   							 <div class='fichecom' id='num".$i."'>
@@ -44,7 +46,7 @@
   									</div>
                   </div>
   							  <div class='infofichecom'>
-  							    <img class='imginfo' src='media/principes-actions-2-vectorise.svg'></img>
+  							    <img class='imginfo' src=".$infogra."></img>
   							  </div>
   						   </div>
   					    </div>";
