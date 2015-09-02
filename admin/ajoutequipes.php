@@ -150,6 +150,9 @@ $req = $mabase->prepare("INSERT INTO equipes(id, image, nom, fonction, descripti
                     <li>
                         <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
                     </li>
+                    <li>
+                        <a href="ajoutsolu.php"><i class="fa fa-fw fa-table"></i> Ajouter une solution</a>
+                    </li>
                    
                                        
                 </ul>

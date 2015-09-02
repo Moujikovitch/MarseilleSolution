@@ -27,7 +27,7 @@
   		$i = 0;
        while($row = $result->fetch_assoc()) {
            $image = $row['image'];
-           $logo = $row['logo'];
+           $logos = $row['logos'];
            $nom = $row['nom'];
            $fonction = $row['fonction'];
            $lien = $row['lien'];
@@ -36,7 +36,7 @@
   				echo "<div class='bgfichecom'>
   							 <div class='fichecom' id='num".$i."'>
                   <div class='bgimgfichesol'>
-  								  <div class='logofichecom' style='background-image: url(".$image.")'>
+  								  <div class='logofichecom' style='background-image: url(".$logos.")'>
   									</div>
   									<div class='txtfichecom'>
   										<p class='titrefichecom'>

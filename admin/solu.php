@@ -35,7 +35,20 @@
 </head>
 
 <?php
+
+include '../../MarseilleSolutionDB/db2.php';
+
+ if(isset($_POST['delete']) && $_POST['delete'] == 'Supprimer'){
+    $req = $mabase->prepare("DELETE FROM solutions WHERE id= :id");
+    $req->execute(array(
+        'id' => $_POST['id']
+        ));
+    header('Location: solu.php');
+    exit();
+  }
+
 include '../../MarseilleSolutionDB/db.php';
+
 $error = "";
 // mise à jour du titre dans la bdd
 if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
@@ -45,11 +58,11 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
         die("Connection failed: " . $conn->connect_error);
     }
     
-    $newimage = $_POST['image'];
-    $newnom = $_POST['nom'];
-    $newfonction = $_POST['fonction'];
-    $newdescription = $_POST['description'];
-    $sql = 'UPDATE communautes SET image = "'.$newimage.'", nom = "'.$newnom.'", fonction = "'.$newfonction.'", description = "'.$newdescription.'"';
+    $newlogos = $_POST['logos'];
+     $newnom = $_POST['nom'];
+      $newfonction = $_POST['fonction'];
+       $newinfogra = $_POST['infogra'];
+    $sql = 'UPDATE solutions SET logos = "'.$newlogos.'","'.$newnom.'","'.$newfonction.'","'.$newinfogra.'"';
     if ($conn->query($sql) === TRUE) {
     $confirm= "Modifications effectuées!";
 } else {
@@ -66,17 +79,21 @@ if ($conn->connect_error) {
      die("Erreur de connection: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM communautes";
+$sql = "SELECT * FROM solutions";
+//WHERE id=".$_GET['id'];
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
-         $image = $row['image'];
+         $logos = $row['logos'];
          $nom = $row['nom'];
-        $fonction = $row['fonction'];
-        $description = $row['description'];
+         $fonction = $row['fonction'];
+         $infogra = $row['infogra'];
+         $id = $row['id'];
+
      }
+
 } else {
      echo "0 results";
 }
@@ -120,8 +137,11 @@ $conn->close();
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
 
+</body>
 
+</html>
 
+<body>
 
     <div id="wrapper">
 
@@ -137,11 +157,11 @@ $conn->close();
                 </button>
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">  
+         <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav"> 
                 <li>
                     <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
-                </li>            
+                </li>             
                 <li>
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
                 </li>  
@@ -159,7 +179,7 @@ $conn->close();
                     <li>
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="charts.php"><i class="fa fa-fw fa-file"></i> Communauté</a>
                     </li>
                     <li>
@@ -171,7 +191,7 @@ $conn->close();
                     <li>
                         <a href="ajoutequipes.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de l'équipe</a>
                     </li>
-                    <li>
+                     <li>
                         <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
                     </li>
                     <li>
@@ -179,17 +199,20 @@ $conn->close();
                     </li>
                     <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-                    </li>  
-                    <li>
+                    </li>   
+                     <li>
                         <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
-                    </li> 
+                    </li>
                     <li>
                         <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
                     </li>
-                   <li>
+                    <li class="active">
+                        <a href="solu.php"><i class="fa fa-fw fa-table"></i> Solutions</a>
+                    </li>
+                    <li>
                         <a href="ajoutsolu.php"><i class="fa fa-fw fa-table"></i> Ajouter une solution</a>
                     </li>
-                                       
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -203,16 +226,23 @@ $conn->close();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                          Modifier la partie : Communauté
+                           Modifier la partie : Solutions
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solution</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                 Communauté
+                                Solutions
                             </li>
                         </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <!-- Flot Charts -->
+                <div class="row">
+                    <div class="col-lg-12">                        
                     </div>
                 </div>
                 <!-- /.row -->
@@ -221,14 +251,32 @@ $conn->close();
                     <div class="col-lg-12">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Modifier l'image </h3>
+                                <h3 class="panel-title">Modifier le logo</h3>
 
                             </div>
-                            <form method='post' action='charts.php'>
+                            <form method='post' action='solu.php'>
                     
-                     <textarea name="image" id="image" rows="10" cols="80"><?php echo $image ; ?></textarea>
+                     <textarea name="logos" id="logos" rows="10" cols="80"><?php echo $logos ; ?></textarea>
             <script>
-                replace( 'image' );
+               replace( 'logos' );
+            </script>         
+                                          
+              <h3 class="panel-title">Modifier le nom</h3>
+                    <textarea name="nom" id="nom" rows="10" cols="80"><?php echo $nom ; ?></textarea>
+            <script>
+                 replace( 'nom' );
+            </script>
+
+            <h3 class="panel-title">Modifier la fonction</h3>
+            <textarea name="fonction" id="fonction" rows="10" cols="80"><?php echo $fonction ; ?></textarea>
+            <script>
+                 replace( 'fonction' );
+            </script>
+
+            <h3 class="panel-title">Modifier l'infographie</h3>
+            <textarea name="infogra" id="infogra" rows="10" cols="80"><?php echo $infogra ; ?></textarea>
+            <script>
+                replace( 'infogra' );
             </script>
                     
              
@@ -239,91 +287,12 @@ $conn->close();
                 </div>
                 <!-- /.row -->
 
-                <!-- Morris Charts -->
-                <div class="row">
+                    <input type="hidden" name="id" value="<?php echo $id ; ?>">
+                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
+                    <input type="submit"  name="delete" value="Supprimer" class="btn btn-primary">
                     
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Modifier Nom/Prénom</h3>
-                            </div>
-
-                    
-                         <form method='post' action='charts.php'>
-                            <textarea name="nom" id="nom" rows="10" cols="80"><?php echo $nom ; ?></textarea>
-            <script>
-                replace( 'nom' );
-            </script>
-                    
-                        </div>
-                    </div>
-                </div>
-                     <!-- /.row -->
-
-                <!-- Morris Charts -->
-                <div class="row">
-                    
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Modifier description</h3>
-                            </div>
-
-                    
-                         <form method='post' action='charts.php'>
-                            <textarea name="description" id="description" rows="10" cols="80"><?php echo $description ; ?></textarea>
-            <script>
-                replace( 'description' );
-            </script>
-                    
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Modifier Fonction</h3>
-                            </div>
-                            
-                                <div class="text-right">
-                                    <form method='post' action='charts.php'>
-                                     <textarea name="fonction" id="fonction" rows="10" cols="80"><?php echo $fonction ; ?></textarea>
-            <script>
-                replace( 'fonction' );
-            </script>
-                         
-                            
-                    
-             </div> 
-                  
-                            
-                    </div>
-                              <input type = 'submit' name='sauvegarder' value="Sauvegarder">
-                </form>   
-                </div>
-                <!-- /.row -->
-            </div>
-                    
-                            <div class="panel-body">
-                                
-                                <div class="text-right">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </form>
+            
             <!-- /.container-fluid -->
 
         </div>
