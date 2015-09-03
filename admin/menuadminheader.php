@@ -22,6 +22,7 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../style.css" rel="stylesheet" type="text/css">
 
    <script src="ckeditor/ckeditor.js"></script>
 
