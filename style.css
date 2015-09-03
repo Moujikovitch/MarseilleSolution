@@ -312,9 +312,9 @@ a:hover {
 }
 .txts{
 	position:absolute;
-	color:white;
+	color:black;
 	font-family: "DinotBold";
-	background-color:rgb(63,110,150);
+	background-color:white;
 	padding:5px;
 	bottom:0px;
 	width:100%;
@@ -444,10 +444,10 @@ a:hover {
 	max-width:900px;
 }
 .titrecom{
-	font-family:"DinotBlack";
+	font-family:"DinotRegular";
 	color:black;
 	font-size:18px;
-	text-align:center;
+	/*text-align:center;*/
 	width:100%;
 	color:black;
 }
@@ -490,12 +490,14 @@ a:hover {
 
 /*EVENT/MEDIA/PAGE2/3=================================================*/
 .titrecatevent{
-	font-family:"DinotBlack";
+	font-family:"DinotRegular";
 	color:black;
 	font-size:18px;
-	text-align:center;
+	/*text-align:center;*/
 	width:100%;
 	color:black;
+	max-width:900px;
+	margin:auto;
 }
 .bgevent{
 	max-width:900px;

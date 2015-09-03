@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Mon panel administrateur</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-   <script src="ckeditor/ckeditor.js"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+<?php include("menuadminheader.php"); ?>
 
 <?php
 
@@ -57,7 +23,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    
+
     $newlogos = $_POST['logos'];
      $newnom = $_POST['nom'];
       $newfonction = $_POST['fonction'];
@@ -100,7 +66,7 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 
-?>  
+?>
 
 
 <body>
@@ -112,8 +78,8 @@ $conn->close();
         <div id="page-wrapper">
 
             <div class="container-fluid">
-                
-                             
+
+
                 <h1><?php if(isset($confirm)){
                     echo $confirm ;
                 } ?></h1>
@@ -137,12 +103,6 @@ $conn->close();
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
 
-</body>
-
-</html>
-
-<body>
-
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -158,13 +118,13 @@ $conn->close();
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
          <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav"> 
+            <ul class="nav navbar-right top-nav">
                 <li>
                     <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
-                </li>             
+                </li>
                 <li>
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
-                </li>  
+                </li>
                 <li>
                     <a href="http://localhost/MarseilleSolution/connection/inscription.php"><i class="fa fa-fw fa-edit"></i> Ajouter un compte</a>
                 </li>
@@ -199,7 +159,7 @@ $conn->close();
                     </li>
                     <li>
                         <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-                    </li>   
+                    </li>
                      <li>
                         <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
                     </li>
@@ -212,7 +172,7 @@ $conn->close();
                     <li>
                         <a href="ajoutsolu.php"><i class="fa fa-fw fa-table"></i> Ajouter une solution</a>
                     </li>
-                    
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -242,7 +202,7 @@ $conn->close();
 
                 <!-- Flot Charts -->
                 <div class="row">
-                    <div class="col-lg-12">                        
+                    <div class="col-lg-12">
                     </div>
                 </div>
                 <!-- /.row -->
@@ -255,12 +215,12 @@ $conn->close();
 
                             </div>
                             <form method='post' action='solu.php'>
-                    
+
                      <textarea name="logos" id="logos" rows="10" cols="80"><?php echo $logos ; ?></textarea>
             <script>
                replace( 'logos' );
-            </script>         
-                                          
+            </script>
+
               <h3 class="panel-title">Modifier le nom</h3>
                     <textarea name="nom" id="nom" rows="10" cols="80"><?php echo $nom ; ?></textarea>
             <script>
@@ -278,10 +238,10 @@ $conn->close();
             <script>
                 replace( 'infogra' );
             </script>
-                    
-             
-                
-   
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -290,9 +250,9 @@ $conn->close();
                     <input type="hidden" name="id" value="<?php echo $id ; ?>">
                     <input type = 'submit' name='sauvegarder' value="Sauvegarder">
                     <input type="submit"  name="delete" value="Supprimer" class="btn btn-primary">
-                    
+
                 </form>
-            
+
             <!-- /.container-fluid -->
 
         </div>
