@@ -165,5 +165,4 @@ $conn->close();
     <script src="js/plugins/flot/flot-data.js"></script>
 
 </body>
-
 </html>

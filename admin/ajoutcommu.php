@@ -1,7 +1,7 @@
 <?php include("menuadminheader.php"); ?>
 
 <?php
-include '../../MarseilleSolutionDB/db2.php';
+include '../../MarseilleSolutionDB/db.php';
 
 $error = "";
 
@@ -79,7 +79,7 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                             <div class="panel-heading">
                                 <h3 class="panel-title">Nom</h3>
                             </div>
-                                <textarea name="nom" id="nom" rows="10" cols="80"></textarea>
+                                <textarea type="text" name="nom" id="nom" rows="10" cols="80"></textarea>
             <script>
                 CKEDITOR.replace( 'nom' );
             </script>
@@ -93,7 +93,7 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                             <div class="panel-heading">
                                 <h3 class="panel-title">Fonction</h3>
                             </div>
-                                <textarea name="fonction" id="fonction" rows="10" cols="80"></textarea>
+                                <textarea type="text" name="fonction" id="fonction" rows="10" cols="80"></textarea>
             <script>
                 CKEDITOR.replace( 'fonction' );
             </script>
@@ -108,7 +108,7 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                             <div class="panel-heading">
                                 <h3 class="panel-title">Description</h3>
                             </div>
-                                <textarea name="description" id="description" rows="10" cols="80"></textarea>
+                                <textarea type="text" name="description" id="description" rows="10" cols="80"></textarea>
             <script>
                 CKEDITOR.replace( 'description' );
             </script>
