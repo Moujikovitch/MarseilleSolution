@@ -19,6 +19,21 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
         header('Location: ajoutcommu.php');
         exit();
     }
+
+/*if (isset($_POST['sauvegarderpartner']) && $_POST['sauvegarderpartner'] == "Sauvegarder") {
+
+$req = $mabase->prepare("INSERT INTO partners(id, logo, partner, lien) VALUES(:id, :logo, :partner, :lien)");
+        $req->execute(array(
+          "id" => "",
+          "logo" => $_POST['logo'],
+          "partner" => $_POST['partner'],
+          "lien" => $_POST['lien'],
+                    ));
+
+          header('Location: ajoutcommu.php');
+          exit();
+    }*/
+
 ?>
 
 <?php include("menugaucheadminheader.php"); ?>
@@ -31,127 +46,91 @@ $req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, descr
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                          Ajouter un membre dans la communauté
+                          Page 5 : Communautée
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                 Ajouter un membre
+                                 Ajouter un témoignagne, partenaire, membre d'équipe
                             </li>
                         </ol>
                     </div>
                 </div>
-                <!-- /.row -->
-
-                <!-- Flot Charts -->
-
-                <!-- /.row -->
-
-
-
-
-
-                        <!-- /.row -->
-
+<!-- Ajouter un témoignage -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Image</h3>
+                                <h3 class="panel-title">Ajouter une personne dans la catégorie "Marseille Solutions vu par"</h3>
                             </div>
+                            <div class="panel-body">
+                              <form method='post' action='ajoutcommu.php'>
 
-                    <form method='post' action='ajoutcommu.php'>
-                            <textarea name="image" id="image" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'image' );
-            </script>
+                                <p class="catform">
+                                  Image de portrait (lien vers l'image) :
+                                </p>
+                                <input class="form-control" name="image" id="image" placeholder="exemple : http://monhostimage.com/monimage.jpg">
 
+                                <p class="catform">
+                                  Nom :
+                                </p>
+                                <input class="form-control" name="nom" id="nom" placeholder="exemple : Modeste Petrovitch Moussorgsky">
+
+                                <p class="catform">
+                                  Fonction/profession/titre :
+                                </p>
+                                <input class="form-control" name="fonction" id="fonction" placeholder="exemple : Dresseur de chameaux">
+
+                                <p class="catform">
+                                  Témoignage :
+                                </p>
+                                <textarea class="form-control" type="text" name="description" id="description" rows="10" placeholder="exemple : J'ai toujours su que Marseille Solutions sauverait la citée phocéenne de ses plus grands maux et je suis persuadé que la terre et bientôt la galaxie entière leur seront accorderont la reconnaissance qu'ils méritent."></textarea>
+                                <div class="row">
+                                <div class="col-lg-2 col-md-offset-9 valide">
+                                  <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                </div>
+                              </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.row -->
+              </div>
+                <!-- Ajouter un partenaire -->
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="panel panel-green">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Ajouter un partenaire dans la catégorie "Nos partenaires"</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                              <form method='post' action='ajoutcommu.php'>
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Nom</h3>
-                            </div>
-                                <textarea type="text" name="nom" id="nom" rows="10" cols="80"></textarea>
-            <script>
-                CKEDITOR.replace( 'nom' );
-            </script>
+                                                <p class="catform">
+                                                  Logo du partenaire (lien vers l'image) :
+                                                </p>
+                                                <input class="form-control" name="logo" id="logo" placeholder="exemple : http://monhostimage.com/monimage.jpg">
 
-                            </div>
-                        </div>
-                    </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Fonction</h3>
-                            </div>
-                                <textarea type="text" name="fonction" id="fonction" rows="10" cols="80"></textarea>
-            <script>
-                CKEDITOR.replace( 'fonction' );
-            </script>
+                                                <p class="catform">
+                                                  Nom du partenaire :
+                                                </p>
+                                                <input class="form-control" name="partner" id="partner" placeholder="exemple : Modeste Petrovitch Moussorgsky">
 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Description</h3>
-                            </div>
-                                <textarea type="text" name="description" id="description" rows="10" cols="80"></textarea>
-            <script>
-                CKEDITOR.replace( 'description' );
-            </script>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- /.row -->
-
-
-            </div>
-
-                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
-                </form>
-
-                </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/flot-data.js"></script>
-
+                                                <p class="catform">
+                                                  Lien vers le site :
+                                                </p>
+                                                <input class="form-control" name="lien" id="lien" placeholder="exemple : http://www.mon-partenaire.com">
+                                                <div class="row">
+                                                <div class="col-lg-2 col-md-offset-9 valide">
+                                                  <input class='btn btn-warning' type ='submit' name='sauvegarderpartner' value="Sauvegarder">
+                                                </div>
+                                              </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
 </body>
 
 </html>

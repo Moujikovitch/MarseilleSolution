@@ -15,6 +15,7 @@ body{
 	font-family: "DinotRegular",helvetica;
 	font-size: 14px;
 	text-rendering: geometricPrecision;
+	overflow-x:hidden;
 }
 .cont {
 	max-width:900px;
@@ -167,7 +168,7 @@ a:hover {
 	top:-160px;
 	position:fixed;
 }
-#logo{
+#logoms{
 	background-image:url("media/logo.svg");
 	background-size: 115%;
 	background-position:center;
@@ -735,4 +736,11 @@ en haut /\ */
 
 .apercu {
 	height:200px;
+}
+.valide {
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.catform {
+	margin-top:15px;
 }

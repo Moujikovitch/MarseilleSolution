@@ -14,7 +14,7 @@
 			<a href="https://www.facebook.com/marseille.solutions" target="_BLANK"><div id="sardine" title="S'inscrire à la newsletter">
 			</div></a>
 			<a href="index.php">
-				<div id="logo" title="Index">
+				<div id="logoms" title="Index">
 				</div>
 			</a>
 			<div id="contbtn">

@@ -10,21 +10,20 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $newimgslider1 = $_POST['imgslider1'];
-    $newimgslider2 = $_POST['imgslider2'];
-    $newimgslider3 = $_POST['imgslider3'];
-    $newtextfiche1 = $_POST['textfiche1'];
-    $newtextfiche2 = $_POST['textfiche2'];
-    $newtextfiche3 = $_POST['textfiche3'];
-    $newdesccontact = $_POST['desccontact'];
-    $sql = 'UPDATE slider SET imgslider1 = "'.$newimgslider1.'", imgslider2 = "'.$newimgslider2.'", imgslider3 = "'.$newimgslider3.'", textfiche1 = "'.$newtextfiche1.'", textfiche2 = "'.$newtextfiche2.'", textfiche3 = "'.$newtextfiche3.'"';
+      $newimgslider1 = $_POST['imgslider1'];
+      $newimgslider2 = $_POST['imgslider2'];
+      $newimgslider3 = $_POST['imgslider3'];
+      $newtextfiche1 = $_POST['textfiche1'];
+      $newtextfiche2 = $_POST['textfiche2'];
+      $newtextfiche3 = $_POST['textfiche3'];
+      $newdesccontact = $_POST['desccontact'];
+      $sql = 'UPDATE slider SET imgslider1 = "'.$newimgslider1.'", imgslider2 = "'.$newimgslider2.'", imgslider3 = "'.$newimgslider3.'", textfiche1 = "'.$newtextfiche1.'", textfiche2 = "'.$newtextfiche2.'", textfiche3 = "'.$newtextfiche3.'"';
     if ($conn->query($sql) === TRUE) {
-    $confirm= "Modifications effectuées!";
-} else {
-    $confirm= "Erreur dans la mise à jour " . $conn->error;
-}
-
-    $conn->close();
+      $confirm= "<script>alert('Modification(s) effectuée(s) !');</script>";
+    } else {
+      $confirm= "<script>alert('Erreur, signalez nous l'erreur en copiant ce texte :".$conn->error."');</script>";
+    }
+      $conn->close();
     }
 
 // Recuperation du titre dans la bdd
@@ -46,23 +45,21 @@ if ($result->num_rows > 0) {
          $textfiche1 = $row['textfiche1'];
          $textfiche2 = $row['textfiche2'];
          $textfiche3 = $row['textfiche3'];
-
      }
 } else {
      echo "0 results";
 }
-
 $conn->close();
-
 ?>
 
 
 <body>
-  <?php include 'nav.php'; ?>
+
+  <?php include("menugaucheadminheader.php"); ?>
+
     <div id="wrapper">
         <form method='post' action='index.php'>
         <div id="page-wrapper">
-
             <div class="container-fluid">
                 <h1 class="page-header">
                   Modifier le Slider
@@ -75,23 +72,120 @@ $conn->close();
                             <div class="panel-heading">
                                 <h3 class="panel-title">Slide 1</h3>
                             </div>
-                      <h5>
-                        Image Slide 1 (lien vers l'image):
-                      </h5>
-                     <input name="imgslider1" id="imgslider1">
-                     <input name="textfiche1" id="textfiche1">
-                     <?php echo "<img class='apercu' src=".$imgslider1."></img>"; ?>
-                     <?php echo "<p class='apercutxt'>".$textfiche1."</p>"; ?>
+                            <div class="panel-body">
+                              <h5>
+                                Image Slide 1 (lien vers l'image):
+                              </h5>
+                                <?php echo "<input class='form-control' name='imgslider1' id='imgslider1' value='".$imgslider1."'>"; ?>
+                              <h5>
+                                Texte Slide 1 :
+                              </h5>
+                              <?php echo "<input class='form-control' name='textfiche1' id='textfiche1' value='".$textfiche1."'>"; ?>
+                              <div class="row">
+                                <div class="col-lg-2 col-md-offset-9 valide">
+                                  <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Contenu actuel :</h3>
+                            </div>
+                            <div class="panel-body">
+                              <div class="col-lg-6">
+                                <?php echo "<img class='apercu' src=".$imgslider1."></img>"; ?>
+                              </div>
+                              <div class="col-lg-6">
+                                <?php echo "<p class='apercutxt'>".$textfiche1."</p>"; ?>
+                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
+                     <div class="col-lg-6">
+                         <div class="panel panel-primary">
+                             <div class="panel-heading">
+                                 <h3 class="panel-title">Slide 2</h3>
+                             </div>
+                             <div class="panel-body">
+                               <h5>
+                                 Image Slide 2 (lien vers l'image):
+                               </h5>
+                                <?php echo "<input class='form-control' name='imgslider2' id='imgslider2' value='".$imgslider2."'>"; ?>
+                               <h5>
+                                 Texte Slide 2 :
+                               </h5>
+                               <?php echo "<input class='form-control' name='textfiche2' id='textfiche2' value='".$textfiche2."'>"; ?>
+                               <div class="row">
+                                 <div class="col-lg-2 col-md-offset-9 valide">
+                                   <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                 </div>
+                               </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-6">
+                         <div class="panel panel-primary">
+                             <div class="panel-heading">
+                                 <h3 class="panel-title">Contenu actuel :</h3>
+                             </div>
+                             <div class="panel-body">
+                               <div class="col-lg-6">
+                                 <?php echo "<img class='apercu' src=".$imgslider2."></img>"; ?>
+                               </div>
+                               <div class="col-lg-6">
+                                 <?php echo "<p class='apercutxt'>".$textfiche2."</p>"; ?>
+                               </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
 
 
-
-                    <input type ='submit' name='sauvegarder' value="Sauvegarder">
-
-                </div>
+                 <div class="row">
+                      <div class="col-lg-6">
+                          <div class="panel panel-primary">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title">Slide 3</h3>
+                              </div>
+                              <div class="panel-body">
+                                <h5>
+                                  Image Slide 3 (lien vers l'image):
+                                </h5>
+                                <?php echo "<input class='form-control' name='imgslider3' id='imgslider3' value='".$imgslider3."'>"; ?>
+                                <h5>
+                                  Texte Slide 3 :
+                                </h5>
+                                <?php echo "<input class='form-control' name='textfiche3' id='textfiche3' value='".$textfiche3."'>"; ?>
+                                <div class="row">
+                                  <div class="col-lg-2 col-md-offset-9 valide">
+                                    <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="panel panel-primary">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title">Contenu actuel :</h3>
+                              </div>
+                              <div class="panel-body">
+                                <div class="col-lg-6">
+                                  <?php echo "<img class='apercu' src=".$imgslider3."></img>"; ?>
+                                </div>
+                                <div class="col-lg-6">
+                                  <?php echo "<p class='apercutxt'>".$textfiche3."</p>"; ?>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               </form>
 
 
@@ -107,17 +201,5 @@ $conn->close();
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
 </body>
-
 </html>
