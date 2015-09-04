@@ -61,34 +61,25 @@
                         <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
                     </li>
                     <li>
-                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
+                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> 1 - Comment ça marche?</a>
                     </li>
                     <li>
-                        <a href="ajoutsolu.php"><i class="fa fa-fw fa-table"></i> Ajouter une solution</a>
+                        <a href="ajoutsolu.php"><i class="fa fa-fw fa-file"></i> 2 - Solutions</a>
                     </li>
                     <li>
-                        <a href="tables.php"><i class="fa fa-fw fa-table"></i> Events</a>
+                        <a href="tables.php"><i class="fa fa-fw fa-file"></i> 3 - Evénements</a>
                     </li>
                     <li>
-                        <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
+                        <a href="create.php"><i class="fa fa-fw fa-file"></i> Ajouter un event (à supprimer)</a>
                     </li>
                     <li>
-                        <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
+                        <a href="media.php"><i class="fa fa-fw fa-file"></i> 4 - Medias</a>
                     </li>
                     <li>
-                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
+                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-file"></i> Ajouter un media (à supprimer)</a>
                     </li>
                     <li>
-                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
-                    </li>
-                    <li >
-                        <a href="modifiercommu.php"><i class="fa fa-fw fa-file"></i>Modifier Communauté</a>
-                    </li>
-                    <li>
-                        <a href="ajoutpartners.php"><i class="fa fa-fw fa-table"></i> Ajouter un partenaire</a>
-                    </li>
-                    <li>
-                        <a href="ajoutequipes.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de l'équipe</a>
+                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-file"></i> 5 - Communauté</a>
                     </li>
                 </ul>
             </div>

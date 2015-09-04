@@ -57,7 +57,6 @@ $conn->close();
 
   <?php include("menugaucheadminheader.php"); ?>
 
-    <div id="wrapper">
         <form method='post' action='index.php'>
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -198,8 +197,6 @@ $conn->close();
         </div>
         <!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
 
 </body>
 </html>

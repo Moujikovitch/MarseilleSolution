@@ -2,37 +2,73 @@
 
 <?php
 include '../../MarseilleSolutionDB/db.php';
-
 $error = "";
-
-if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder") {
-
-$req = $mabase->prepare("INSERT INTO communautes(id, image, nom, fonction, description) VALUES(:id, :image, :nom, :fonction, :description)");
-        $req->execute(array(
-          "id" => "",
-          "image" => $_POST['image'],
-          "nom" => $_POST['nom'],
-          "fonction" => $_POST['fonction'],
-          "description" => $_POST['description'],
-                    ));
-
-        header('Location: ajoutcommu.php');
-        exit();
+//SQLI POUR TEMOIGNAGE
+if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
+    $conn = new mysqli($serveur, $user, $mdp, $mabase);
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-/*if (isset($_POST['sauvegarderpartner']) && $_POST['sauvegarderpartner'] == "Sauvegarder") {
+    $newimage = $_POST['image'];
+    $newnom = $_POST['nom'];
+    $newfonction = $_POST['fonction'];
+    $newdescription = $_POST['description'];
+    $sql = "INSERT INTO communautes(id, image, nom, fonction, description) VALUES('','".$newimage."', '".$newnom."', '".$newfonction."', '".$newdescription."')";
 
-$req = $mabase->prepare("INSERT INTO partners(id, logo, partner, lien) VALUES(:id, :logo, :partner, :lien)");
-        $req->execute(array(
-          "id" => "",
-          "logo" => $_POST['logo'],
-          "partner" => $_POST['partner'],
-          "lien" => $_POST['lien'],
-                    ));
+    if ($conn->query($sql) === TRUE) {
+    $confirm= "Ajout de témoignage validé !";
+    } else {
+    $confirm= "Erreur dans la mise à jour, contactez nous";
+}
 
-          header('Location: ajoutcommu.php');
-          exit();
-    }*/
+    $conn->close();
+}
+//SQLI POUR PARTENAIRE
+if (isset($_POST['sauvegarderpartner']) && $_POST['sauvegarderpartner'] == "Sauvegarder"){
+    $conn = new mysqli($serveur, $user, $mdp, $mabase);
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $newlogo = $_POST['logo'];
+    $newpartner = $_POST['partner'];
+    $newlien = $_POST['lien'];
+    $sql = "INSERT INTO partners(id, logo, partner, lien) VALUES('','".$newlogo."', '".$newpartner."', '".$newlien."')";
+
+    if ($conn->query($sql) === TRUE) {
+    $confirm= "Ajout de partenaire validé !";
+    } else {
+    $confirm= "Erreur dans la mise à jour, contactez nous.";
+}
+
+    $conn->close();
+}
+
+//SQLI POUR EQUIPIER
+if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegarder"){
+    $conn = new mysqli($serveur, $user, $mdp, $mabase);
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $newphoto = $_POST['photo'];
+    $newnomeq = $_POST['nomeq'];
+    $newposte = $_POST['poste'];
+    $newbiographie = $_POST['biographie'];
+    $sql = "INSERT INTO equipes(id, photo, nomeq, poste, biographie) VALUES('','".$newphoto."', '".$newnomeq."', '".$newposte."', '".$newbiographie."')";
+
+    if ($conn->query($sql) === TRUE) {
+    $confirm= "Ajout d'équipier validé !";
+    } else {
+    $confirm= "Erreur dans la mise à jour, contactez nous.";
+}
+
+    $conn->close();
+}
 
 ?>
 
@@ -131,6 +167,51 @@ $req = $mabase->prepare("INSERT INTO partners(id, logo, partner, lien) VALUES(:i
                                     </div>
                                 </div>
                               </div>
+                              <!-- Ajouter un témoignage -->
+                                              <div class="row">
+                                                  <div class="col-lg-6">
+                                                      <div class="panel panel-green">
+                                                          <div class="panel-heading">
+                                                              <h3 class="panel-title">Ajouter une personne dans la catégorie "L'équipe"</h3>
+                                                          </div>
+                                                          <div class="panel-body">
+                                                            <form method='post' action='ajoutcommu.php'>
+
+                                                              <p class="catform">
+                                                                Image de portrait (lien vers l'image) :
+                                                              </p>
+                                                              <input class="form-control" name="photo" id="photo" placeholder="exemple : http://monhostimage.com/monimage.jpg">
+
+                                                              <p class="catform">
+                                                                Nom de l'équipier :
+                                                              </p>
+                                                              <input class="form-control" name="nomeq" id="nomeq" placeholder="exemple : Gaston Lagaffe">
+
+                                                              <p class="catform">
+                                                                Poste chez Marseille Solutions :
+                                                              </p>
+                                                              <input class="form-control" name="poste" id="poste" placeholder="exemple : Dresseur de mouette">
+
+                                                              <p class="catform">
+                                                                Biographie :
+                                                              </p>
+                                                              <textarea class="form-control" type="text" name="biographie" id="biographie" rows="10" placeholder="exemple : Dans ma petite enfance, ne pas avoir mon goûté à 16h pile était une immense frustration, alors j'ai decidé de me mettre à la gouache pour me calmer et c'est comme ça que je suis devenu graphiste."></textarea>
+                                                              <div class="row">
+                                                              <div class="col-lg-2 col-md-offset-9 valide">
+                                                                <input class='btn btn-warning' type ='submit' name='sauvegarderequip' value="Sauvegarder">
+                                                              </div>
+                                                            </form>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                            </div>
+                              <?php
+                              if ($confirm != "")
+                              {
+                                echo "<script>alert('".$confirm."');</script>" ;
+                              }
+                               ?>
 </body>
 
 </html>

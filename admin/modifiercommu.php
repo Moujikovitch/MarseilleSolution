@@ -82,7 +82,7 @@ $conn->close();
                                 <h3 class="panel-title">Modifier l'image </h3>
 
                             </div>
-                            <form method='post' action='charts.php'>
+                            <form method='post' action='modifiercommu.php'>
 
                      <textarea name="image" id="image" rows="10" cols="80"><?php echo $image ; ?></textarea>
             <script>
@@ -155,7 +155,7 @@ $conn->close();
                             </div>
 
                                 <div class="text-right">
-                                    <form method='post' action='charts.php'>
+                                    <form method='post' action='modifiercommu.php'>
                                      <textarea name="fonction" id="fonction" rows="10" cols="80"><?php echo $fonction ; ?></textarea>
             <script>
                 replace( 'fonction' );

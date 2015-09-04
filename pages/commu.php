@@ -76,27 +76,24 @@ $conn->close();
 				$sql = "SELECT * FROM partners";
 				$result = $conn->query($sql);
 
-				//TEMPORAIRE, A MODIFIER
-				$link = "http://www.google.com";
 
 				if ($result->num_rows > 0) {
 				     // output data of each row
 				     while($row = $result->fetch_assoc()) {
-				         $image = $row['image'];
-				         $nom = $row['nom'];
-				         $fonction = $row['fonction'];
-				         $description = $row['description'];
+				         $logo = $row['logo'];
+				         $partner = $row['partner'];
+				         $lien = $row['lien'];
 								$i++;
-								echo "<a href=".$link." target='_BLANK'>
+								echo "<a href=".$lien." target='_BLANK'>
 											<div class='bgfichecom'>
 												<div class='fichecomlogo' id='num".$i."'>
 													<div class='bgimgfichecom bglogo'>
-														<div class='imgfichecom' style='background-image: url(".$image.")'>
+														<div class='imgfichecom' style='background-image: url(".$logo.")'>
 														</div>
 													</div>
 													<div class='txtfichecom'>
 														<p class='titrefichecom'>
-														".$nom."
+														".$partner."
 														</p>
 													</div>
 												</div>
@@ -133,25 +130,25 @@ $conn->close();
 				if ($result->num_rows > 0) {
 				     // output data of each row
 				     while($row = $result->fetch_assoc()) {
-				         $image = $row['image'];
-				         $nom = $row['nom'];
-				         $fonction = $row['fonction'];
-				         $description = $row['description'];
+				         $photo = $row['photo'];
+				         $nomeq = $row['nomeq'];
+				         $poste = $row['poste'];
+				         $biographie = $row['biographie'];
 								$i++;
 								echo "<div class='bgfichecom'>
 												<div class='fichecom' id='num".$i."'>
 													<div class='bgimgfichecom bgequip'>
-														<div class='imgfichecom' style='background-image: url(".$image.")'>
+														<div class='imgfichecom' style='background-image: url(".$photo.")'>
 														</div>
 													</div>
 													<div class='txtfichecom'>
 														<p class='titrefichecom'>
-														".$nom."
+														".$nomeq."
 														</p>
-														".$fonction."
+														".$poste."
 													</div>
 													<div class='descfichecom'>
-														<p>".$description."</p>
+														<p>".$biographie."</p>
 													</div>
 												</div>
 											</div>";
@@ -175,10 +172,8 @@ $conn->close();
 			<div class="modalphoto">
 			</div>
 			<div class="modaltitre">
-				Coucou c'est moi
 			</div>
 			<div class="modaltext">
-				La vie est géniale même si elle n'a pas de sens.
 			</div>
 		</div>
 	</div>

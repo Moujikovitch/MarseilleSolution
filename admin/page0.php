@@ -12,11 +12,13 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
     }
 
     $newphoto = $_POST['photo'];
-    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'", photo2 = "'.$newphoto2.'", titre = "'.$newtitre.'"';
+    $newphoto2 = $_POST['photo2'];
+    $newtitre = $_POST['titre'];
+    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'", titre = "'.$newtitre.'", photo2 = "'.$newphoto2.'"';
     if ($conn->query($sql) === TRUE) {
-    $confirm= "Modifications effectuées!";
+    $confirm= "<script>alert('Modification(s) effectuée(s) !');</script>";
 } else {
-    $confirm= "Erreur dans la mise à jour " . $conn->error;
+    $confirm= "<script>alert('Erreur, signalez nous l'erreur en copiant ce texte :".$conn->error."');</script>";
 }
 
     $conn->close();
@@ -36,8 +38,11 @@ if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
          $photo = $row['photo'];
+         $photo = addslashes( $photo );
          $photo2 = $row['photo2'];
+         $photo2 = addslashes( $photo2 );
          $titre = $row['titre'];
+         $titre = addslashes( $titre );
      }
 } else {
      echo "0 results";
@@ -59,110 +64,64 @@ $conn->close();
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                          Modifier la page : Comment ça marche ?
+                          Page 1 - Comment ça Marche ?
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                Comment ça marche ?
+                                Modifier les deux infographies et le texte de la page 1 - Comment ça marche ?
                             </li>
                         </ol>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Modifier l'infographie</h3>
-
+                                <h3 class="panel-title">Modifier les éléments</h3>
                             </div>
-                            <form method='post' action='page0.php'>
-
-                     <textarea name="photo2" id="photo2" rows="10" cols="80"><?php echo $photo2 ; ?></textarea>
-            <script>
-                replace( 'photo2' );
-            </script>
-
+                            <div class="panel-body">
+                              <form method='post' action='page0.php'>
+                                <h5>
+                                  Infographie 1 (lien vers l'image):
+                                </h5>
+                                  <?php echo "<input class='form-control' name='photo' id='photo' value='".$photo."'>"; ?>
+                                <h5>
+                                  Texte central :
+                                </h5>
+                                  <?php echo "<input class='form-control' name='titre' id='titre' value='".$titre."'>"; ?>
+                                <h5>
+                                  Infographie 2 (lien vers l'image):
+                                </h5>
+                                  <?php echo "<input class='form-control' name='photo2' id='photo2' value='".$photo2."'>"; ?>
+                              <div class="col-lg-2 col-md-offset-9 valide">
+                                    <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                              </div>
+                              </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Modifier la photo 2</h3>
-
+                                <h3 class="panel-title">Contenu Actuel :</h3>
                             </div>
-                            <form method='post' action='page0.php'>
-
-                     <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
-            <script>
-                replace( 'photo' );
-            </script>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Modifier le titre</h3>
-
-                            </div>
-                            <form method='post' action='page0.php'>
-
-                     <textarea name="titre" id="titre" rows="10" cols="80"><?php echo $titre ; ?></textarea>
-            <script>
-                replace( 'titre' );
-            </script>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
-                </form>
                             <div class="panel-body">
 
-                                <div class="text-right">
+                                <?php echo "<img class='apercu' src='".$photo."'></img>" ; ?>
 
-                                </div>
+                                <?php echo $titre ; ?>
+
+                                <?php echo "<img class='apercu' src='".$photo2."'></img>" ; ?>
+
+                              </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/flot-data.js"></script>
 
 </body>
 </html>
