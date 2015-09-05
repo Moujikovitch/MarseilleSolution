@@ -52,7 +52,7 @@ $("document").ready(function(){
 
   //script MENU
 
-  var winH = $("#logo").height()+35;
+  var winH = $("#logoms").height()+35;
    $(window).scroll(function ()    {
       if ( $(window).scrollTop() > winH)
       {
@@ -257,7 +257,7 @@ $("document").ready(function(){
       if (checkpos == false) {
         writtefuturevent += futurevent[i].innerHTML;
         futurevent.splice(i,1);
-        i = 0;
+        i = -1;
       };
     };
     $("#avenir").html(writtefuturevent);
@@ -276,8 +276,9 @@ $("document").ready(function(){
       //si l'event est le premier, l'inscrire dans la variable d'écriture
       if (checkpos == false) {
         writtepastevent += pastevent[i].innerHTML;
+        console.log(writtepastevent);
         pastevent.splice(i,1);
-        i = 0;
+        i = -1;
       };
     };
     $("#passe").html(writtepastevent);

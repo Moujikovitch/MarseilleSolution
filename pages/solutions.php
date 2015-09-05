@@ -26,12 +26,13 @@
        // output data of each row
   		$i = 0;
        while($row = $result->fetch_assoc()) {
-           $image = $row['image'];
-           $logos = $row['logos'];
-           $nom = $row['nom'];
-           $fonction = $row['fonction'];
-           $lien = $row['lien'];
-           $infogra = $row['infogra'];
+          $id = $row['id'];
+          $image = $row['image'];
+          $logos = $row['logos'];
+          $nom = $row['nom'];
+          $fonction = $row['fonction'];
+          $lien = $row['lien'];
+          $infogra = $row['infogra'];
   				$i++;
   				echo "<div class='bgfichecom'>
   							 <div class='fichecom' id='num".$i."'>

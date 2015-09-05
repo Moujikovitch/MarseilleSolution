@@ -84,6 +84,60 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Modifier ou supprimer une solution.</h3>
+                            </div>
+                            <div class="panel-body apercutable">
+                              <table class='table-striped table-bordered'>
+                                <th>
+                                  <td>
+                                    Nom
+                                  </td>
+                                  <td>
+                                    Supprimer
+                                  </td>
+                                </th>
+                              <?php
+                                $conn = new mysqli($serveur, $user, $mdp, $mabase);
+                                $sql = 'SELECT * FROM solutions';
+                                $result = $conn->query($sql) or die("Erreur SQL dans la récupération des données depuis la table 'solutions'");
+                                while($row = $result->fetch_assoc()) {
+                                  $id = $row['id'];
+                                  $logos = $row['logos'];
+                                  $nom = $row['nom'];
+                                  $fonction = $row['fonction'];
+                                  $infogra = $row['infogra'];
+                                  echo "<tr>
+                                          <td>
+                                            <p class='line9'>
+                                              ".$id."
+                                            </p>
+                                          </td>
+                                          <td>
+                                            <p class='line9'>
+                                              ".substr($nom,0,25)."
+                                            </p>
+                                          </td>
+                                          <td>
+                                            <a href='supprsolu.php?id={$id}'>
+                                              <span class='line9b glyphicon glyphicon-remove'>
+                                              </span>
+                                            </a>
+                                            <a href='modifsolu.php?id={$id}'>
+                                              <span class='line9b glyphicon glyphicon-pencil'>
+                                              </span>
+                                            </a>
+                                          </td>
+                                        </tr>";
+                                }
+                                $conn->close();
+                               ?>
+                             </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.row -->
 

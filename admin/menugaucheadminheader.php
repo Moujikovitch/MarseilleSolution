@@ -67,19 +67,19 @@
                         <a href="ajoutsolu.php"><i class="fa fa-fw fa-file"></i> 2 - Solutions</a>
                     </li>
                     <li>
-                        <a href="tables.php"><i class="fa fa-fw fa-file"></i> 3 - Evénements</a>
-                    </li>
-                    <li>
-                        <a href="create.php"><i class="fa fa-fw fa-file"></i> Ajouter un event (à supprimer)</a>
+                        <a href="create.php"><i class="fa fa-fw fa-file"></i> 3 - Evénements</a>
                     </li>
                     <li>
                         <a href="media.php"><i class="fa fa-fw fa-file"></i> 4 - Medias</a>
                     </li>
                     <li>
-                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-file"></i> Ajouter un media (à supprimer)</a>
+                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-file"></i> 5 - Communauté</a>
                     </li>
                     <li>
-                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-file"></i> 5 - Communauté</a>
+                        <a href="table.php"><i class="fa fa-fw fa-file"></i> Modifier un event (à supprimer)</a>
+                    </li>
+                    <li>
+                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-file"></i> Ajouter un media (à supprimer)</a>
                     </li>
                 </ul>
             </div>

@@ -1,22 +1,11 @@
 <?php include("menuadminheader.php"); ?>
 
 <?php
-
-include '../../MarseilleSolutionDB/db2.php';
-
- if(isset($_POST['delete']) && $_POST['delete'] == 'Supprimer'){
-    $req = $mabase->prepare("DELETE FROM medias WHERE id= :id");
-    $req->execute(array(
-        'id' => $_POST['id']
-        ));
-    header('Location: media.php');
-    exit();
-  }
-
-include '../../MarseilleSolutionDB/db.php';
+require '../../MarseilleSolutionDB/db.php';
 
 $error = "";
-// mise à jour du titre dans la bdd
+
+//SQLI POUR EVENTS
 if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
     $conn = new mysqli($serveur, $user, $mdp, $mabase);
 // Check connection
@@ -24,156 +13,86 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
         die("Connection failed: " . $conn->connect_error);
     }
 
+    $newtitre = $_POST['titre'];
+    $newdates = $_POST['dates'];
+    $newtexte = $_POST['texte'];
     $newphoto = $_POST['photo'];
-     $newtitre = $_POST['titre'];
-      $newtexte = $_POST['texte'];
-       $newdates = $_POST['dates'];
-    $sql = 'UPDATE medias SET photo = "'.$newphoto.'","'.$newtitre.'","'.$newtexte.'","'.$newdates.'"';
+    $sql = "INSERT INTO media(id, photo, titre, texte, dates) VALUES('','".$newphoto."', '".$newtitre."', '".$newtexte."', '".$newdates."')";
+
     if ($conn->query($sql) === TRUE) {
-    $confirm= "Modifications effectuées!";
-} else {
-    $confirm= "Erreur dans la mise à jour " . $conn->error;
+    $confirm= "Ajout d'article media validé !";
+    } else {
+    $confirm= "Erreur dans la mise à jour, contactez nous. ";
 }
 
     $conn->close();
-    }
-
-// Recuperation du titre dans la bdd
-$conn = new mysqli($serveur, $user, $mdp, $mabase);
-// Check connection
-if ($conn->connect_error) {
-     die("Erreur de connection: " . $conn->connect_error);
 }
-
-$sql = "SELECT * FROM medias";
-//WHERE id=".$_GET['id'];
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-     // output data of each row
-     while($row = $result->fetch_assoc()) {
-         $photo = $row['photo'];
-         $titre = $row['titre'];
-         $texte = $row['texte'];
-         $dates = $row['dates'];
-         $id = $row['id'];
-
-     }
-
-} else {
-     echo "0 results";
-}
-
-$conn->close();
-
 ?>
-
-
-<body>
-  <?php include("menugaucheadminheader.php"); ?>
+<?php include("menugaucheadminheader.php"); ?>
 
         <div id="page-wrapper">
-
             <div class="container-fluid">
-
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                           Modifier la partie : Medias
+                          Page 4 - Media
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
-                                Medias
+                                 Ajouter, modifier, supprimer un article media.
                             </li>
                         </ol>
+                        <p class="page-header">Ajouter un article media à la liste, modifier ou supprimer les articles présents. Les articles seront classés par ordre d'ajout. La date ne les influence pas</p>
                     </div>
                 </div>
                 <!-- /.row -->
-
-                <!-- Flot Charts -->
                 <div class="row">
-                    <div class="col-lg-12">
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-primary">
+                    <div class="col-lg-6">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Modifier la photo</h3>
-
+                                <h3 class="panel-title">Ajouter un article media à la liste</h3>
                             </div>
-                            <form method='post' action='media.php'>
-
-                     <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
-            <script>
-               replace( 'photo' );
-            </script>
-
-              <h3 class="panel-title">Modifier le titre</h3>
-                    <textarea name="titre" id="titre" rows="10" cols="80"><?php echo $titre ; ?></textarea>
-            <script>
-                 CKEDITOR.replace( 'titre' );
-            </script>
-
-            <h3 class="panel-title">Modifier le texte</h3>
-            <textarea name="texte" id="texte" rows="10" cols="80"><?php echo $texte ; ?></textarea>
-            <script>
-                 CKEDITOR.replace( 'texte' );
-            </script>
-
-            <h3 class="panel-title">Modifier la date</h3>
-            <textarea name="dates" id="dates" rows="10" cols="80"><?php echo $dates ; ?></textarea>
-            <script>
-                replace( 'dates' );
-            </script>
-
-
-
-
+                            <div class="panel-body">
+                              <form method='post' action='create.php'>
+                                  <p class="catform">
+                                    Photo (lien vers l'image) :
+                                  </p>
+                                  <input class="form-control" name="photo" id="photo" placeholder="exemple : http://monhostimage.com/monimage.jpg">
+                                  <p class="catform">
+                                    Titre de l'article media :
+                                  </p>
+                                  <input class="form-control" name="titre" id="titre" placeholder="exemple : Publication chez 20 minutes">
+                                  <p class="catform">
+                                    Texte de l'article :
+                                  </p>
+                                  <textarea class="form-control" type="text" name="texte" id="texte" rows="10" placeholder="exemple : Nous avons été sévèrement critiqué dans cet article ! C'est INADMISSIBLE !"></textarea>
+                                  <p class="catform">
+                                    Date de réroulement (affichée sous le titre) :
+                                  </p>
+                                  <input class="form-control" name="dates" id="dates" placeholder="exemple : 2015-12-24">
+                                  <div class="row">
+                                  <div class="col-lg-2 col-md-offset-9 valide">
+                                    <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                  </div>
+                              </form>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- /.row -->
-
-                    <input type="hidden" name="id" value="<?php echo $id ; ?>">
-                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
-                    <input type="submit"  name="delete" value="Supprimer" class="btn btn-primary">
-
-                </form>
-
-            <!-- /.container-fluid -->
-
+            </div>
         </div>
         <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/flot-data.js"></script>
+        <?php
+        if ($confirm != "")
+        {
+          echo "<script>alert('".$confirm."');</script>" ;
+        }
+        ?>
 
 </body>
-
 </html>

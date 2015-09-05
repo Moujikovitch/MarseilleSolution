@@ -499,6 +499,11 @@ a:hover {
 	color:black;
 	max-width:900px;
 	margin:auto;
+	margin-bottom:50px;
+	border-bottom-style:solid;
+	border-top-style:solid;
+	border-color:#8098bb;
+	border-width:1px;
 }
 .bgevent{
 	max-width:900px;
@@ -597,7 +602,12 @@ a:hover {
 .modalmedia {
 	max-width:100vw;
 }
-
+#avenir {
+	margin-bottom:100px;
+}
+#passe {
+	margin-bottom:100px;
+}
 
 /*CSS ALTERNATIF EVENT/MEDIA==============================================*/
 
@@ -748,4 +758,18 @@ en haut /\ */
 }
 .catform {
 	margin-top:15px;
+}
+.apercutable {
+	overflow:scroll;
+}
+.line9{
+	width:100px;
+	height:20px;
+	padding:2px;
+	overflow:hidden;
+}
+.line9b{
+	height:10px;
+	padding-left:20px;
+	padding-right:20px;
 }
