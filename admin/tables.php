@@ -71,111 +71,6 @@ $conn->close();
 <body>
   <?php include("menugaucheadminheader.php"); ?>
 
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-
-
-                <h1><?php if(isset($confirm)){
-                    echo $confirm ;
-                } ?></h1>
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
-</body>
-
-</html>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php">Panel Admin</a>
-            </div>
-         <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li>
-                    <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
-                </li>
-                <li>
-                    <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
-                </li>
-                <li>
-                    <a href="http://localhost/MarseilleSolution/connection/inscription.php"><i class="fa fa-fw fa-edit"></i> Ajouter un compte</a>
-                </li>
-                <li>
-                    <a href="http://localhost/MarseilleSolution/deconnexion.php"><i class="fa fa-power-off"></i> Déconnexion</a>
-                </li>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
-                    </li>
-                    <li>
-                        <a href="charts.php"><i class="fa fa-fw fa-file"></i> Communauté</a>
-                    </li>
-                    <li>
-                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
-                    </li>
-                    <li>
-                        <a href="ajoutpartners.php"><i class="fa fa-fw fa-table"></i> Ajouter un partenaire</a>
-                    </li>
-                    <li>
-                        <a href="ajoutequipes.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de l'équipe</a>
-                    </li>
-                     <li>
-                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
-                    </li>
-                    <li class="active">
-                        <a href="tables.php"><i class="fa fa-fw fa-table"></i> Events</a>
-                    </li>
-                    <li>
-                        <a href="create.php"><i class="fa fa-fw fa-table"></i> Ajouter un event</a>
-                    </li>
-                    <li>
-                        <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
-                    </li>
-                    <li>
-                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
-                    </li>
-                    <li>
-                        <a href="ajoutsolu.php"><i class="fa fa-fw fa-table"></i> Ajouter une solution</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
 
         <div id="page-wrapper">
 
@@ -199,15 +94,6 @@ $conn->close();
                 </div>
                 <!-- /.row -->
 
-                <!-- Flot Charts -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2 class="page-header">1- Modifier le texte<br>2- Sauvegarder</h2>
-
-                    </div>
-                </div>
-                <!-- /.row -->
-
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-primary">
@@ -218,27 +104,19 @@ $conn->close();
                             <form method='post' action='tables.php'>
 
                      <textarea name="photo" id="photo" rows="10" cols="80"><?php echo $photo ; ?></textarea>
-            <script>
-               replace( 'photo' );
-            </script>
+
 
               <h3 class="panel-title">Modifier le titre</h3>
                     <textarea name="titre" id="titre" rows="10" cols="80"><?php echo $titre ; ?></textarea>
-            <script>
-                 CKEDITOR.replace( 'titre' );
-            </script>
+
 
             <h3 class="panel-title">Modifier le texte</h3>
             <textarea name="texte" id="texte" rows="10" cols="80"><?php echo $texte ; ?></textarea>
-            <script>
-                 CKEDITOR.replace( 'texte' );
-            </script>
+
 
             <h3 class="panel-title">Modifier la date</h3>
             <textarea name="dates" id="dates" rows="10" cols="80"><?php echo $dates ; ?></textarea>
-            <script>
-                replace( 'dates' );
-            </script>
+
 
 
 
@@ -254,10 +132,11 @@ $conn->close();
 
                 </form>
 
-            <!-- /.container-fluid -->
 
         </div>
-        <!-- /#page-wrapper -->
+
+      </div>
+
 
 </body>
 

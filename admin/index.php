@@ -57,14 +57,14 @@ $conn->close();
 
   <?php include("menugaucheadminheader.php"); ?>
 
-        <form method='post' action='index.php'>
+
         <div id="page-wrapper">
             <div class="container-fluid">
                 <h1 class="page-header">
-                  Modifier le Slider
+                  Index - Modifier le Slider
                 </h1>
                 <p class="page-header">Modifier les images et textes du slider en index. (Pour le moment, modifier un image remplacera l'ancienne dans la base de donnée)</p>
-
+                <form method='post' action='index.php'>
                <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-primary">

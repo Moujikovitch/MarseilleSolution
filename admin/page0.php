@@ -38,11 +38,8 @@ if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
          $photo = $row['photo'];
-         $photo = addslashes( $photo );
          $photo2 = $row['photo2'];
-         $photo2 = addslashes( $photo2 );
          $titre = $row['titre'];
-         $titre = addslashes( $titre );
      }
 } else {
      echo "0 results";
@@ -76,7 +73,7 @@ $conn->close();
                         </ol>
                     </div>
                 </div>
-
+                <p class="page-header">Modifier les infographie et le textes du slider de la page "Comment ça marche ?". (modifier un élément remplacera l'ancien dans la base de donnée)</br> L'aperçu des images peut être déformé, mais cela n'affectera pas l'apparence finale de l'élément.</p>
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
@@ -110,13 +107,15 @@ $conn->close();
                                 <h3 class="panel-title">Contenu Actuel :</h3>
                             </div>
                             <div class="panel-body">
-
-                                <?php echo "<img class='apercu' src='".$photo."'></img>" ; ?>
-
+                              <div class="col-lg-4">
+                                <?php echo "<img class='apercu2' src='".$photo."'></img>" ; ?>
+                              </div>
+                              <div class="col-lg-4">
                                 <?php echo $titre ; ?>
-
-                                <?php echo "<img class='apercu' src='".$photo2."'></img>" ; ?>
-
+                              </div>
+                              <div class="col-lg-4">
+                                <?php echo "<img class='apercu2' src='".$photo2."'></img>" ; ?>
+                              </div>
                               </form>
                             </div>
                         </div>

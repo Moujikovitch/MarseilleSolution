@@ -736,6 +736,11 @@ en haut /\ */
 
 .apercu {
 	height:200px;
+	max-width:200px;
+}
+.apercu2 {
+	height:275px;
+	max-width:200px;
 }
 .valide {
 	margin-top:15px;

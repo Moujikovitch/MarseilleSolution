@@ -1,24 +1,32 @@
 <?php include("menuadminheader.php"); ?>
 
 <?php
-include '../../MarseilleSolutionDB/db2.php';
+include '../../MarseilleSolutionDB/db.php';
 
 $error = "";
 
-if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder") {
-
-$req = $mabase->prepare("INSERT INTO solutions(id, logos, nom, fonction, infogra) VALUES(:id, :logos, :nom, :fonction, :infogra)");
-        $req->execute(array(
-          "id" => "",
-          "logos" => $_POST['logos'],
-          "nom" => $_POST['nom'],
-          "fonction" => $_POST['fonction'],
-          "infogra" => $_POST['infogra'],
-                    ));
-
-        header('Location: solu.php');
-        exit();
+//SQLI POUR SOLUTIONS
+if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
+    $conn = new mysqli($serveur, $user, $mdp, $mabase);
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
+
+    $newlogos = $_POST['logos'];
+    $newnom = $_POST['nom'];
+    $newfonction = $_POST['fonction'];
+    $newinfogra = $_POST['infogra'];
+    $sql = "INSERT INTO solutions(id, logos, nom, fonction, infogra) VALUES('','".$newlogo."', '".$newnom."', '".$newfonction."', '".$newinfogra."')";
+
+    if ($conn->query($sql) === TRUE) {
+    $confirm= "Ajout de témoignage validé !";
+    } else {
+    $confirm= "Erreur dans la mise à jour, contactez nous";
+}
+
+    $conn->close();
+}
 ?>
 <?php include("menugaucheadminheader.php"); ?>
 
@@ -30,7 +38,7 @@ $req = $mabase->prepare("INSERT INTO solutions(id, logos, nom, fonction, infogra
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                          Ajouter une solution
+                          Page 2 - Solutions
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -41,87 +49,47 @@ $req = $mabase->prepare("INSERT INTO solutions(id, logos, nom, fonction, infogra
                             </li>
                         </ol>
                     </div>
-                </div>
-                <!-- /.row -->
-
-                <!-- Flot Charts -->
-
-                <!-- /.row -->
-
-
-
-
-
-                        <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Logo</h3>
-                            </div>
-
-                    <form method='post' action='ajoutsolu.php'>
-                            <textarea name="logos" id="logos" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'logos' );
-            </script>
-
-                        </div>
-                    </div>
+                    <p class="page-header">Ajouter une solution à la page "Solutions". Elles apparaitront sous forme de fiches cliquables, qui ouvriront une infographie en fenêtre modale.</p>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">
-                                <h3 class="panel-title">Nom</h3>
+                                <h3 class="panel-title">Ajouter une solution à la page "Solutions".</h3>
                             </div>
-                                <textarea name="nom" id="nom" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'nom' );
-            </script>
-
+                            <div class="panel-body">
+                              <form method='post' action='ajoutsolu.php'>
+                                <h5>
+                                  Logo de la solution (lien vers l'image):
+                                </h5>
+                                <input name="logos" id="logos" class='form-control' placeholder="exemple : http://www.monhostimage.com/monimage.jpg">
+                                <h5>
+                                  Nom de la solution:
+                                </h5>
+                                <input name="nom" id="nom" class='form-control' placeholder="exemple : SIMPLonMARS">
+                                <h5>
+                                  Sous-titre de la solution:
+                                </h5>
+                                <input name="fonction" id="fonction" class='form-control' placeholder="exemple : Fabrique de codeur">
+                                <h5>
+                                  Infographie de la solution(lien vers l'image, apparait via la modal):
+                                </h5>
+                                <input name="infogra" id="infogra" class='form-control' placeholder="exemple : http://www.monhostimage.com/monimage.jpg">
+                                <div class="col-lg-2 col-md-offset-9 valide">
+                                  <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                </div>
+                            </form>
                             </div>
-                        </div>
-                    </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Fonction</h3>
-                            </div>
-                                <textarea name="fonction" id="fonction" rows="10" cols="80"></textarea>
-            <script>
-                replace( 'fonction' );
-            </script>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-green">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Infographie</h3>
-                            </div>
-                                <textarea name="infogra" id="infogra" rows="10" cols="80"></textarea>
-            <script>
-              replace( 'infogra' );
-            </script>
                         </div>
                     </div>
                 </div>
-
                 <!-- /.row -->
-
 
             </div>
 
-                    <input type = 'submit' name='sauvegarder' value="Sauvegarder">
-                </form>
+
 
                 </div>
             <!-- /.container-fluid -->
@@ -131,25 +99,6 @@ $req = $mabase->prepare("INSERT INTO solutions(id, logos, nom, fonction, infogra
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
-    <script src="js/plugins/morris/morris-data.js"></script>
-
-    <!-- Flot Charts JavaScript -->
-    <!--[if lte IE 8]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-    <script src="js/plugins/flot/flot-data.js"></script>
 
 </body>
 
