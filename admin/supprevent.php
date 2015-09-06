@@ -39,7 +39,7 @@ $conn->close();
 </div>
 <div class="row">
   <div class="col-lg-12">
-    <a href="create.php"><input type="submit" class="btn btn-primary" value="Retourner au menu"></a>
+    <a href="admin3event.php"><input type="submit" class="btn btn-primary" value="Retourner au menu"></a>
   </div>
 </div>
 </div>

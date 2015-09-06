@@ -57,23 +57,26 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+                  <li>
+                      <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Index et aide</a>
+                  </li>
                     <li>
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Slider</a>
+                        <a href="admin0slider.php"><i class="fa fa-fw fa-dashboard"></i>0 - Slider</a>
                     </li>
                     <li>
-                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> 1 - Comment ça marche?</a>
+                        <a href="admin1comment.php"><i class="fa fa-fw fa-file"></i> 1 - Comment ça marche?</a>
                     </li>
                     <li>
-                        <a href="ajoutsolu.php"><i class="fa fa-fw fa-file"></i> 2 - Solutions</a>
+                        <a href="admin2solu.php"><i class="fa fa-fw fa-file"></i> 2 - Solutions</a>
                     </li>
                     <li>
-                        <a href="create.php"><i class="fa fa-fw fa-file"></i> 3 - Evénements</a>
+                        <a href="admin3event.php"><i class="fa fa-fw fa-file"></i> 3 - Evénements</a>
                     </li>
                     <li>
-                        <a href="media.php"><i class="fa fa-fw fa-file"></i> 4 - Medias</a>
+                        <a href="admin4media.php"><i class="fa fa-fw fa-file"></i> 4 - Medias</a>
                     </li>
                     <li>
-                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-file"></i> 5 - Communauté</a>
+                        <a href="admin5commu.php"><i class="fa fa-fw fa-file"></i> 5 - Communauté</a>
                     </li>
                 </ul>
             </div>
