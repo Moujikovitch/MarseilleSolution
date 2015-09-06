@@ -85,7 +85,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="panel panel-blue">
+                        <div class="panel panel-green">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Modifier ou supprimer une solution.</h3>
                             </div>

@@ -41,11 +41,12 @@ $conn->close();
           <div class="col-lg-6">
               <div class="panel panel-green">
                   <div class="panel-heading">
-                      <h3 class="panel-title">Modifier le partenaire '<?php echo $row['nomeq'] ?>'</h3>
+                      <h3 class="panel-title">Modifier l'équipier'<?php echo $row['nomeq'] ?>'</h3>
                   </div>
                   <div class="panel-body">
                     <div class="panel-body">
-                      <form method='post' action='editcommuccheck.php'>
+                      <form method='post' action='edit5commuccheck.php'>
+                        <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 
                         <p class="catform">
                           Image de portrait (lien vers l'image) :

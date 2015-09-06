@@ -46,6 +46,7 @@ $conn->close();
                             </div>
                             <div class="panel-body">
                               <form method='post' action='edit2solucheck.php'>
+                                <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                                 <h5>
                                   Logo de la solution (lien vers l'image):
                                 </h5>

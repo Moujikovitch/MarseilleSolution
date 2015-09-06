@@ -45,6 +45,7 @@ $conn->close();
                   </div>
                   <div class="panel-body">
                     <form method='post' action='edit5commubcheck.php'>
+                      <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 
                       <p class="catform">
                         Logo du partenaire (lien vers l'image) :

@@ -44,6 +44,7 @@ $conn->close();
                 </div>
                 <div class="panel-body">
                   <form method='post' action='edit4mediacheck.php'>
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
                       <p class="catform">
                         Photo (lien vers l'image) :
                       </p>

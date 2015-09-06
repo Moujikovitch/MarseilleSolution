@@ -10,18 +10,20 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-
-    $newphoto = $_POST['photo'];
-    $newphoto2 = $_POST['photo2'];
-    $newtitre = $_POST['titre'];
-    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'", titre = "'.$newtitre.'", photo2 = "'.$newphoto2.'"';
+      $newimgslider1 = $_POST['imgslider1'];
+      $newimgslider2 = $_POST['imgslider2'];
+      $newimgslider3 = $_POST['imgslider3'];
+      $newtextfiche1 = $_POST['textfiche1'];
+      $newtextfiche2 = $_POST['textfiche2'];
+      $newtextfiche3 = $_POST['textfiche3'];
+      $newdesccontact = $_POST['desccontact'];
+      $sql = 'UPDATE slider SET imgslider1 = "'.$newimgslider1.'", imgslider2 = "'.$newimgslider2.'", imgslider3 = "'.$newimgslider3.'", textfiche1 = "'.$newtextfiche1.'", textfiche2 = "'.$newtextfiche2.'", textfiche3 = "'.$newtextfiche3.'"';
     if ($conn->query($sql) === TRUE) {
-    $confirm= "<script>alert('Modification(s) effectuée(s) !');</script>";
-} else {
-    $confirm= "<script>alert('Erreur, signalez nous l'erreur en copiant ce texte :".$conn->error."');</script>";
-}
-
-    $conn->close();
+      $confirm= "<script>alert('Modification(s) effectuée(s) !');</script>";
+    } else {
+      $confirm= "<script>alert('Erreur, contactez nous.');</script>";
+    }
+      $conn->close();
     }
 
 // Recuperation du titre dans la bdd
@@ -31,96 +33,170 @@ if ($conn->connect_error) {
      die("Erreur de connection: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM ccmarche";
+$sql = "SELECT * FROM slider";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
      // output data of each row
      while($row = $result->fetch_assoc()) {
-         $photo = $row['photo'];
-         $photo2 = $row['photo2'];
-         $titre = $row['titre'];
+         $imgslider1 = $row['imgslider1'];
+         $imgslider2 = $row['imgslider2'];
+         $imgslider3 = $row['imgslider3'];
+         $textfiche1 = $row['textfiche1'];
+         $textfiche2 = $row['textfiche2'];
+         $textfiche3 = $row['textfiche3'];
      }
 } else {
      echo "0 results";
 }
-
 $conn->close();
-
 ?>
 
 
 <body>
+
   <?php include("menugaucheadminheader.php"); ?>
 
+
         <div id="page-wrapper">
-
             <div class="container-fluid">
+                <h1 class="page-header">
+                  Index - Modifier le Slider
+                </h1>
+                <p class="page-header">Modifier les images et textes du slider en index. (Pour le moment, modifier un image remplacera l'ancienne dans la base de donnée)</p>
+                <form method='post' action='admin1comment.php'>
+               <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Slide 1</h3>
+                            </div>
+                            <div class="panel-body">
+                              <h5>
+                                Image Slide 1 (lien vers l'image):
+                              </h5>
+                                <?php echo "<input type='text' class='form-control' name='imgslider1' id='imgslider1' value='".htmlspecialchars($imgslider1,ENT_QUOTES)."'>"; ?>
+                              <h5>
+                                Texte Slide 1 :
+                              </h5>
+                              <?php echo "<input type='text' class='form-control' name='textfiche1' id='textfiche1' value='".htmlspecialchars($textfiche1,ENT_QUOTES)."'>"; ?>
+                              <div class="row">
+                                <div class="col-lg-2 col-md-offset-9 valide">
+                                  <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Contenu actuel :</h3>
+                            </div>
+                            <div class="panel-body">
+                              <div class="col-lg-6">
+                                <?php echo "<img class='apercu' src=".$imgslider1."></img>"; ?>
+                              </div>
+                              <div class="col-lg-6">
+                                <?php echo "<p class='apercutxt'>".$textfiche1."</p>"; ?>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                          Page 1 - Comment ça Marche ?
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
-                            </li>
-                            <li class="active">
-                                Modifier les deux infographies et le texte de la page 1 - Comment ça marche ?
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <p class="page-header">Modifier les infographie et le textes du slider de la page "Comment ça marche ?". (modifier un élément remplacera l'ancien dans la base de donnée)</br> L'aperçu des images peut être déformé, mais cela n'affectera pas l'apparence finale de l'élément.</p>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Modifier les éléments</h3>
-                            </div>
-                            <div class="panel-body">
-                              <form method='post' action='admin0slider.php'>
+                     <div class="col-lg-6">
+                         <div class="panel panel-primary">
+                             <div class="panel-heading">
+                                 <h3 class="panel-title">Slide 2</h3>
+                             </div>
+                             <div class="panel-body">
+                               <h5>
+                                 Image Slide 2 (lien vers l'image):
+                               </h5>
+                                <?php echo "<input class='form-control' name='imgslider2' id='imgslider2' value='".htmlspecialchars($imgslider2,ENT_QUOTES)."'>"; ?>
+                               <h5>
+                                 Texte Slide 2 :
+                               </h5>
+                               <?php echo "<input class='form-control' name='textfiche2' id='textfiche2' value='".htmlspecialchars($textfiche2,ENT_QUOTES)."'>"; ?>
+                               <div class="row">
+                                 <div class="col-lg-2 col-md-offset-9 valide">
+                                   <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                 </div>
+                               </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-lg-6">
+                         <div class="panel panel-primary">
+                             <div class="panel-heading">
+                                 <h3 class="panel-title">Contenu actuel :</h3>
+                             </div>
+                             <div class="panel-body">
+                               <div class="col-lg-6">
+                                 <?php echo "<img class='apercu' src=".$imgslider2."></img>"; ?>
+                               </div>
+                               <div class="col-lg-6">
+                                 <?php echo "<p class='apercutxt'>".$textfiche2."</p>"; ?>
+                               </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+
+                 <div class="row">
+                      <div class="col-lg-6">
+                          <div class="panel panel-primary">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title">Slide 3</h3>
+                              </div>
+                              <div class="panel-body">
                                 <h5>
-                                  Infographie 1 (lien vers l'image):
+                                  Image Slide 3 (lien vers l'image):
                                 </h5>
-                                  <?php echo "<input class='form-control' name='photo' id='photo' value='".$photo."'>"; ?>
+                                <?php echo "<input class='form-control' name='imgslider3' id='imgslider3' value='".htmlspecialchars($imgslider3,ENT_QUOTES)."'>"; ?>
                                 <h5>
-                                  Texte central :
+                                  Texte Slide 3 :
                                 </h5>
-                                  <?php echo "<input class='form-control' name='titre' id='titre' value='".$titre."'>"; ?>
-                                <h5>
-                                  Infographie 2 (lien vers l'image):
-                                </h5>
-                                  <?php echo "<input class='form-control' name='photo2' id='photo2' value='".$photo2."'>"; ?>
-                              <div class="col-lg-2 col-md-offset-9 valide">
+                                <?php echo "<input class='form-control' name='textfiche3' id='textfiche3' value='".htmlspecialchars($textfiche3,ENT_QUOTES)."'>"; ?>
+                                <div class="row">
+                                  <div class="col-lg-2 col-md-offset-9 valide">
                                     <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
+                                  </div>
+                                </div>
                               </div>
-                              </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Contenu Actuel :</h3>
-                            </div>
-                            <div class="panel-body">
-                              <div class="col-lg-4">
-                                <?php echo "<img class='apercu2' src='".$photo."'></img>" ; ?>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <div class="panel panel-primary">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title">Contenu actuel :</h3>
                               </div>
-                              <div class="col-lg-4">
-                                <?php echo $titre ; ?>
+                              <div class="panel-body">
+                                <div class="col-lg-6">
+                                  <?php echo "<img class='apercu' src=".$imgslider3."></img>"; ?>
+                                </div>
+                                <div class="col-lg-6">
+                                  <?php echo "<p class='apercutxt'>".$textfiche3."</p>"; ?>
+                                </div>
                               </div>
-                              <div class="col-lg-4">
-                                <?php echo "<img class='apercu2' src='".$photo2."'></img>" ; ?>
-                              </div>
-                              </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+
+
+                <h1><?php if(isset($confirm)){
+                    echo $confirm ;
+                } ?></h1>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
 
 </body>
 </html>
