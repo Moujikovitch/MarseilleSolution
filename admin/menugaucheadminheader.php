@@ -75,12 +75,6 @@
                     <li>
                         <a href="ajoutcommu.php"><i class="fa fa-fw fa-file"></i> 5 - Communauté</a>
                     </li>
-                    <li>
-                        <a href="table.php"><i class="fa fa-fw fa-file"></i> Modifier un event (à supprimer)</a>
-                    </li>
-                    <li>
-                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-file"></i> Ajouter un media (à supprimer)</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

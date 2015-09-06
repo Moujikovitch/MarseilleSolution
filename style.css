@@ -760,13 +760,11 @@ en haut /\ */
 	margin-top:15px;
 }
 .apercutable {
-	overflow:scroll;
 }
 .line9{
-	width:100px;
+	min-width:100px;
 	height:20px;
 	padding:2px;
-	overflow:hidden;
 }
 .line9b{
 	height:10px;

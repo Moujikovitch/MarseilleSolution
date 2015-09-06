@@ -88,6 +88,61 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Modifier ou supprimer un événement.</h3>
+                        </div>
+                        <div class="panel-body apercutable">
+                          <p class="catform">
+                            Liste des articles événements présents dans la base de donnée :
+                          </p>
+                          <table class='table-striped table-bordered'>
+                            <th>
+                              <td>
+                                Nom
+                              </td>
+                              <td>
+                                Suppr/Modif
+                              </td>
+                            </th>
+                          <?php
+                            $conn = new mysqli($serveur, $user, $mdp, $mabase);
+                            $sql = 'SELECT * FROM events';
+                            $result = $conn->query($sql) or die("Erreur SQL dans la récupération des données depuis la table 'events'");
+                            while($row = $result->fetch_assoc()) {
+                              $confirmsuppr = '"Confirmer la suppression ?"';
+                              $id = $row['id'];
+                              $titre = $row['titre'];
+                              echo "<tr>
+                                      <td>
+                                        <p class='line9'>
+                                          ".$id."
+                                        </p>
+                                      </td>
+                                      <td>
+                                        <p class='line9'>
+                                          ".substr($titre,0,25)."
+                                        </p>
+                                      </td>
+                                      <td>
+                                        <a href='supprevent.php?id={$id}' onclick='return confirm(".$confirmsuppr.")'>
+                                          <span class='line9b glyphicon glyphicon-remove'>
+                                          </span>
+                                        </a>
+                                        <a href='modifevent.php?id={$id}'>
+                                          <span class='line9b glyphicon glyphicon-pencil'>
+                                          </span>
+                                        </a>
+                                      </td>
+                                    </tr>";
+                            }
+                            $conn->close();
+                           ?>
+                         </table>
+                        </div>
+                    </div>
+                </div>
                 <!-- /.row -->
             </div>
         </div>

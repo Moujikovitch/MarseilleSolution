@@ -132,6 +132,61 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Modifier ou supprimer un témoignage.</h3>
+                        </div>
+                        <div class="panel-body apercutable">
+                          <p class="catform">
+                            Liste des témoignages présents dans la base de donnée :
+                          </p>
+                          <table class='table-striped table-bordered'>
+                            <th>
+                              <td>
+                                Nom
+                              </td>
+                              <td>
+                                Suppr/Modif
+                              </td>
+                            </th>
+                          <?php
+                            $conn = new mysqli($serveur, $user, $mdp, $mabase);
+                            $sql = 'SELECT * FROM communautes';
+                            $result = $conn->query($sql) or die("Erreur SQL dans la récupération des données depuis la table 'communautes'");
+                            while($row = $result->fetch_assoc()) {
+                              $confirmsuppr = '"Confirmer la suppression ?"';
+                              $id = $row['id'];
+                              $nom = $row['nom'];
+                              echo "<tr>
+                                      <td>
+                                        <p class='line9'>
+                                          ".$id."
+                                        </p>
+                                      </td>
+                                      <td>
+                                        <p class='line9'>
+                                          ".substr($nom,0,25)."
+                                        </p>
+                                      </td>
+                                      <td>
+                                        <a href='supprtem.php?id={$id}' onclick='return confirm(".$confirmsuppr.")'>
+                                          <span class='line9b glyphicon glyphicon-remove'>
+                                          </span>
+                                        </a>
+                                        <a href='modiftem.php?id={$id}'>
+                                          <span class='line9b glyphicon glyphicon-pencil'>
+                                          </span>
+                                        </a>
+                                      </td>
+                                    </tr>";
+                            }
+                            $conn->close();
+                           ?>
+                         </table>
+                        </div>
+                    </div>
+                </div>
               </div>
                 <!-- Ajouter un partenaire -->
                                 <div class="row">
@@ -166,8 +221,63 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="panel panel-green">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Modifier ou supprimer un partenaire.</h3>
+                                        </div>
+                                        <div class="panel-body apercutable">
+                                          <p class="catform">
+                                            Liste des partenaire présents dans la base de donnée :
+                                          </p>
+                                          <table class='table-striped table-bordered'>
+                                            <th>
+                                              <td>
+                                                Nom
+                                              </td>
+                                              <td>
+                                                Suppr/Modif
+                                              </td>
+                                            </th>
+                                          <?php
+                                            $conn = new mysqli($serveur, $user, $mdp, $mabase);
+                                            $sql = 'SELECT * FROM partners';
+                                            $result = $conn->query($sql) or die("Erreur SQL dans la récupération des données depuis la table 'partners'");
+                                            while($row = $result->fetch_assoc()) {
+                                              $confirmsuppr = '"Confirmer la suppression ?"';
+                                              $id = $row['id'];
+                                              $partner = $row['partner'];
+                                              echo "<tr>
+                                                      <td>
+                                                        <p class='line9'>
+                                                          ".$id."
+                                                        </p>
+                                                      </td>
+                                                      <td>
+                                                        <p class='line9'>
+                                                          ".substr($partner,0,25)."
+                                                        </p>
+                                                      </td>
+                                                      <td>
+                                                        <a href='supprpart.php?id={$id}' onclick='return confirm(".$confirmsuppr.")'>
+                                                          <span class='line9b glyphicon glyphicon-remove'>
+                                                          </span>
+                                                        </a>
+                                                        <a href='modifpart.php?id={$id}'>
+                                                          <span class='line9b glyphicon glyphicon-pencil'>
+                                                          </span>
+                                                        </a>
+                                                      </td>
+                                                    </tr>";
+                                            }
+                                            $conn->close();
+                                           ?>
+                                         </table>
+                                        </div>
+                                    </div>
+                                </div>
                               </div>
-                              <!-- Ajouter un témoignage -->
+                              <!-- Ajouter un équipier -->
                                               <div class="row">
                                                   <div class="col-lg-6">
                                                       <div class="panel panel-green">
@@ -202,6 +312,61 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                                               </div>
                                                             </form>
                                                           </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-lg-6">
+                                                  <div class="panel panel-green">
+                                                      <div class="panel-heading">
+                                                          <h3 class="panel-title">Modifier ou supprimer un équipier.</h3>
+                                                      </div>
+                                                      <div class="panel-body apercutable">
+                                                        <p class="catform">
+                                                          Liste des équipiers présents dans la base de donnée :
+                                                        </p>
+                                                        <table class='table-striped table-bordered'>
+                                                          <th>
+                                                            <td>
+                                                              Nom
+                                                            </td>
+                                                            <td>
+                                                              Suppr/Modif
+                                                            </td>
+                                                          </th>
+                                                        <?php
+                                                          $conn = new mysqli($serveur, $user, $mdp, $mabase);
+                                                          $sql = 'SELECT * FROM equipes';
+                                                          $result = $conn->query($sql) or die("Erreur SQL dans la récupération des données depuis la table 'equipes'");
+                                                          while($row = $result->fetch_assoc()) {
+                                                            $confirmsuppr = '"Confirmer la suppression ?"';
+                                                            $id = $row['id'];
+                                                            $nomeq = $row['nomeq'];
+                                                            echo "<tr>
+                                                                    <td>
+                                                                      <p class='line9'>
+                                                                        ".$id."
+                                                                      </p>
+                                                                    </td>
+                                                                    <td>
+                                                                      <p class='line9'>
+                                                                        ".substr($nomeq,0,25)."
+                                                                      </p>
+                                                                    </td>
+                                                                    <td>
+                                                                      <a href='suppreq.php?id={$id}' onclick='return confirm(".$confirmsuppr.")'>
+                                                                        <span class='line9b glyphicon glyphicon-remove'>
+                                                                        </span>
+                                                                      </a>
+                                                                      <a href='modifeq.php?id={$id}'>
+                                                                        <span class='line9b glyphicon glyphicon-pencil'>
+                                                                        </span>
+                                                                      </a>
+                                                                    </td>
+                                                                  </tr>";
+                                                          }
+                                                          $conn->close();
+                                                         ?>
+                                                       </table>
                                                       </div>
                                                   </div>
                                               </div>

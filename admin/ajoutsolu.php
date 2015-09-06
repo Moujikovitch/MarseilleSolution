@@ -90,13 +90,18 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                 <h3 class="panel-title">Modifier ou supprimer une solution.</h3>
                             </div>
                             <div class="panel-body apercutable">
+                              <p class="catform">
+                                Liste des articles solutions présents dans la base de donnée :
+                                <a href="page.php" onclick="return confirm('êtes-vous sûr de vouloir supprimer ?')">Supprimer</a>
+
+                              </p>
                               <table class='table-striped table-bordered'>
                                 <th>
                                   <td>
                                     Nom
                                   </td>
                                   <td>
-                                    Supprimer
+                                    Suppr/Modif
                                   </td>
                                 </th>
                               <?php
@@ -104,11 +109,9 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                 $sql = 'SELECT * FROM solutions';
                                 $result = $conn->query($sql) or die("Erreur SQL dans la récupération des données depuis la table 'solutions'");
                                 while($row = $result->fetch_assoc()) {
+                                  $confirmsuppr = '"Confirmer la suppression ?"';
                                   $id = $row['id'];
-                                  $logos = $row['logos'];
                                   $nom = $row['nom'];
-                                  $fonction = $row['fonction'];
-                                  $infogra = $row['infogra'];
                                   echo "<tr>
                                           <td>
                                             <p class='line9'>
@@ -121,7 +124,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                             </p>
                                           </td>
                                           <td>
-                                            <a href='supprsolu.php?id={$id}'>
+                                            <a href='supprsolu.php?id={$id}' onclick='return confirm(".$confirmsuppr.")'>
                                               <span class='line9b glyphicon glyphicon-remove'>
                                               </span>
                                             </a>
