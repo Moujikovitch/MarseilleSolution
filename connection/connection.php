@@ -12,7 +12,7 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion'){
     mysql_free_result($requete);
     mysql_close();
 
-  if ($data[0] ==1){ 
+  if ($data[0] ==1){
     session_start();
     $_SESSION['name'] = $_POST['name'];
     header('Location: ../admin/index.php');
@@ -21,7 +21,7 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion'){
   else {
     $erreur = "Identifiant ou mot de passe incorrect";
   }
-  
+
       }
   else {
     $erreur = "Au moins un champs est vide";
@@ -40,7 +40,7 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion'){
 	<!--Js-->
 </head>
 <body>
-	<?php include 'navbar.php' ; ?>
+	<?php include './../admin/menuadminheader.php' ; ?>
 
 <div class="container" style="margin-top:100px;">
 	<form action="connection.php" method="post">

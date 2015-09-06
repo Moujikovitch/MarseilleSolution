@@ -64,7 +64,7 @@ $conn->close();
                   Index - Modifier le Slider
                 </h1>
                 <p class="page-header">Modifier les images et textes du slider en index. (Pour le moment, modifier un image remplacera l'ancienne dans la base de donnée)</p>
-                <form method='post' action='index.php'>
+                <form method='post' action='admin1comment.php'>
                <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-primary">

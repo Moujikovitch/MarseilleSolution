@@ -60,7 +60,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                 <h3 class="panel-title">Ajouter une solution à la page "Solutions".</h3>
                             </div>
                             <div class="panel-body">
-                              <form method='post' action='ajoutsolu.php'>
+                              <form method='post' action='admin2solu.php'>
                                 <h5>
                                   Logo de la solution (lien vers l'image):
                                 </h5>
@@ -85,15 +85,13 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="panel panel-green">
+                        <div class="panel panel-blue">
                             <div class="panel-heading">
                                 <h3 class="panel-title">Modifier ou supprimer une solution.</h3>
                             </div>
                             <div class="panel-body apercutable">
                               <p class="catform">
                                 Liste des articles solutions présents dans la base de donnée :
-                                <a href="page.php" onclick="return confirm('êtes-vous sûr de vouloir supprimer ?')">Supprimer</a>
-
                               </p>
                               <table class='table-striped table-bordered'>
                                 <th>
@@ -125,12 +123,10 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                           </td>
                                           <td>
                                             <a href='supprsolu.php?id={$id}' onclick='return confirm(".$confirmsuppr.")'>
-                                              <span class='line9b glyphicon glyphicon-remove'>
-                                              </span>
+                                              <span class='line9b glyphicon glyphicon-remove'></span>
                                             </a>
-                                            <a href='modifsolu.php?id={$id}'>
-                                              <span class='line9b glyphicon glyphicon-pencil'>
-                                              </span>
+                                              <a href='edit2solu.php?id={$id}'>
+                                              <span class='line9b glyphicon glyphicon-pencil'></span>
                                             </a>
                                           </td>
                                         </tr>";

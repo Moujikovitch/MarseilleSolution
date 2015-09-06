@@ -81,7 +81,7 @@ $conn->close();
                                 <h3 class="panel-title">Modifier les éléments</h3>
                             </div>
                             <div class="panel-body">
-                              <form method='post' action='page0.php'>
+                              <form method='post' action='admin0slider.php'>
                                 <h5>
                                   Infographie 1 (lien vers l'image):
                                 </h5>

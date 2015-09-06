@@ -86,7 +86,7 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.php">Marseille Solutions</a>
+                                <i class="fa fa-dashboard"></i>  <a href="admin5commu.php">Marseille Solutions</a>
                             </li>
                             <li class="active">
                                  Ajouter un témoignagne, partenaire, membre d'équipe
@@ -102,7 +102,7 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                 <h3 class="panel-title">Ajouter une personne dans la catégorie "Marseille Solutions vu par"</h3>
                             </div>
                             <div class="panel-body">
-                              <form method='post' action='ajoutcommu.php'>
+                              <form method='post' action='admin5commu.php'>
 
                                 <p class="catform">
                                   Image de portrait (lien vers l'image) :
@@ -174,7 +174,7 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                           <span class='line9b glyphicon glyphicon-remove'>
                                           </span>
                                         </a>
-                                        <a href='modiftem.php?id={$id}'>
+                                        <a href='edit5commua.php?id={$id}'>
                                           <span class='line9b glyphicon glyphicon-pencil'>
                                           </span>
                                         </a>
@@ -196,7 +196,7 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                                 <h3 class="panel-title">Ajouter un partenaire dans la catégorie "Nos partenaires"</h3>
                                             </div>
                                             <div class="panel-body">
-                                              <form method='post' action='ajoutcommu.php'>
+                                              <form method='post' action='admin5commu.php'>
 
                                                 <p class="catform">
                                                   Logo du partenaire (lien vers l'image) :
@@ -263,7 +263,7 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                                           <span class='line9b glyphicon glyphicon-remove'>
                                                           </span>
                                                         </a>
-                                                        <a href='modifpart.php?id={$id}'>
+                                                        <a href='edit5commub.php?id={$id}'>
                                                           <span class='line9b glyphicon glyphicon-pencil'>
                                                           </span>
                                                         </a>
@@ -285,7 +285,7 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                                               <h3 class="panel-title">Ajouter une personne dans la catégorie "L'équipe"</h3>
                                                           </div>
                                                           <div class="panel-body">
-                                                            <form method='post' action='ajoutcommu.php'>
+                                                            <form method='post' action='admin5commu.php'>
 
                                                               <p class="catform">
                                                                 Image de portrait (lien vers l'image) :
@@ -357,7 +357,7 @@ if (isset($_POST['sauvegarderequip']) && $_POST['sauvegarderequip'] == "Sauvegar
                                                                         <span class='line9b glyphicon glyphicon-remove'>
                                                                         </span>
                                                                       </a>
-                                                                      <a href='modifeq.php?id={$id}'>
+                                                                      <a href='edit5commuc.php?id={$id}'>
                                                                         <span class='line9b glyphicon glyphicon-pencil'>
                                                                         </span>
                                                                       </a>

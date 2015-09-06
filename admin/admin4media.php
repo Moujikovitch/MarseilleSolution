@@ -57,7 +57,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                 <h3 class="panel-title">Ajouter un article media à la liste</h3>
                             </div>
                             <div class="panel-body">
-                              <form method='post' action='create.php'>
+                              <form method='post' action='admin4media.php'>
                                   <p class="catform">
                                     Photo (lien vers l'image) :
                                   </p>
@@ -71,7 +71,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                   </p>
                                   <textarea class="form-control" type="text" name="texte" id="texte" rows="10" placeholder="exemple : Nous avons été sévèrement critiqué dans cet article ! C'est INADMISSIBLE !"></textarea>
                                   <p class="catform">
-                                    Date de réroulement (affichée sous le titre) :
+                                    Date de publication (affichée sous le titre) :
                                   </p>
                                   <input class="form-control" name="dates" id="dates" placeholder="exemple : 2015-12-24">
                                   <div class="row">
@@ -125,7 +125,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                           <span class='line9b glyphicon glyphicon-remove'>
                                           </span>
                                         </a>
-                                        <a href='modifmedia.php?id={$id}'>
+                                        <a href='edit4media.php?id={$id}'>
                                           <span class='line9b glyphicon glyphicon-pencil'>
                                           </span>
                                         </a>

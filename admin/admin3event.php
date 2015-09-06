@@ -58,7 +58,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                 <h3 class="panel-title">Ajouter un événement à la liste</h3>
                             </div>
                             <div class="panel-body">
-                              <form method='post' action='create.php'>
+                              <form method='post' action='admin3event.php'>
                                   <p class="catform">
                                     Date manuscrite (apparaitra en haut de l'article) :
                                   </p>
@@ -130,7 +130,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
                                           <span class='line9b glyphicon glyphicon-remove'>
                                           </span>
                                         </a>
-                                        <a href='modifevent.php?id={$id}'>
+                                        <a href='edit3event.php?id={$id}'>
                                           <span class='line9b glyphicon glyphicon-pencil'>
                                           </span>
                                         </a>
