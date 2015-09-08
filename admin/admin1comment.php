@@ -1,3 +1,4 @@
+<?php include ("checksession.php");?>
 <?php include("menuadminheader.php"); ?>
 
 <?php

@@ -1,3 +1,4 @@
+<?php include ("checksession.php");?>
 <?php
 $erreur ='';
 //on teste si l'internaute a submit le formulaire
@@ -17,7 +18,7 @@ if ((isset($_POST['name']) && !empty($_POST['name'])) && (isset($_POST['firstnam
     if ($data[0] == 0){
     $sql ='INSERT INTO admin VALUES ("","'.mysql_escape_string($_POST['name']).'","'.mysql_escape_string($_POST['firstname']).'","'.mysql_escape_string($_POST['email']).'","'.mysql_escape_string(md5($_POST['password'])).'")';
     mysql_query($sql) or die('Désolé, erreur SQL mon gars!<br>'.$sql."<br>".mysql_error());
-  
+
     }
     else{
     $erreur ='Un admin existe déjà avec cet email';

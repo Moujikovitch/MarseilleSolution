@@ -47,10 +47,10 @@
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
                 </li>
                 <li>
-                    <a href="http://localhost/MarseilleSolution/connection/inscription.php"><i class="fa fa-fw fa-edit"></i> Ajouter un compte</a>
+                    <a href="../connection/inscription.php"><i class="fa fa-fw fa-edit"></i> Ajouter un compte</a>
                 </li>
                 <li>
-                    <a href="http://localhost/MarseilleSolution/deconnexion.php"><i class="fa fa-power-off"></i> Déconnexion</a>
+                    <a href="../deconnexion.php"><i class="fa fa-power-off"></i> Déconnexion</a>
                 </li>
                 </li>
             </ul>
