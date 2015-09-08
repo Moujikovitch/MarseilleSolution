@@ -15,7 +15,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
     $newphoto = $_POST['photo'];
     $newphoto2 = $_POST['photo2'];
     $newtitre = $_POST['titre'];
-    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'", titre = "'.$newtitre.'", photo2 = "'.$newphoto2.'"';
+    $sql = 'UPDATE ccmarche SET photo = "'.$newphoto.'", titre = "'.htmlspecialchars($newtitre,ENT_QUOTES).'", photo2 = "'.$newphoto2.'"';
     if ($conn->query($sql) === TRUE) {
     $confirm= "<script>alert('Modification(s) effectuée(s) !');</script>";
 } else {
@@ -82,7 +82,7 @@ $conn->close();
                                 <h3 class="panel-title">Modifier les éléments</h3>
                             </div>
                             <div class="panel-body">
-                              <form method='post' action='admin0slider.php'>
+                              <form method='post' action='admin1comment.php'>
                                 <h5>
                                   Infographie 1 (lien vers l'image):
                                 </h5>

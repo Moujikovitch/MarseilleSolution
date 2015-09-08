@@ -18,7 +18,7 @@ if (isset($_POST['sauvegarder']) && $_POST['sauvegarder'] == "Sauvegarder"){
       $newtextfiche2 = $_POST['textfiche2'];
       $newtextfiche3 = $_POST['textfiche3'];
       $newdesccontact = $_POST['desccontact'];
-      $sql = 'UPDATE slider SET imgslider1 = "'.$newimgslider1.'", imgslider2 = "'.$newimgslider2.'", imgslider3 = "'.$newimgslider3.'", textfiche1 = "'.$newtextfiche1.'", textfiche2 = "'.$newtextfiche2.'", textfiche3 = "'.$newtextfiche3.'"';
+      $sql = 'UPDATE slider SET imgslider1 = "'.htmlspecialchars($newimgslider1,ENT_QUOTES).'", imgslider2 = "'.htmlspecialchars($newimgslider2,ENT_QUOTES).'", imgslider3 = "'.htmlspecialchars($newimgslider3,ENT_QUOTES).'", textfiche1 = "'.htmlspecialchars($newtextfiche1,ENT_QUOTES).'", textfiche2 = "'.htmlspecialchars($newtextfiche2,ENT_QUOTES).'", textfiche3 = "'.htmlspecialchars($newtextfiche3,ENT_QUOTES).'"';
     if ($conn->query($sql) === TRUE) {
       $confirm= "<script>alert('Modification(s) effectuée(s) !');</script>";
     } else {
@@ -65,7 +65,7 @@ $conn->close();
                   Index - Modifier le Slider
                 </h1>
                 <p class="page-header">Modifier les images et textes du slider en index. (Pour le moment, modifier un image remplacera l'ancienne dans la base de donnée)</p>
-                <form method='post' action='admin1comment.php'>
+                <form method='post' action='admin0slider.php'>
                <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
@@ -76,11 +76,11 @@ $conn->close();
                               <h5>
                                 Image Slide 1 (lien vers l'image):
                               </h5>
-                                <?php echo "<input type='text' class='form-control' name='imgslider1' id='imgslider1' value='".htmlspecialchars($imgslider1,ENT_QUOTES)."'>"; ?>
+                                <?php echo "<input type='text' class='form-control' name='imgslider1' id='imgslider1' value='".$imgslider1."'>"; ?>
                               <h5>
                                 Texte Slide 1 :
                               </h5>
-                              <?php echo "<input type='text' class='form-control' name='textfiche1' id='textfiche1' value='".htmlspecialchars($textfiche1,ENT_QUOTES)."'>"; ?>
+                              <?php echo "<input type='text' class='form-control' name='textfiche1' id='textfiche1' value='".$textfiche1."'>"; ?>
                               <div class="row">
                                 <div class="col-lg-2 col-md-offset-9 valide">
                                   <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
@@ -116,11 +116,11 @@ $conn->close();
                                <h5>
                                  Image Slide 2 (lien vers l'image):
                                </h5>
-                                <?php echo "<input class='form-control' name='imgslider2' id='imgslider2' value='".htmlspecialchars($imgslider2,ENT_QUOTES)."'>"; ?>
+                                <?php echo "<input class='form-control' name='imgslider2' id='imgslider2' value='".$imgslider2."'>"; ?>
                                <h5>
                                  Texte Slide 2 :
                                </h5>
-                               <?php echo "<input class='form-control' name='textfiche2' id='textfiche2' value='".htmlspecialchars($textfiche2,ENT_QUOTES)."'>"; ?>
+                               <?php echo "<input class='form-control' name='textfiche2' id='textfiche2' value='".$textfiche2."'>"; ?>
                                <div class="row">
                                  <div class="col-lg-2 col-md-offset-9 valide">
                                    <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
@@ -157,11 +157,11 @@ $conn->close();
                                 <h5>
                                   Image Slide 3 (lien vers l'image):
                                 </h5>
-                                <?php echo "<input class='form-control' name='imgslider3' id='imgslider3' value='".htmlspecialchars($imgslider3,ENT_QUOTES)."'>"; ?>
+                                <?php echo "<input class='form-control' name='imgslider3' id='imgslider3' value='".$imgslider3."'>"; ?>
                                 <h5>
                                   Texte Slide 3 :
                                 </h5>
-                                <?php echo "<input class='form-control' name='textfiche3' id='textfiche3' value='".htmlspecialchars($textfiche3,ENT_QUOTES)."'>"; ?>
+                                <?php echo "<input class='form-control' name='textfiche3' id='textfiche3' value='".$textfiche3."'>"; ?>
                                 <div class="row">
                                   <div class="col-lg-2 col-md-offset-9 valide">
                                     <input class='btn btn-warning' type ='submit' name='sauvegarder' value="Sauvegarder">
