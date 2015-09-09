@@ -19,13 +19,13 @@
                 </button>
                 <a class="navbar-brand" href="index.php">Panel Admin</a>
             </div>
-         <ul class="nav navbar-right top-nav"> 
+         <ul class="nav navbar-right top-nav">
                 <li>
                     <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
-                </li>            
+                </li>
                 <li>
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>
-                </li>  
+                </li>
                 <li>
                     <a href="http://localhost/MarseilleSolution/connection/inscription.php"><i class="fa fa-fw fa-edit"></i> Ajouter un compte</a>
                 </li>
@@ -38,41 +38,27 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Slider</a>
+                  <li>
+                      <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Index et aide</a>
+                  </li>
+                    <li>
+                        <a href="admin0slider.php"><i class="fa fa-fw fa-dashboard"></i>0 - Slider</a>
                     </li>
                     <li>
-                        <a href="charts.php"><i class="fa fa-fw fa-bar-chart-o"></i> Communauté</a>
+                        <a href="admin1comment.php"><i class="fa fa-fw fa-file"></i> 1 - Comment ça marche?</a>
                     </li>
                     <li>
-                        <a href="ajoutcommu.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de la communauté</a>
+                        <a href="admin2solu.php"><i class="fa fa-fw fa-file"></i> 2 - Solutions</a>
                     </li>
                     <li>
-                        <a href="ajoutpartners.php"><i class="fa fa-fw fa-table"></i> Ajouter un partenaire</a>
+                        <a href="admin3event.php"><i class="fa fa-fw fa-file"></i> 3 - Evénements</a>
                     </li>
                     <li>
-                        <a href="ajoutequipes.php"><i class="fa fa-fw fa-table"></i> Ajouter un membre de l'équipe</a>
+                        <a href="admin4media.php"><i class="fa fa-fw fa-file"></i> 4 - Medias</a>
                     </li>
                     <li>
-                        <a href="page0.php"><i class="fa fa-fw fa-file"></i> Comment ça marche?</a>
+                        <a href="admin5commu.php"><i class="fa fa-fw fa-file"></i> 5 - Communauté</a>
                     </li>
-                    <li>
-                        <a href="tables.php"><i class="fa fa-fw fa-table"></i> Events</a>
-                    </li>
-                    <li>
-                        <a href="create.php"><i class="fa fa-fw fa-table"></i>Ajouter un event</a>
-                    </li>
-                    <li>
-                        <a href="media.php"><i class="fa fa-fw fa-table"></i> Medias</a>
-                    </li> 
-                    <li>
-                        <a href="ajoutmedia.php"><i class="fa fa-fw fa-table"></i> Ajouter un media</a>
-                    </li>
-                    <li>
-                        <a href="ajoutsolu.php"><i class="fa fa-fw fa-table"></i> Ajouter une solution</a>
-                    </li>
-                    
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

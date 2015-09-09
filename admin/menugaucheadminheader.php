@@ -1,8 +1,6 @@
 <body>
     <div id="wrapper">
 
-        <?php include 'nav.php'; ?>
-
         <div id="page-wrapper">
             <div class="container-fluid">
             </div>
@@ -41,7 +39,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li>
-                    <a href="http://localhost/MarseilleSolution"><i class="fa fa-eye"></i> Voir le site</a>
+                    <a href="../index.php"><i class="fa fa-eye"></i> Voir le site</a>
                 </li>
                 <li>
                     <a><i class="fa fa-user"></i> <?php echo $_SESSION["name"] ; ?></a>

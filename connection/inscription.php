@@ -1,4 +1,4 @@
-<?php include ("checksession.php");?>
+<?php include ("../admin/checksession.php");?>
 <?php
 $erreur ='';
 //on teste si l'internaute a submit le formulaire
@@ -10,7 +10,7 @@ if ((isset($_POST['name']) && !empty($_POST['name'])) && (isset($_POST['firstnam
     $erreur = "Attention ! Les deux mots de passe sont différents.";
   }
   else{
-    include 'pdo.php';
+    include 'db.php';
     //on recherche si ce login est déjà utilisé par un autre admin
     $sql= 'SELECT count(*) From admin WHERE email="'.mysql_escape_string($_POST['email']).'"';
     $requete = mysql_query($sql) or die('Désolé, erreur SQL mon gars!<br>'.$sql.'<br>'.mysql_error());
