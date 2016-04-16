@@ -592,11 +592,11 @@ a:hover {
 }
 .dateevent {
 	text-align:center;
-	margin-top:50px;
 }
 .manudate {
 	font-family:"DinotBold";
 	font-size:18px;
+	margin-top:50px;
 }
 .modalmedia {
 	max-width:100vw;

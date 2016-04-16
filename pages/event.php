@@ -42,6 +42,7 @@ if ($result->num_rows > 0) {
          $titre = $row['titre'];
          $texte = $row['texte'];
          $dates = $row['dates'];
+         $datemanu = $row['datemanu'];
          if ($numodel == 0){
  					$numodel = 1;
  				 } else {
@@ -52,7 +53,7 @@ if ($result->num_rows > 0) {
               <div id='num".$numevent."' class='bgevent model".$numodel."' date=".$dates.">
                 <div class='dateevent manudate'>
                   <p>
-                  ".$dates."
+                  ".$datemanu."
                   </p>
                 </div>
    							<div class='ficheevent'>
